@@ -24,3 +24,4 @@ mono_crash.*.json
 *~
 *.blend1
 /.build
+/.vscode

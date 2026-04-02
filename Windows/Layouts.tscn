@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b5pq5s6sjp6dq"]
 
+[ext_resource type="Theme" uid="uid://0p5lyyma5qpk" path="res://UI/Theme.tres" id="1_3c2bk"]
 [ext_resource type="PackedScene" uid="uid://crxdbxcnaodv0" path="res://Layouts/HorizontalLayout.tscn" id="1_mdrog"]
 [ext_resource type="PackedScene" uid="uid://bt8vngrck4rik" path="res://Layouts/SNESLayout.tscn" id="2_3c2bk"]
 [ext_resource type="Script" uid="uid://c4h3oqhvbq7yn" path="res://Log.gd" id="3_ig0yn"]
@@ -66,6 +67,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_3c2bk")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1676663811]
 layout_mode = 1

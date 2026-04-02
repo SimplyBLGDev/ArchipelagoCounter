@@ -12,5 +12,6 @@ oversampling_override = 1.0
 title = "Other window"
 position = Vector2i(0, 36)
 size = Vector2i(1920, 1080)
+visible = false
 
 [node name="Inbetweener" parent="Window" unique_id=2060482377 instance=ExtResource("16_fpfj3")]

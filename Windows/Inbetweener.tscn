@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bgk5ly2tst0i3"]
 
+[ext_resource type="Theme" uid="uid://0p5lyyma5qpk" path="res://UI/Theme.tres" id="1_1ao3l"]
 [ext_resource type="PackedScene" uid="uid://djcsplm4eogjs" path="res://Layouts/InbetweenerLayout.tscn" id="1_s5rjk"]
 
 [node name="Inbetweener" type="VBoxContainer" unique_id=2060482377]
@@ -8,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_1ao3l")
 theme_override_constants/separation = 4
 
 [node name="InbetweenerLayout" parent="." unique_id=1593548968 instance=ExtResource("1_s5rjk")]

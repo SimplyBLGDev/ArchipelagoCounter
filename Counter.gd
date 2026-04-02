@@ -51,46 +51,21 @@ var item_lookup: Dictionary[String, Dictionary]
 # relates game to a lookup table that relates location id to name
 var location_lookup: Dictionary[String, Dictionary]
 
-func _ready():
-	tree_exiting.connect(on_quit)
-	on_load()
-
-	var socket := Socket.new(websocket_url)
-	add_child(socket)
-	socket.packet_received.connect(process_packet)
-
-
 func _process(delta: float) -> void:
 	if len(active_players) > 0:
 		timer += delta
 		timer_update.emit()
 
 
-func process_packet(packet_pack):
-	for packet in packet_pack:
-		match packet["cmd"]:
-			"RoomInfo":
-				process_room_info(packet)
-			"ReceivedItems":
-				process_received_items(packet)
-			"PrintJSON":
-				process_print_json(packet)
-			"Connected":
-				process_connected(packet)
-			"DataPackage":
-				process_data_package(packet)
+func _ready():
+	tree_exiting.connect(on_quit)
+	on_load()
 
-
-func process_room_info(packet):
-	if initialized:
-		return
-	
-	initialized = true
-	
+	var socket := Socket.new(websocket_url)
+	add_child(socket)
+	await socket.fetch_room_info()
 	for game in games:
-		socket.send_text('[{"cmd":"GetDataPackage","games":["' + game + '"]}]')
-	
-	for game in games:
+		data_packages[game] = await socket.fetch_data_package(game)
 		item_lookup[game] = {} as Dictionary[int, String]
 		for item in data_packages[game]["item_name_to_id"]:
 			item_lookup[game][int(data_packages[game]["item_name_to_id"][item])] = item
@@ -99,29 +74,52 @@ func process_room_info(packet):
 		for location in data_packages[game]["location_name_to_id"]:
 			location_lookup[game][int(data_packages[game]["location_name_to_id"][location])] = location
 	
-	for game_ix in range(len(games.keys())):
-		var game: String = games.keys()[game_ix]
-		if game in packet["games"]:
-			var game_socket := APSocket.new(websocket_url, game, games[game], packet["datapackage_checksums"][game])
-			add_child(game_socket)
-			game_socket.close()
+	for game in games:
+		var inventory := await socket.fetch_inventory(game, games[game], data_packages[game]["checksum"])
+		process_connected(inventory.connected_packet)
+		process_received_items(get_slot_id_from_name(games[game]), inventory.received_items_packet)
 	
-	var game: String = games.keys()[0]
-	socket.send_text('[{"cmd":"Connect","password":"","game":"' + game + '","name":"' + games[game] + '","uuid":"' + packet["datapackage_checksums"][game] + '","version":{"major":0,"minor":6,"build":5,"class":"Version"},"items_handling":0,"tags":["AP","Tracker","TextOnly"],"slot_data":true}]')
+	var watch_slot: String = games.keys()[0]
+	socket.watch_for_updates(watch_slot, games[watch_slot], data_packages[watch_slot]["checksum"])
+	socket.update_received.connect(update_received)
 	load_complete.emit()
 
 
-func process_received_items(packet):
+func process_connected(packet):
+	if int(packet["slot"]) in total_checks_counted_slots:
+		return
+	
+	if players == []:
+		players = packet["players"]
+	
+	total_checks_counted_slots.append(int(packet["slot"]))
+	total_checks += len(packet["missing_locations"]) + len(packet["checked_locations"])
+
+
+func process_received_items(slot_id: int, packet):
 	for item in packet["items"]:
 		if item["player"] <= 0: #Invalid player, not real item
 			continue
 		
 		var item_id := int(item["item"])
-		var slot_id := int(item["player"])
 		
 		get_item(slot_id, item_id)
 	
 	update.emit()
+
+
+func update_received(update: Socket.Update):
+	if update is Socket.Update_Player:
+		var up := update as Socket.Update_Player
+		if up.update_type == Socket.Update_Player.Player_Update_Type.Join:
+			active_players.append(up.slot)
+		elif up.update_type == Socket.Update_Player.Player_Update_Type.Part:
+			active_players.erase(up.slot)
+	
+	if update is Socket.Update_Item:
+		var ui := update as Socket.Update_Item
+		log_item(ui.sending_player_id, ui.receiving_player_id, ui.item_id, ui.location_id)
+		get_item(ui.receiving_player_id, ui.item_id)
 
 
 func get_item(slot_id: int, item_id: int):
@@ -163,29 +161,6 @@ func get_item(slot_id: int, item_id: int):
 	var item_code := "{0}::{1}".format([game_name, item_name])
 	if item_code not in items:
 		items.append(item_code)
-
-
-func process_print_json(packet):
-	if not packet.has("type"):
-		return
-	
-	match packet["type"]:
-		"Join":
-			if packet["data"][0]["text"].contains("playing"):
-				active_players.append(packet["slot"])
-		"Part":
-			if packet["data"][0]["text"].contains("left"):
-				active_players.erase(packet["slot"])
-		"ItemSend":
-			var item_id := int(packet["item"]["item"])
-			var location_id := int(packet["item"]["location"])
-			var receiving_player_id := int(packet["receiving"])
-			var sending_player_id := int(packet["item"]["player"])
-			
-			log_item(sending_player_id, receiving_player_id, item_id, location_id)
-			get_item(receiving_player_id, item_id)
-	
-	update.emit()
 
 
 func log_item(sending_player_id: int, receiving_player_id: int, item_id: int, location_id: int):
@@ -238,23 +213,6 @@ func get_location_name_from_id(slot_id: int, location_id: int) -> String:
 		return location_lookup[game][location_id]
 	
 	return "Somewhere"
-
-
-func process_connected(packet):
-	if int(packet["slot"]) in total_checks_counted_slots:
-		return
-	
-	if players == []:
-		players = packet["players"]
-	
-	total_checks_counted_slots.append(int(packet["slot"]))
-	total_checks += len(packet["missing_locations"]) + len(packet["checked_locations"])
-
-
-func process_data_package(packet):
-	for game in packet["data"]["games"]:
-		if game not in data_packages:
-			data_packages[game] = packet["data"]["games"][game]
 
 
 func on_load():
