@@ -1,0 +1,500 @@
+[gd_scene format=3 uid="uid://rdlcfo1162nk"]
+
+[ext_resource type="Texture2D" uid="uid://c68mmj61blj8v" path="res://Marquee/Marquee_Generic.png" id="1_6b2bu"]
+[ext_resource type="Theme" uid="uid://0p5lyyma5qpk" path="res://UI/Theme.tres" id="1_umkfj"]
+[ext_resource type="Script" uid="uid://c4xl5fdblacfy" path="res://Layout.gd" id="1_vkw05"]
+[ext_resource type="FontFile" uid="uid://cdkhdgy8yaj4p" path="res://UI/Roboto-Bold.ttf" id="2_vkw05"]
+[ext_resource type="Texture2D" uid="uid://cuc3ldv36yb1l" path="res://Icons/StarCounter.png" id="3_dn786"]
+[ext_resource type="Script" uid="uid://c4h3oqhvbq7yn" path="res://Log.gd" id="3_tye04"]
+[ext_resource type="Texture2D" uid="uid://chjbar040xlxs" path="res://UI/Mario64Numbers.png" id="4_umkfj"]
+[ext_resource type="Texture2D" uid="uid://qcvovsoml1y2" path="res://Icons/Mario64Key.png" id="5_tye04"]
+[ext_resource type="Texture2D" uid="uid://bb81n1y6mmqh" path="res://Icons/DX_Ocarina.png" id="6_f3nuj"]
+[ext_resource type="Texture2D" uid="uid://dnyvulxurpsj0" path="res://Icons/DX_Ballad.png" id="7_mnqgu"]
+[ext_resource type="Texture2D" uid="uid://nw414cqbi4pk" path="res://Icons/Instrument.png" id="8_fem3p"]
+[ext_resource type="Texture2D" uid="uid://mnhelj6xw7dx" path="res://Icons/OoT_Magic.png" id="9_7b75n"]
+[ext_resource type="Texture2D" uid="uid://c7aucn3b0gw25" path="res://Icons/OoT_Bow.png" id="10_5nl5q"]
+[ext_resource type="Texture2D" uid="uid://cn564ukxoyval" path="res://Icons/OoT_LightArrow.png" id="11_xqxse"]
+[ext_resource type="Texture2D" uid="uid://cse15qe7b5y4d" path="res://Icons/OoT_Medallion.png" id="12_pik1u"]
+[ext_resource type="Texture2D" uid="uid://cx7c77agc3xyl" path="res://Icons/MM_Oath.png" id="13_nwcpq"]
+[ext_resource type="Texture2D" uid="uid://d36rbj0k86c57" path="res://Icons/MM_Remains.png" id="14_r6j1m"]
+[ext_resource type="Texture2D" uid="uid://cffe3gremtly6" path="res://Icons/ALttPTriforce.png" id="15_xqsq4"]
+[ext_resource type="Texture2D" uid="uid://cdeobn1fu16ca" path="res://Icons/Minish_Swords.png" id="16_jjryh"]
+[ext_resource type="Texture2D" uid="uid://y17vsk47qeib" path="res://Icons/Minish_Element.png" id="17_2h5gi"]
+[ext_resource type="Texture2D" uid="uid://b888kvps8hvy6" path="res://Icons/OoS_Essence.png" id="18_a3kx7"]
+[ext_resource type="Script" uid="uid://uf4ckcqtqd57" path="res://RunTimer.gd" id="19_t2gpa"]
+[ext_resource type="Texture2D" uid="uid://dak3ndpe784vl" path="res://Icons/Twitch.png" id="20_3nvr0"]
+[ext_resource type="Texture2D" uid="uid://dnniil0l7k67m" path="res://Icons/Youtube.png" id="21_rl2h3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j1vxw"]
+bg_color = Color(0.26666668, 0.22745098, 0.22745098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f3nuj"]
+content_margin_left = 6.0
+content_margin_right = 6.0
+draw_center = false
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_plnk0"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource("1_6b2bu")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_gq74i"]
+font = ExtResource("2_vkw05")
+font_size = 26
+shadow_color = Color(0, 0, 0, 0.7019608)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66br4"]
+atlas = ExtResource("4_umkfj")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eort7"]
+atlas = ExtResource("4_umkfj")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dob7g"]
+atlas = ExtResource("5_tye04")
+region = Rect2(0, 0, 373, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tysh6"]
+atlas = ExtResource("5_tye04")
+region = Rect2(0, 0, 373, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6i3i"]
+atlas = ExtResource("6_f3nuj")
+region = Rect2(0, 0, 8, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjlwc"]
+atlas = ExtResource("7_mnqgu")
+region = Rect2(0, 0, 16, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqsh0"]
+atlas = ExtResource("9_7b75n")
+region = Rect2(0, 0, 32, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2vra"]
+atlas = ExtResource("10_5nl5q")
+region = Rect2(0, 0, 32, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afkpi"]
+atlas = ExtResource("11_xqxse")
+region = Rect2(0, 0, 32, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fh6t"]
+atlas = ExtResource("13_nwcpq")
+region = Rect2(0, 0, 16, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6bqf"]
+atlas = ExtResource("16_jjryh")
+region = Rect2(0, 0, 16, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ldgsc"]
+line_spacing = 0.0
+font_size = 21
+
+[sub_resource type="LabelSettings" id="LabelSettings_j1vxw"]
+font = ExtResource("2_vkw05")
+font_size = 42
+font_color = Color(0.07167991, 0.84, 0.016799983, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gq74i"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.19215687, 0.61960787, 0.16470589, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_umkfj"]
+font = ExtResource("2_vkw05")
+font_size = 28
+shadow_color = Color(0, 0, 0, 0.4627451)
+shadow_offset = Vector2(3, 3)
+
+[node name="GBALayout" type="PanelContainer" unique_id=304349019 node_paths=PackedStringArray("star_number0", "star_number1", "sm64_key0", "sm64_key1", "dx_instrument_count", "dx_ocarina", "dx_ballad", "oot_dungeon_reward_count", "oot_bow", "oot_magic", "oot_light_arrow", "mm_remains_count", "mm_oath", "alttp_triforce_count", "minish_sword_count", "minish_sword", "minish_element_count", "oos_essence_count", "checks_count")]
+custom_minimum_size = Vector2(302, 0)
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 313.0
+grow_vertical = 2
+theme = ExtResource("1_umkfj")
+theme_override_styles/panel = SubResource("StyleBoxFlat_j1vxw")
+script = ExtResource("1_vkw05")
+star_number0 = NodePath("VBoxContainer/SM64/HBoxContainer/StarNumber0")
+star_number1 = NodePath("VBoxContainer/SM64/HBoxContainer/StarNumber1")
+sm64_key0 = NodePath("VBoxContainer/SM64/HBoxContainer/Key0")
+sm64_key1 = NodePath("VBoxContainer/SM64/HBoxContainer/Key1")
+dx_instrument_count = NodePath("VBoxContainer/LADX/HBoxContainer/InstrumentCount")
+dx_ocarina = NodePath("VBoxContainer/LADX/HBoxContainer/DXOcarina")
+dx_ballad = NodePath("VBoxContainer/LADX/HBoxContainer/DXBallad")
+oot_dungeon_reward_count = NodePath("VBoxContainer/OoT/HBoxContainer/OoTDungeonRewardCount")
+oot_bow = NodePath("VBoxContainer/OoT/HBoxContainer/OoTBow")
+oot_magic = NodePath("VBoxContainer/OoT/HBoxContainer/OoTMagic")
+oot_light_arrow = NodePath("VBoxContainer/OoT/HBoxContainer/OoTLightArrow")
+mm_remains_count = NodePath("VBoxContainer/MM/HBoxContainer/MMRemainsCount")
+mm_oath = NodePath("VBoxContainer/MM/HBoxContainer/MMOath")
+alttp_triforce_count = NodePath("VBoxContainer/ALttP/HBoxContainer/ALttPTriforceCount")
+minish_sword_count = NodePath("VBoxContainer/MinishCap/HBoxContainer/MinishSwordCount")
+minish_sword = NodePath("VBoxContainer/MinishCap/HBoxContainer/MinishSwordIcon")
+minish_element_count = NodePath("VBoxContainer/MinishCap/HBoxContainer/MinishElementCount")
+oos_essence_count = NodePath("VBoxContainer/OoS/HBoxContainer/OoSEssenceCount")
+checks_count = NodePath("VBoxContainer/HBoxContainer/TotalChecks")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=928674474]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="LogContainer" type="PanelContainer" parent="VBoxContainer" unique_id=763467340 node_paths=PackedStringArray("label")]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_f3nuj")
+script = ExtResource("3_tye04")
+label = NodePath("RichTextLabel")
+item_color = Color(0.34901962, 0.41960785, 1, 1)
+location_color = Color(0, 1, 0, 1)
+default_slot_color = Color(1, 0, 0, 1)
+custom_slot_colors = Dictionary[String, Color]({
+"BLGDX": Color(0.4117098, 0.59714514, 1, 1),
+"BLGLttP": Color(1, 0.6250981, 0.38854948, 1),
+"BLGMC": Color(3.706068e-06, 0.74257886, 0.30533525, 1),
+"BLGMM": Color(0.81040215, 0.002292564, 0.99296206, 1),
+"BLGOoS": Color(0.59000003, 0.95900005, 1, 1),
+"BLGOoT": Color(1, 0.8086667, 0.59000003, 1),
+"BLGSM64": Color(1, 0, 0, 1)
+})
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/LogContainer" unique_id=1972245658]
+layout_mode = 2
+bbcode_enabled = true
+scroll_active = false
+scroll_following = true
+vertical_alignment = 2
+
+[node name="SM64" type="PanelContainer" parent="VBoxContainer" unique_id=899157686]
+self_modulate = Color(1, 0.8, 0.8, 1)
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_plnk0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/SM64" unique_id=870075107]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/SM64/HBoxContainer" unique_id=1744954228]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SM64"
+label_settings = SubResource("LabelSettings_gq74i")
+vertical_alignment = 1
+
+[node name="StarIcon" type="TextureRect" parent="VBoxContainer/SM64/HBoxContainer" unique_id=2051683697]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+texture = ExtResource("3_dn786")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="StarNumber0" type="TextureRect" parent="VBoxContainer/SM64/HBoxContainer" unique_id=1890571457]
+layout_mode = 2
+texture = SubResource("AtlasTexture_66br4")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="StarNumber1" type="TextureRect" parent="VBoxContainer/SM64/HBoxContainer" unique_id=804207953]
+layout_mode = 2
+texture = SubResource("AtlasTexture_eort7")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Key0" type="TextureRect" parent="VBoxContainer/SM64/HBoxContainer" unique_id=1861135985]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+texture = SubResource("AtlasTexture_dob7g")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Key1" type="TextureRect" parent="VBoxContainer/SM64/HBoxContainer" unique_id=539014426]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+texture = SubResource("AtlasTexture_tysh6")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="LADX" type="PanelContainer" parent="VBoxContainer" unique_id=390597876]
+self_modulate = Color(0.7879864, 0.8591524, 1, 1)
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_plnk0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/LADX" unique_id=976322528]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/LADX/HBoxContainer" unique_id=307973183]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "LADX"
+label_settings = SubResource("LabelSettings_gq74i")
+vertical_alignment = 1
+
+[node name="DXOcarina" type="TextureRect" parent="VBoxContainer/LADX/HBoxContainer" unique_id=1159339612]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("AtlasTexture_q6i3i")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="DXBallad" type="TextureRect" parent="VBoxContainer/LADX/HBoxContainer" unique_id=989028406]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("AtlasTexture_rjlwc")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="InstrumentIcon" type="TextureRect" parent="VBoxContainer/LADX/HBoxContainer" unique_id=377348003]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("8_fem3p")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="InstrumentCount" type="Label" parent="VBoxContainer/LADX/HBoxContainer" unique_id=1970239494]
+layout_mode = 2
+text = "0/6"
+
+[node name="OoT" type="PanelContainer" parent="VBoxContainer" unique_id=1596060036]
+self_modulate = Color(1, 0.945, 0.89, 1)
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_plnk0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/OoT" unique_id=733718696]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/OoT/HBoxContainer" unique_id=666920292]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "OoT"
+label_settings = SubResource("LabelSettings_gq74i")
+vertical_alignment = 1
+
+[node name="OoTMagic" type="TextureRect" parent="VBoxContainer/OoT/HBoxContainer" unique_id=1007202382]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("AtlasTexture_qqsh0")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="OoTBow" type="TextureRect" parent="VBoxContainer/OoT/HBoxContainer" unique_id=1315643920]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("AtlasTexture_k2vra")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="OoTLightArrow" type="TextureRect" parent="VBoxContainer/OoT/HBoxContainer" unique_id=1141816062]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("AtlasTexture_afkpi")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="OoTDungeonRewardIcon" type="TextureRect" parent="VBoxContainer/OoT/HBoxContainer" unique_id=1574349073]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("12_pik1u")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="OoTDungeonRewardCount" type="Label" parent="VBoxContainer/OoT/HBoxContainer" unique_id=427587436]
+layout_mode = 2
+text = "0/6"
+
+[node name="MM" type="PanelContainer" parent="VBoxContainer" unique_id=473898037]
+self_modulate = Color(0.986, 0.86, 1, 1)
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_plnk0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MM" unique_id=1496914113]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MM/HBoxContainer" unique_id=1461726279]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "MM"
+label_settings = SubResource("LabelSettings_gq74i")
+vertical_alignment = 1
+
+[node name="MMOath" type="TextureRect" parent="VBoxContainer/MM/HBoxContainer" unique_id=1436225465]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("AtlasTexture_3fh6t")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="MMRemainsIcon" type="TextureRect" parent="VBoxContainer/MM/HBoxContainer" unique_id=1576513883]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("14_r6j1m")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="MMRemainsCount" type="Label" parent="VBoxContainer/MM/HBoxContainer" unique_id=936844401]
+layout_mode = 2
+text = "0/3"
+
+[node name="ALttP" type="PanelContainer" parent="VBoxContainer" unique_id=1105685387]
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_plnk0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ALttP" unique_id=1043522200]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/ALttP/HBoxContainer" unique_id=179117168]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "ALttP"
+label_settings = SubResource("LabelSettings_gq74i")
+vertical_alignment = 1
+
+[node name="ALttPTriforceIcon" type="TextureRect" parent="VBoxContainer/ALttP/HBoxContainer" unique_id=667903490]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("15_xqsq4")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="ALttPTriforceCount" type="Label" parent="VBoxContainer/ALttP/HBoxContainer" unique_id=157427545]
+layout_mode = 2
+text = "00/25"
+
+[node name="MinishCap" type="PanelContainer" parent="VBoxContainer" unique_id=1941195083]
+self_modulate = Color(0.82, 1, 0.877, 1)
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_plnk0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MinishCap" unique_id=120673608]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MinishCap/HBoxContainer" unique_id=396525704]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "TMC"
+label_settings = SubResource("LabelSettings_gq74i")
+vertical_alignment = 1
+
+[node name="MinishSwordIcon" type="TextureRect" parent="VBoxContainer/MinishCap/HBoxContainer" unique_id=1010219786]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("AtlasTexture_p6bqf")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="MinishSwordCount" type="Label" parent="VBoxContainer/MinishCap/HBoxContainer" unique_id=359060517]
+layout_mode = 2
+text = "0/5"
+
+[node name="Space" type="Control" parent="VBoxContainer/MinishCap/HBoxContainer" unique_id=945349284]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+
+[node name="MinishElementIcon" type="TextureRect" parent="VBoxContainer/MinishCap/HBoxContainer" unique_id=1140393091]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("17_2h5gi")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="MinishElementCount" type="Label" parent="VBoxContainer/MinishCap/HBoxContainer" unique_id=541626046]
+layout_mode = 2
+text = "0/3"
+
+[node name="OoS" type="PanelContainer" parent="VBoxContainer" unique_id=1768078066]
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_plnk0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/OoS" unique_id=1587014321]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/OoS/HBoxContainer" unique_id=835966702]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "OoS"
+label_settings = SubResource("LabelSettings_gq74i")
+vertical_alignment = 1
+
+[node name="OoSEssenceIcon" type="TextureRect" parent="VBoxContainer/OoS/HBoxContainer" unique_id=1846914977]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("18_a3kx7")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="OoSEssenceCount" type="Label" parent="VBoxContainer/OoS/HBoxContainer" unique_id=866409722]
+layout_mode = 2
+text = "0/6"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=760488248]
+layout_mode = 2
+
+[node name="TotalChecks" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=1621441805]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Total Checks
+0625/1299"
+label_settings = SubResource("LabelSettings_ldgsc")
+horizontal_alignment = 1
+
+[node name="RunTimer" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=250248239]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "00:00:00"
+label_settings = SubResource("LabelSettings_j1vxw")
+horizontal_alignment = 1
+script = ExtResource("19_t2gpa")
+
+[node name="Socials" type="PanelContainer" parent="VBoxContainer" unique_id=1383901037]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gq74i")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Socials" unique_id=363325210]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="Twitch" type="TextureRect" parent="VBoxContainer/Socials/HBoxContainer" unique_id=1194518593]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("20_3nvr0")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/Socials/HBoxContainer" unique_id=656242046]
+layout_mode = 2
+text = "@SimplyBLG"
+label_settings = SubResource("LabelSettings_umkfj")
+
+[node name="Youtube" type="TextureRect" parent="VBoxContainer/Socials/HBoxContainer" unique_id=1086269547]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("21_rl2h3")
+expand_mode = 2
+stretch_mode = 5

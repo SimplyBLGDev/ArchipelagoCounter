@@ -1,0 +1,234 @@
+[gd_scene format=3 uid="uid://b5pq5s6sjp6dq"]
+
+[ext_resource type="PackedScene" uid="uid://crxdbxcnaodv0" path="res://Layouts/HorizontalLayout.tscn" id="1_mdrog"]
+[ext_resource type="PackedScene" uid="uid://bt8vngrck4rik" path="res://Layouts/SNESLayout.tscn" id="2_3c2bk"]
+[ext_resource type="Script" uid="uid://c4h3oqhvbq7yn" path="res://Log.gd" id="3_ig0yn"]
+[ext_resource type="PackedScene" uid="uid://ds2evqmcwnkax" path="res://Layouts/GBLayout.tscn" id="4_desgu"]
+[ext_resource type="PackedScene" uid="uid://rdlcfo1162nk" path="res://Layouts/GBALayout.tscn" id="5_h2rny"]
+[ext_resource type="Texture2D" uid="uid://dcxecx4mhdtm0" path="res://OoSEssences/FertileSoil.png" id="6_cy7qq"]
+[ext_resource type="Script" uid="uid://bxmtiakkb00gf" path="res://Item.gd" id="7_qd2n0"]
+[ext_resource type="Texture2D" uid="uid://ddo81lbxkin8f" path="res://OoSEssences/GiftofTime.png" id="8_1chow"]
+[ext_resource type="Texture2D" uid="uid://eu25w2hl3bx5" path="res://OoSEssences/BrightSun.png" id="9_raf65"]
+[ext_resource type="Texture2D" uid="uid://bl21afh8ujfc2" path="res://OoSEssences/SoothingRain.png" id="10_n3tvl"]
+[ext_resource type="Texture2D" uid="uid://d3kullob2wtjb" path="res://OoSEssences/NurturingWarmth.png" id="11_cqlr4"]
+[ext_resource type="Texture2D" uid="uid://bvyw5icvqhubl" path="res://OoSEssences/BlowingWind.png" id="12_v6qi0"]
+[ext_resource type="Texture2D" uid="uid://5c5ulqbw6x4j" path="res://OoSEssences/SeedOfLife.png" id="13_au7vp"]
+[ext_resource type="Texture2D" uid="uid://coc5o1t4xpdcg" path="res://OoSEssences/ChangingSeasons.png" id="14_vmxiu"]
+[ext_resource type="PackedScene" uid="uid://c2ixb55ac8wwr" path="res://Layouts/MMLayout.tscn" id="15_4yuy2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5mvff"]
+content_margin_left = 6.0
+content_margin_right = 6.0
+bg_color = Color(0.06666667, 0.06666667, 0.06666667, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oye8v"]
+bg_color = Color(0.06666667, 0.06666667, 0.06666667, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40n85"]
+atlas = ExtResource("6_cy7qq")
+region = Rect2(0, 0, 16, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gb15f"]
+atlas = ExtResource("8_1chow")
+region = Rect2(0, 0, 16, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sph85"]
+atlas = ExtResource("9_raf65")
+region = Rect2(0, 0, 16, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7g6l"]
+atlas = ExtResource("10_n3tvl")
+region = Rect2(0, 0, 16, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vi5kq"]
+atlas = ExtResource("11_cqlr4")
+region = Rect2(0, 0, 16, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mkgo"]
+atlas = ExtResource("12_v6qi0")
+region = Rect2(0, 0, 16, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ccbu"]
+atlas = ExtResource("13_au7vp")
+region = Rect2(0, 0, 16, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ny7u2"]
+atlas = ExtResource("14_vmxiu")
+region = Rect2(0, 0, 16, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x3yn0"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Layouts" type="Control" unique_id=1143086715]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1676663811]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HorizontalLayout" parent="VBoxContainer" unique_id=658748335 instance=ExtResource("1_mdrog")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=554440329]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SNESLayout" parent="VBoxContainer/HBoxContainer" unique_id=2002084134 instance=ExtResource("2_3c2bk")]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=249418771]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=760747515]
+layout_mode = 2
+
+[node name="MMLog" type="PanelContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=177993440 node_paths=PackedStringArray("label")]
+custom_minimum_size = Vector2(710, 159)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5mvff")
+script = ExtResource("3_ig0yn")
+label = NodePath("RichTextLabel")
+item_color = Color(0.34901962, 0.41960785, 1, 1)
+location_color = Color(0, 1, 0, 1)
+default_slot_color = Color(1, 0, 0, 1)
+custom_slot_colors = Dictionary[String, Color]({
+"BLGDX": Color(0.4117098, 0.59714514, 1, 1),
+"BLGLttP": Color(1, 0.6250981, 0.38854948, 1),
+"BLGMC": Color(3.706068e-06, 0.74257886, 0.30533525, 1),
+"BLGMM": Color(0.81040215, 0.002292564, 0.99296206, 1),
+"BLGOoS": Color(0.59000003, 0.95900005, 1, 1),
+"BLGOoT": Color(1, 0.8086667, 0.59000003, 1),
+"BLGSM64": Color(1, 0, 0, 1)
+})
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/MMLog" unique_id=1129582660]
+layout_mode = 2
+bbcode_enabled = true
+scroll_active = false
+scroll_following = true
+vertical_alignment = 2
+
+[node name="GBLayout" parent="VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=608389510 instance=ExtResource("4_desgu")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GBALayout" parent="VBoxContainer/HBoxContainer" unique_id=304349019 instance=ExtResource("5_h2rny")]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=677829569]
+layout_mode = 2
+
+[node name="OoSEssences" type="PanelContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1713276552]
+custom_minimum_size = Vector2(220, 184)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_oye8v")
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoSEssences" unique_id=2016909429]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoSEssences/CenterContainer" unique_id=484665750]
+layout_mode = 2
+theme_override_constants/v_separation = 16
+columns = 4
+
+[node name="FertileSoil" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoSEssences/CenterContainer/GridContainer" unique_id=2099111447]
+texture_filter = 1
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = SubResource("AtlasTexture_40n85")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("7_qd2n0")
+item_code = "The Legend of Zelda - Oracle of Seasons::Fertile Soil"
+
+[node name="GiftOfTime" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoSEssences/CenterContainer/GridContainer" unique_id=275010254]
+texture_filter = 1
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = SubResource("AtlasTexture_gb15f")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("7_qd2n0")
+item_code = "The Legend of Zelda - Oracle of Seasons::Gift of Time"
+
+[node name="BrightSun" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoSEssences/CenterContainer/GridContainer" unique_id=1032652948]
+texture_filter = 1
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = SubResource("AtlasTexture_sph85")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("7_qd2n0")
+item_code = "The Legend of Zelda - Oracle of Seasons::Bright Sun"
+
+[node name="SoothingRain" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoSEssences/CenterContainer/GridContainer" unique_id=1991668851]
+texture_filter = 1
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = SubResource("AtlasTexture_o7g6l")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("7_qd2n0")
+item_code = "The Legend of Zelda - Oracle of Seasons::Soothing Rain"
+
+[node name="NurturingWarmth" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoSEssences/CenterContainer/GridContainer" unique_id=802830179]
+texture_filter = 1
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = SubResource("AtlasTexture_vi5kq")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("7_qd2n0")
+item_code = "The Legend of Zelda - Oracle of Seasons::Nurturing Warmth"
+
+[node name="BlowingWind" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoSEssences/CenterContainer/GridContainer" unique_id=1084328156]
+texture_filter = 1
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = SubResource("AtlasTexture_5mkgo")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("7_qd2n0")
+item_code = "The Legend of Zelda - Oracle of Seasons::Blowing Wind"
+
+[node name="SeedOfLife" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoSEssences/CenterContainer/GridContainer" unique_id=1167739490]
+texture_filter = 1
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = SubResource("AtlasTexture_3ccbu")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("7_qd2n0")
+item_code = "The Legend of Zelda - Oracle of Seasons::Seed of Lfie"
+
+[node name="ChangingSeasons" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoSEssences/CenterContainer/GridContainer" unique_id=855295370]
+texture_filter = 1
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = SubResource("AtlasTexture_ny7u2")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("7_qd2n0")
+item_code = "The Legend of Zelda - Oracle of Seasons::Changing Seasons"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=470396597]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="MMLayout" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1612386232 instance=ExtResource("15_4yuy2")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_x3yn0")
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=610200360]
+layout_mode = 2
+size_flags_horizontal = 3
