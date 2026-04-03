@@ -5,7 +5,8 @@ signal timer_update
 signal item_received(log_message: LogMessage)
 signal load_complete
 
-@export var websocket_url = "ws://localhost:38281"
+@export var websocket_url := "ws://localhost:38281"
+@export var password := ""
 
 @export var games: Dictionary[String, String] = {
 	"A Link to the Past": "BLGLttP",
@@ -69,12 +70,12 @@ func _ready():
 			location_lookup[game][int(data_packages[game]["location_name_to_id"][location])] = location
 	
 	for game in games:
-		var inventory := await socket.fetch_inventory(game, games[game], data_packages[game]["checksum"])
+		var inventory := await socket.fetch_inventory(game, games[game], data_packages[game]["checksum"], password)
 		process_connected(inventory.connected_packet)
 		process_received_items(get_slot_id_from_name(games[game]), inventory.received_items_packet)
 	
 	var watch_slot: String = games.keys()[0]
-	socket.watch_for_updates(watch_slot, games[watch_slot], data_packages[watch_slot]["checksum"])
+	socket.watch_for_updates(watch_slot, games[watch_slot], data_packages[watch_slot]["checksum"], password)
 	socket.update_received.connect(update_received)
 	load_complete.emit()
 

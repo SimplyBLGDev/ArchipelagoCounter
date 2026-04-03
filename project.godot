@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Counter="*uid://bt25ugtx1l3ph"
+Counter="*uid://f6jsxhpgx2bo"
 
 [display]
 

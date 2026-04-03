@@ -62,7 +62,7 @@ func fetch_data_package(game):
 	return data_package[0]["data"]["games"][data_package[0]["data"]["games"].keys()[0]]
 
 
-func fetch_inventory(game: String, slot: String, uuid: String) -> Game_Inventory:
+func fetch_inventory(game: String, slot: String, uuid: String, password: String) -> Game_Inventory:
 	var inventory := Game_Inventory.new()
 	var game_socket := WebSocketPeer.new()
 	var err = game_socket.connect_to_url(url)
@@ -72,7 +72,7 @@ func fetch_inventory(game: String, slot: String, uuid: String) -> Game_Inventory
 		return
 	
 	await await_cmd_packet(game_socket, "RoomInfo")
-	game_socket.send_text('[{"cmd":"Connect","password":"","game":"' + game + '","name":"' + slot + '","uuid":"' + uuid + '","version":{"major":0,"minor":6,"build":5,"class":"Version"},"items_handling":7,"tags":["AP","Tracker","TextOnly"],"slot_data":true}]')
+	game_socket.send_text('[{"cmd":"Connect","password":"' + password + '","game":"' + game + '","name":"' + slot + '","uuid":"' + uuid + '","version":{"major":0,"minor":6,"build":5,"class":"Version"},"items_handling":7,"tags":["AP","Tracker","TextOnly"],"slot_data":true}]')
 	
 	var packet_pack = await await_packet(game_socket)
 	for packet in packet_pack:
@@ -85,8 +85,8 @@ func fetch_inventory(game: String, slot: String, uuid: String) -> Game_Inventory
 	return inventory
 
 
-func watch_for_updates(game: String, slot: String, uuid: String) -> Update:
-	socket.send_text('[{"cmd":"Connect","password":"","game":"' + game + '","name":"' + slot + '","uuid":"' + uuid + '","version":{"major":0,"minor":6,"build":5,"class":"Version"},"items_handling":0,"tags":["AP","Tracker","TextOnly"],"slot_data":true}]')
+func watch_for_updates(game: String, slot: String, uuid: String, password: String) -> Update:
+	socket.send_text('[{"cmd":"Connect","password":"' + password + '","game":"' + game + '","name":"' + slot + '","uuid":"' + uuid + '","version":{"major":0,"minor":6,"build":5,"class":"Version"},"items_handling":0,"tags":["AP","Tracker","TextOnly"],"slot_data":true}]')
 	while true:
 		var packet_pack = await await_packet(socket)
 		for packet in packet_pack:
