@@ -226,20 +226,6 @@ text = "LADX"
 label_settings = SubResource("LabelSettings_gq74i")
 vertical_alignment = 1
 
-[node name="InstrumentIcon" type="TextureRect" parent="VBoxContainer/LADX/HBoxContainer" unique_id=1873000687]
-texture_filter = 1
-layout_mode = 2
-texture = ExtResource("8_fem3p")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="InstrumentCount" type="Label" parent="VBoxContainer/LADX/HBoxContainer" unique_id=555207369]
-layout_mode = 2
-text = "0/6"
-script = ExtResource("12_5nl5q")
-items = Array[String](["Links Awakening DX::Full Moon Cello", "Links Awakening DX::Conch Horn", "Links Awakening DX::Sea Lily's Bell", "Links Awakening DX::Surf Harp", "Links Awakening DX::Wind Marimba", "Links Awakening DX::Coral Triangle", "Links Awakening DX::Organ of Evening Calm", "Links Awakening DX::Thunder Drum"])
-condition = "Links Awakening DX::Instrument Count"
-
 [node name="DXOcarina" type="TextureRect" parent="VBoxContainer/LADX/HBoxContainer" unique_id=2033325740]
 texture_filter = 1
 layout_mode = 2
@@ -258,6 +244,20 @@ stretch_mode = 5
 script = ExtResource("10_7b75n")
 item_code = "Links Awakening DX::Ballad of the Wind Fish"
 
+[node name="InstrumentIcon" type="TextureRect" parent="VBoxContainer/LADX/HBoxContainer" unique_id=1873000687]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("8_fem3p")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="InstrumentCount" type="Label" parent="VBoxContainer/LADX/HBoxContainer" unique_id=555207369]
+layout_mode = 2
+text = "0/6"
+script = ExtResource("12_5nl5q")
+items = Array[String](["Links Awakening DX::Full Moon Cello", "Links Awakening DX::Conch Horn", "Links Awakening DX::Sea Lily's Bell", "Links Awakening DX::Surf Harp", "Links Awakening DX::Wind Marimba", "Links Awakening DX::Coral Triangle", "Links Awakening DX::Organ of Evening Calm", "Links Awakening DX::Thunder Drum"])
+condition = "Links Awakening DX::Instrument Count"
+
 [node name="OoT" type="PanelContainer" parent="VBoxContainer" unique_id=1596060036]
 self_modulate = Color(1, 0.945, 0.89, 1)
 custom_minimum_size = Vector2(0, 53)
@@ -274,20 +274,6 @@ size_flags_horizontal = 3
 text = "OoT"
 label_settings = SubResource("LabelSettings_gq74i")
 vertical_alignment = 1
-
-[node name="OoTDungeonRewardIcon" type="TextureRect" parent="VBoxContainer/OoT/HBoxContainer" unique_id=321019402]
-texture_filter = 1
-layout_mode = 2
-texture = ExtResource("12_pik1u")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="OoTDungeonRewardCount" type="Label" parent="VBoxContainer/OoT/HBoxContainer" unique_id=1678446852]
-layout_mode = 2
-text = "0/6"
-script = ExtResource("12_5nl5q")
-items = Array[String](["Ship of Harkinian::Kokiri's Emerald", "Ship of Harkinian::Goron's Ruby", "Ship of Harkinian::Zora's Sapphire", "Ship of Harkinian::Forest Medallion", "Ship of Harkinian::Fire Medallion", "Ship of Harkinian::Water Medallion", "Ship of Harkinian::Shadow Medallion", "Ship of Harkinian::Spirit Medallion", "Ship of Harkinian::Light Medallion"])
-condition = "Ship of Harkinian::Dungeon Reward Count"
 
 [node name="OoTMagic" type="TextureRect" parent="VBoxContainer/OoT/HBoxContainer" unique_id=336912667]
 texture_filter = 1
@@ -317,6 +303,20 @@ stretch_mode = 5
 script = ExtResource("10_7b75n")
 item_code = "Ship of Harkinian::Light Arrow"
 
+[node name="OoTDungeonRewardIcon" type="TextureRect" parent="VBoxContainer/OoT/HBoxContainer" unique_id=321019402]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("12_pik1u")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="OoTDungeonRewardCount" type="Label" parent="VBoxContainer/OoT/HBoxContainer" unique_id=1678446852]
+layout_mode = 2
+text = "0/6"
+script = ExtResource("12_5nl5q")
+items = Array[String](["Ship of Harkinian::Kokiri's Emerald", "Ship of Harkinian::Goron's Ruby", "Ship of Harkinian::Zora's Sapphire", "Ship of Harkinian::Forest Medallion", "Ship of Harkinian::Fire Medallion", "Ship of Harkinian::Water Medallion", "Ship of Harkinian::Shadow Medallion", "Ship of Harkinian::Spirit Medallion", "Ship of Harkinian::Light Medallion"])
+condition = "Ship of Harkinian::Dungeon Reward Count"
+
 [node name="MM" type="PanelContainer" parent="VBoxContainer" unique_id=473898037]
 self_modulate = Color(0.986, 0.86, 1, 1)
 custom_minimum_size = Vector2(0, 53)
@@ -334,6 +334,15 @@ text = "MM"
 label_settings = SubResource("LabelSettings_gq74i")
 vertical_alignment = 1
 
+[node name="MMOath" type="TextureRect" parent="VBoxContainer/MM/HBoxContainer" unique_id=2117908922]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("13_nwcpq")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("10_7b75n")
+item_code = "Majora's Mask Recompiled::Oath to Order"
+
 [node name="MMRemainsIcon" type="TextureRect" parent="VBoxContainer/MM/HBoxContainer" unique_id=116575947]
 texture_filter = 1
 layout_mode = 2
@@ -347,15 +356,6 @@ text = "0/3"
 script = ExtResource("12_5nl5q")
 items = Array[String](["Majora's Mask Recompiled::Odolwa's Remains", "Majora's Mask Recompiled::Goht's Remains", "Majora's Mask Recompiled::Gyorg's Remains", "Majora's Mask Recompiled::Twinmold's Remains"])
 condition = "Majora's Mask Recompiled::Remains Count"
-
-[node name="MMOath" type="TextureRect" parent="VBoxContainer/MM/HBoxContainer" unique_id=2117908922]
-texture_filter = 1
-layout_mode = 2
-texture = ExtResource("13_nwcpq")
-expand_mode = 2
-stretch_mode = 5
-script = ExtResource("10_7b75n")
-item_code = "Majora's Mask Recompiled::Oath to Order"
 
 [node name="ALttP" type="PanelContainer" parent="VBoxContainer" unique_id=1105685387]
 custom_minimum_size = Vector2(0, 53)
