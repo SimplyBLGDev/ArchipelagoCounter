@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ds2evqmcwnkax" path="res://Layouts/GBLayout.tscn" id="4_desgu"]
 [ext_resource type="PackedScene" uid="uid://rdlcfo1162nk" path="res://Layouts/GBALayout.tscn" id="5_h2rny"]
 [ext_resource type="Texture2D" uid="uid://dcxecx4mhdtm0" path="res://OoSEssences/FertileSoil.png" id="6_cy7qq"]
-[ext_resource type="Script" uid="uid://bxmtiakkb00gf" path="res://Item.gd" id="7_qd2n0"]
+[ext_resource type="Script" uid="uid://bxmtiakkb00gf" path="res://LayoutTool/LayoutTool_Item.gd" id="7_qd2n0"]
 [ext_resource type="Texture2D" uid="uid://ddo81lbxkin8f" path="res://OoSEssences/GiftofTime.png" id="8_1chow"]
 [ext_resource type="Texture2D" uid="uid://eu25w2hl3bx5" path="res://OoSEssences/BrightSun.png" id="9_raf65"]
 [ext_resource type="Texture2D" uid="uid://bl21afh8ujfc2" path="res://OoSEssences/SoothingRain.png" id="10_n3tvl"]
@@ -24,38 +24,6 @@ bg_color = Color(0.06666667, 0.06666667, 0.06666667, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oye8v"]
 bg_color = Color(0.06666667, 0.06666667, 0.06666667, 1)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_40n85"]
-atlas = ExtResource("6_cy7qq")
-region = Rect2(0, 0, 16, 0)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gb15f"]
-atlas = ExtResource("8_1chow")
-region = Rect2(0, 0, 16, 0)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sph85"]
-atlas = ExtResource("9_raf65")
-region = Rect2(0, 0, 16, 0)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o7g6l"]
-atlas = ExtResource("10_n3tvl")
-region = Rect2(0, 0, 16, 0)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vi5kq"]
-atlas = ExtResource("11_cqlr4")
-region = Rect2(0, 0, 16, 0)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5mkgo"]
-atlas = ExtResource("12_v6qi0")
-region = Rect2(0, 0, 16, 0)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3ccbu"]
-atlas = ExtResource("13_au7vp")
-region = Rect2(0, 0, 16, 0)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ny7u2"]
-atlas = ExtResource("14_vmxiu")
-region = Rect2(0, 0, 16, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x3yn0"]
 bg_color = Color(0, 0, 0, 1)
@@ -147,7 +115,7 @@ columns = 4
 texture_filter = 1
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
-texture = SubResource("AtlasTexture_40n85")
+texture = ExtResource("6_cy7qq")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("7_qd2n0")
@@ -157,7 +125,7 @@ item_code = "The Legend of Zelda - Oracle of Seasons::Fertile Soil"
 texture_filter = 1
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
-texture = SubResource("AtlasTexture_gb15f")
+texture = ExtResource("8_1chow")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("7_qd2n0")
@@ -167,7 +135,7 @@ item_code = "The Legend of Zelda - Oracle of Seasons::Gift of Time"
 texture_filter = 1
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
-texture = SubResource("AtlasTexture_sph85")
+texture = ExtResource("9_raf65")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("7_qd2n0")
@@ -177,7 +145,7 @@ item_code = "The Legend of Zelda - Oracle of Seasons::Bright Sun"
 texture_filter = 1
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
-texture = SubResource("AtlasTexture_o7g6l")
+texture = ExtResource("10_n3tvl")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("7_qd2n0")
@@ -187,7 +155,7 @@ item_code = "The Legend of Zelda - Oracle of Seasons::Soothing Rain"
 texture_filter = 1
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
-texture = SubResource("AtlasTexture_vi5kq")
+texture = ExtResource("11_cqlr4")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("7_qd2n0")
@@ -197,7 +165,7 @@ item_code = "The Legend of Zelda - Oracle of Seasons::Nurturing Warmth"
 texture_filter = 1
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
-texture = SubResource("AtlasTexture_5mkgo")
+texture = ExtResource("12_v6qi0")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("7_qd2n0")
@@ -207,7 +175,7 @@ item_code = "The Legend of Zelda - Oracle of Seasons::Blowing Wind"
 texture_filter = 1
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
-texture = SubResource("AtlasTexture_3ccbu")
+texture = ExtResource("13_au7vp")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("7_qd2n0")
@@ -217,7 +185,7 @@ item_code = "The Legend of Zelda - Oracle of Seasons::Seed of Lfie"
 texture_filter = 1
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
-texture = SubResource("AtlasTexture_ny7u2")
+texture = ExtResource("14_vmxiu")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("7_qd2n0")

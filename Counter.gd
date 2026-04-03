@@ -8,36 +8,30 @@ signal load_complete
 @export var websocket_url = "ws://localhost:38281"
 
 @export var games: Dictionary[String, String] = {
-		"A Link to the Past": "BLGLttP",
-		"Super Mario 64": "BLGSM64",
-		"Majora's Mask Recompiled": "BLGMM",
-		"The Minish Cap": "BLGMC",
-		"Links Awakening DX": "BLGDX",
-		"The Legend of Zelda - Oracle of Seasons": "BLGOoS",
-		"Ship of Harkinian": "BLGOoT"
-	}
-
-@export var dx_instrument_count := 6
-@export var oot_dungeon_reward_count := 7
-@export var mm_remains_count := 3
-@export var minish_swords_count := 5
-@export var minish_elements_count := 3
-@export var alttp_triforce_pieces_count := 25
-@export var oos_essences_count := 6
+	"A Link to the Past": "BLGLttP",
+	"Super Mario 64": "BLGSM64",
+	"Majora's Mask Recompiled": "BLGMM",
+	"The Minish Cap": "BLGMC",
+	"Links Awakening DX": "BLGDX",
+	"The Legend of Zelda - Oracle of Seasons": "BLGOoS",
+	"Ship of Harkinian": "BLGOoT"
+}
+@export var conditions: Dictionary[String, Variant] = {
+	"Links Awakening DX::Instrument Count": 6,
+	"Ship of Harkinian::Dungeon Reward Count": 7,
+	"Majora's Mask Recompiled::Remains Count": 3,
+	"The Minish Cap::Swords": 5,
+	"The Minish Cap::Elements": 3,
+	"A Link to the Past::Triforce Count": 25,
+	"The Legend of Zelda - Oracle of Seasons::Essences": 6,
+}
 
 var initialized := false
 
-var items: Array[String] = []
+var items: Dictionary[String, int] = {}
 var checks := 0
 var total_checks := 0
 var total_checks_counted_slots: Array[int] = []
-
-var sm64_stars := 0
-var sm64_keys := 0
-var alttp_triforce_pieces := 0
-var minish_swords := 0
-var oot_magic_meters := 0
-var oot_bows := 0
 
 var timer := 0.0
 var log: Array[LogMessage] = []
@@ -60,7 +54,7 @@ func _process(delta: float) -> void:
 func _ready():
 	tree_exiting.connect(on_quit)
 	on_load()
-
+	
 	var socket := Socket.new(websocket_url)
 	add_child(socket)
 	await socket.fetch_room_info()
@@ -126,41 +120,12 @@ func get_item(slot_id: int, item_id: int):
 	checks += 1
 	var game_name := get_game_from_slot(slot_id)
 	
-	match game_name:
-		"Super Mario 64":
-			const POWER_STAR := 3626000
-			const PROGRESSIVE_KEY := 3626180
-			match item_id:
-				POWER_STAR:
-					sm64_stars += 1
-				PROGRESSIVE_KEY:
-					sm64_keys += 1
-		
-		"Ship of Harkinian":
-			const PROGRESSIVE_MAGIC_METER := 49
-			const PROGRESSIVE_BOW := 42
-			match item_id:
-				PROGRESSIVE_MAGIC_METER:
-					oot_magic_meters += 1
-				PROGRESSIVE_BOW:
-					oot_bows += 1
-		
-		"A Link to the Past":
-			const TRIFORCE_PIECE := 108
-			match item_id:
-				TRIFORCE_PIECE:
-					alttp_triforce_pieces += 1
-		
-		"The Minish Cap":
-			const MINISH_PROGRESSIVE_SWORD := 1280
-			match item_id:
-				MINISH_PROGRESSIVE_SWORD:
-					minish_swords += 1
-	
 	var item_name := get_item_name_from_id(slot_id, item_id)
 	var item_code := "{0}::{1}".format([game_name, item_name])
 	if item_code not in items:
-		items.append(item_code)
+		items[item_code] = 0
+	
+	items[item_code] += 1
 
 
 func log_item(sending_player_id: int, receiving_player_id: int, item_id: int, location_id: int):
@@ -213,6 +178,13 @@ func get_location_name_from_id(slot_id: int, location_id: int) -> String:
 		return location_lookup[game][location_id]
 	
 	return "Somewhere"
+
+
+func get_item_count(code: String) -> int:
+	if code in items:
+		return items[code]
+	
+	return 0
 
 
 func on_load():
