@@ -5,27 +5,11 @@ signal timer_update
 signal item_received(log_message: LogMessage)
 signal load_complete
 
-@export var websocket_url := "ws://localhost:38281"
-@export var password := ""
+var websocket_url := "ws://localhost:38281"
+var password := ""
 
-@export var games: Dictionary[String, String] = {
-	"A Link to the Past": "BLGLttP",
-	"Super Mario 64": "BLGSM64",
-	"Majora's Mask Recompiled": "BLGMM",
-	"The Minish Cap": "BLGMC",
-	"Links Awakening DX": "BLGDX",
-	"The Legend of Zelda - Oracle of Seasons": "BLGOoS",
-	"Ship of Harkinian": "BLGOoT"
-}
-@export var conditions: Dictionary[String, Variant] = {
-	"Links Awakening DX::Instrument Count": 6,
-	"Ship of Harkinian::Dungeon Reward Count": 7,
-	"Majora's Mask Recompiled::Remains Count": 3,
-	"The Minish Cap::Swords": 5,
-	"The Minish Cap::Elements": 3,
-	"A Link to the Past::Triforce Count": 25,
-	"The Legend of Zelda - Oracle of Seasons::Essences": 6,
-}
+var games: Dictionary[String, String] = {}
+var conditions: Dictionary = {}
 
 var initialized := false
 
@@ -189,22 +173,8 @@ func get_item_count(code: String) -> int:
 
 
 func on_load():
-	# Load timer from disk
-	var executable_path := OS.get_executable_path()
-	var file = FileAccess.open(executable_path.get_base_dir() + "/APCounter.json", FileAccess.READ)
-	if file:
-		var save_data = JSON.parse_string(file.get_as_text())
-		
-		timer = save_data["timer"]
-		var l = save_data["log"]
-		
-		for entry in l:
-			var log_message := LogMessage.from_json(entry)
-			log.append(log_message)
-		
-		file.close()
-	
-	timer_update.emit()
+	load_settings()
+	load_save()
 
 
 func on_quit():
@@ -218,8 +188,56 @@ func on_quit():
 		"log": log_data
 	}
 
+	save_file("APCounter.json", save_data)
+
+
+func load_file(file_name: String) -> Dictionary:
 	var executable_path := OS.get_executable_path()
-	var file = FileAccess.open(executable_path.get_base_dir() + "/APCounter.json", FileAccess.WRITE)
+	var file_path := executable_path.get_base_dir() + "/" + file_name
+	var file := FileAccess.open(file_path, FileAccess.READ)
 	if file:
-		file.store_string(JSON.stringify(save_data))
+		var data = JSON.parse_string(file.get_as_text())
 		file.close()
+		return data
+	
+	return {}
+
+
+func save_file(file_name: String, data: Dictionary) -> void:
+	var executable_path := OS.get_executable_path()
+	var file_path := executable_path.get_base_dir() + "/" + file_name
+	var file := FileAccess.open(file_path, FileAccess.WRITE)
+	if file:
+		file.store_string(JSON.stringify(data))
+		file.close()
+
+
+func load_settings():
+	var settings_data := load_file("APSettings.json")
+	if settings_data == null:
+		return
+	
+	websocket_url = settings_data["url"]
+	password = settings_data["password"]
+
+	for game in settings_data["games"]:
+		var game_name: String = game["game"]
+		var slot_name: String = game["slot"]
+		games[game_name] = slot_name
+	
+	conditions = settings_data["conditions"]
+
+
+func load_save():
+	var save_data := load_file("APCounter.json")
+	if save_data == null:
+		return
+		
+	timer = save_data["timer"]
+	var l = save_data["log"]
+	
+	for entry in l:
+		var log_message := LogMessage.from_json(entry)
+		log.append(log_message)
+	
+	timer_update.emit()

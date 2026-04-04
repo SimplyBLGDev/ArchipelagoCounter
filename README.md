@@ -11,9 +11,13 @@ This software is free to use and modify by anyone. If you use it on a stream ple
 1. Clone or download the repository
 2. Import it into Godot 4.6.2
 
-## Using the Layout
+## Export executable
 
-1. Open **Counter.tscn**
-2. Modify WebSocket URL to your server's address and password if necessary
-3. Input games and slots that will be used
-4. Modify the Layout as much as you want
+1. Export project to an exe
+2. Move `APSettings.json` to the executable directory
+3. Modify `APSettings.json` to contain the URL and password of your AP server, as well as the game and slots to be monitored
+
+## Recommended custom export template
+```bash
+scons platform=windows target=template_release disable_3d=yes disable_physics_2d=yes disable_physics_3d=yes disable_navigation_2d=yes disable_navigation_3d=yes disable_xr=yes
+```

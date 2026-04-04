@@ -1,0 +1,43 @@
+{
+    "url": "ws://localhost:38281",
+    "password": "",
+    "games": [
+        {
+            "slot": "BLGLttP",
+            "game": "A Link to the Past"
+        },
+        {
+            "slot": "BLGSM64",
+            "game": "Super Mario 64"
+        },
+        {
+            "slot": "BLGMM",
+            "game": "Majora's Mask Recompiled"
+        },
+        {
+            "slot": "BLGMC",
+            "game": "The Minish Cap"
+        },
+        {
+            "slot": "BLGDX",
+            "game": "Links Awakening DX"
+        },
+        {
+            "slot": "BLGOoS",
+            "game": "The Legend of Zelda - Oracle of Seasons"
+        },
+        {
+            "slot": "BLGOoT",
+            "game": "Ship of Harkinian"
+        }
+    ],
+    "conditions": {
+        "Links Awakening DX::Instrument Count": 6,
+        "Ship of Harkinian::Dungeon Reward Count": 7,
+        "Majora's Mask Recompiled::Remains Count": 3,
+        "The Minish Cap::Swords": 5,
+        "The Minish Cap::Elements": 3,
+        "A Link to the Past::Triforce Count": 25,
+        "The Legend of Zelda - Oracle of Seasons::Essences": 6
+    }
+}
