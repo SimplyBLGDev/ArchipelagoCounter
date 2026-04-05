@@ -62,7 +62,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="MMLog" type="PanelContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=177993440 node_paths=PackedStringArray("label")]
-custom_minimum_size = Vector2(710, 159)
+custom_minimum_size = Vector2(702, 159)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_5mvff")
 script = ExtResource("3_ig0yn")
@@ -99,7 +99,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="OoSEssences" type="PanelContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1713276552]
-custom_minimum_size = Vector2(220, 184)
+custom_minimum_size = Vector2(220, 114)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_oye8v")
 

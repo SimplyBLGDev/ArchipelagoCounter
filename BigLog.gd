@@ -1,7 +1,5 @@
 extends Log
 
-@export var timestamp_color: Color
-
 func print_item(log_message: LogMessage):
 	var source_player := Counter.get_player_name_from_id(log_message.sender_id)
 	var destination_player := Counter.get_player_name_from_id(log_message.receiver_id)
@@ -16,9 +14,9 @@ func print_item(log_message: LogMessage):
 			"location": location_name,
 			"sender_color": get_color_for_slot(source_player).to_html(),
 			"receiver_color": get_color_for_slot(destination_player).to_html(),
-			"item_color": item_color.to_html(),
-			"location_color": location_color.to_html(),
-			"timestamp_color": timestamp_color.to_html(),
+			"item_color": Counter.settings.log_item_color.to_html(),
+			"location_color": Counter.settings.log_location_color.to_html(),
+			"timestamp_color": Counter.settings.log_timestamp_color.to_html(),
 			"timestamp": seconds_to_hmsd(log_message.timestamp)
 		})
 	

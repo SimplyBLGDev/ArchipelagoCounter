@@ -39,5 +39,20 @@
         "The Minish Cap::Elements": 3,
         "A Link to the Past::Triforce Count": 25,
         "The Legend of Zelda - Oracle of Seasons::Essences": 6
+    },
+    "log_colors": {
+        "timestamp": "ffffff9b",
+        "item": "596bff",
+        "location": "00ff00",
+        "default_slot": "ff0000",
+        "slots": {
+            "BLGLttP": "ff9f63",
+            "BLGSM64": "ff0000",
+            "BLGMM": "cf01fd",
+            "BLGMC": "00bd4e",
+            "BLGDX": "6998ff",
+            "BLGOoS": "96f5ff",
+            "BLGOoT": "ffce96"
+        }
     }
 }

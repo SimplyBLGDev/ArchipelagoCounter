@@ -2,10 +2,6 @@ class_name Log
 extends PanelContainer
 
 @export var label: RichTextLabel
-@export var item_color: Color
-@export var location_color: Color
-@export var default_slot_color: Color
-@export var custom_slot_colors: Dictionary[String, Color]
 var full_text := ""
 
 func _ready():
@@ -31,8 +27,8 @@ func print_item(log_message: LogMessage):
 			"location": location_name,
 			"sender_color": get_color_for_slot(source_player).to_html(),
 			"receiver_color": get_color_for_slot(destination_player).to_html(),
-			"item_color": item_color.to_html(),
-			"location_color": location_color.to_html()
+			"item_color": Counter.settings.log_item_color.to_html(),
+			"location_color": Counter.settings.log_location_color.to_html()
 		})
 	
 	full_text += "\n" + msg
@@ -40,9 +36,9 @@ func print_item(log_message: LogMessage):
 
 
 func get_color_for_slot(slot: String) -> Color:
-	if slot in custom_slot_colors:
-		return custom_slot_colors[slot]
-	return default_slot_color
+	if slot in Counter.settings.custom_slot_colors:
+		return Counter.settings.custom_slot_colors[slot]
+	return Counter.settings.log_default_slot_color
 
 
 func _draw() -> void:

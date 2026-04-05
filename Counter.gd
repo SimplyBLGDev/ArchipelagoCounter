@@ -5,11 +5,7 @@ signal timer_update
 signal item_received(log_message: LogMessage)
 signal load_complete
 
-var websocket_url := "ws://localhost:38281"
-var password := ""
-
-var games: Dictionary[String, String] = {}
-var conditions: Dictionary = {}
+var settings: Settings
 
 var initialized := false
 
@@ -40,10 +36,10 @@ func _ready():
 	tree_exiting.connect(on_quit)
 	on_load()
 	
-	var socket := Socket.new(websocket_url)
+	var socket := Socket.new(settings.url, settings.password)
 	add_child(socket)
 	await socket.fetch_room_info()
-	for game in games:
+	for game in settings.games:
 		data_packages[game] = await socket.fetch_data_package(game)
 		item_lookup[game] = {} as Dictionary[int, String]
 		for item in data_packages[game]["item_name_to_id"]:
@@ -53,14 +49,15 @@ func _ready():
 		for location in data_packages[game]["location_name_to_id"]:
 			location_lookup[game][int(data_packages[game]["location_name_to_id"][location])] = location
 	
-	for game in games:
-		var inventory := await socket.fetch_inventory(game, games[game], data_packages[game]["checksum"], password)
+	for game in settings.games:
+		var inventory := await socket.fetch_inventory(game, settings.games[game], data_packages[game]["checksum"])
 		process_connected(inventory.connected_packet)
-		process_received_items(get_slot_id_from_name(games[game]), inventory.received_items_packet)
+		process_received_items(get_slot_id_from_name(settings.games[game]), inventory.received_items_packet)
 	
-	var watch_slot: String = games.keys()[0]
-	socket.watch_for_updates(watch_slot, games[watch_slot], data_packages[watch_slot]["checksum"], password)
+	var watch_slot: String = settings.games.keys()[0]
+	socket.watch_for_updates(watch_slot, settings.games[watch_slot], data_packages[watch_slot]["checksum"])
 	socket.update_received.connect(update_received)
+	update.emit()
 	load_complete.emit()
 
 
@@ -83,8 +80,6 @@ func process_received_items(slot_id: int, packet):
 		var item_id := int(item["item"])
 		
 		get_item(slot_id, item_id)
-	
-	update.emit()
 
 
 func update_received(update: Socket.Update):
@@ -99,6 +94,7 @@ func update_received(update: Socket.Update):
 		var ui := update as Socket.Update_Item
 		log_item(ui.sending_player_id, ui.receiving_player_id, ui.item_id, ui.location_id)
 		get_item(ui.receiving_player_id, ui.item_id)
+		update.emit()
 
 
 func get_item(slot_id: int, item_id: int):
@@ -132,8 +128,8 @@ func get_game_from_slot(id: int) -> String:
 	for player in players:
 		if int(player["slot"]) == id:
 			var n: String = player["name"]
-			for game in games:
-				if games[game] == n:
+			for game in settings.games:
+				if settings.games[game] == n:
 					return game
 	
 	return ""
@@ -217,15 +213,7 @@ func load_settings():
 	if settings_data == null:
 		return
 	
-	websocket_url = settings_data["url"]
-	password = settings_data["password"]
-
-	for game in settings_data["games"]:
-		var game_name: String = game["game"]
-		var slot_name: String = game["slot"]
-		games[game_name] = slot_name
-	
-	conditions = settings_data["conditions"]
+	settings = Settings.new(settings_data)
 
 
 func load_save():

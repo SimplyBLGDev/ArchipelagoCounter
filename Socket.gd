@@ -5,11 +5,13 @@ signal update_received(update: Update)
 
 var socket = WebSocketPeer.new()
 var url := ""
+var password := ""
 var room_info := {}
 
 
-func _init(url: String) -> void:
+func _init(url: String, password: String) -> void:
 	self.url = url
+	self.password = password
 
 
 func fetch_room_info():
@@ -62,7 +64,7 @@ func fetch_data_package(game):
 	return data_package[0]["data"]["games"][data_package[0]["data"]["games"].keys()[0]]
 
 
-func fetch_inventory(game: String, slot: String, uuid: String, password: String) -> Game_Inventory:
+func fetch_inventory(game: String, slot: String, uuid: String) -> Game_Inventory:
 	var inventory := Game_Inventory.new()
 	var game_socket := WebSocketPeer.new()
 	var err = game_socket.connect_to_url(url)
@@ -85,7 +87,7 @@ func fetch_inventory(game: String, slot: String, uuid: String, password: String)
 	return inventory
 
 
-func watch_for_updates(game: String, slot: String, uuid: String, password: String) -> Update:
+func watch_for_updates(game: String, slot: String, uuid: String) -> Update:
 	socket.send_text('[{"cmd":"Connect","password":"' + password + '","game":"' + game + '","name":"' + slot + '","uuid":"' + uuid + '","version":{"major":0,"minor":6,"build":5,"class":"Version"},"items_handling":0,"tags":["AP","Tracker","TextOnly"],"slot_data":true}]')
 	while true:
 		var packet_pack = await await_packet(socket)

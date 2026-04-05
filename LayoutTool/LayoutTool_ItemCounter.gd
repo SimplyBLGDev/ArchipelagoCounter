@@ -11,7 +11,7 @@ func _ready():
 
 func update():
 	var count := 0
-	var target_count: int = Counter.conditions[condition]
+	var target_count: int = Counter.settings.conditions[condition]
 	var target_count_digits := len(str(target_count))
 	
 	for item in items:
