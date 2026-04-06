@@ -9,7 +9,7 @@ var item_id := 0
 
 
 static func from_json(json) -> LogMessage:
-	var obj := LogMessage.new(json["timestamp"], json["sender_id"], json["receiver_id"], json["location_id"], json["item_id"])
+	var obj := LogMessage.new(json["time"], json["sender"], json["receiver"], json["location"], json["item"])
 	return obj
 
 
@@ -23,9 +23,9 @@ func _init(_timestamp: float, _sender_id: int, _receiver_id: int, _location_id: 
 
 func to_json() -> Dictionary:
 	return {
-		"timestamp": timestamp,
-		"sender_id": sender_id,
-		"receiver_id": receiver_id,
-		"location_id": location_id,
-		"item_id": item_id
+		"time": timestamp,
+		"sender": sender_id,
+		"receiver": receiver_id,
+		"location": location_id,
+		"item": item_id
 	}

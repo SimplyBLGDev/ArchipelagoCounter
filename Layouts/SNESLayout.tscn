@@ -116,18 +116,7 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_gfaq2")
 script = ExtResource("2_jnrrn")
 label = NodePath("RichTextLabel")
-item_color = Color(0.34901962, 0.41960785, 1, 1)
-location_color = Color(0, 1, 0, 1)
-default_slot_color = Color(1, 0, 0, 1)
-custom_slot_colors = Dictionary[String, Color]({
-"BLGDX": Color(0.4117098, 0.59714514, 1, 1),
-"BLGLttP": Color(1, 0.6250981, 0.38854948, 1),
-"BLGMC": Color(3.706068e-06, 0.74257886, 0.30533525, 1),
-"BLGMM": Color(0.81040215, 0.002292564, 0.99296206, 1),
-"BLGOoS": Color(0.59000003, 0.95900005, 1, 1),
-"BLGOoT": Color(1, 0.8086667, 0.59000003, 1),
-"BLGSM64": Color(1, 0, 0, 1)
-})
+message_template = "[b][color=#{sender_color}]{sender}[/color][/b] sent [b][color=#{item_color}]{item}[/color][/b] to [b][color=#{receiver_color}]{receiver}[/color][/b] [b][color=#{location_color}]({location})[/color][/b]"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/LogContainer" unique_id=1498884201]
 layout_mode = 2

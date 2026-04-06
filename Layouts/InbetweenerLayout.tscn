@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://djcsplm4eogjs"]
 
 [ext_resource type="Theme" uid="uid://0p5lyyma5qpk" path="res://UI/Theme.tres" id="1_q01a1"]
-[ext_resource type="Script" uid="uid://bqhaetqr07wnc" path="res://BigLog.gd" id="2_q01a1"]
+[ext_resource type="Script" uid="uid://c4h3oqhvbq7yn" path="res://Log.gd" id="2_1uph0"]
 [ext_resource type="Texture2D" uid="uid://c68mmj61blj8v" path="res://Marquee/Marquee_Generic.png" id="3_0rerg"]
 [ext_resource type="FontFile" uid="uid://cdkhdgy8yaj4p" path="res://UI/Roboto-Bold.ttf" id="4_gccbt"]
 [ext_resource type="Texture2D" uid="uid://cuc3ldv36yb1l" path="res://Icons/StarCounter.png" id="5_0txpf"]
@@ -114,7 +114,7 @@ theme_override_constants/separation = 4
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_oohc0")
-script = ExtResource("2_q01a1")
+script = ExtResource("2_1uph0")
 label = NodePath("RichTextLabel")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/LogContainer" unique_id=1284570937]

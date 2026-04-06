@@ -5,6 +5,8 @@ signal timer_update
 signal item_received(log_message: LogMessage)
 signal load_complete
 
+const VERSION := "1.0.0"
+
 var settings: Settings
 
 var initialized := false
@@ -178,10 +180,12 @@ func on_quit():
 	for log_message in log:
 		log_data.append(log_message.to_json())
 
-	# Save current timer to disk
+	# Save current timer and timestamp to disk
 	var save_data := {
 		"timer": timer,
-		"log": log_data
+		"log": log_data,
+		"starting_time": Time.get_unix_time_from_system(),
+		"generated_version": VERSION,
 	}
 
 	save_file("APCounter.json", save_data)
@@ -210,7 +214,7 @@ func save_file(file_name: String, data: Dictionary) -> void:
 
 func load_settings():
 	var settings_data := load_file("APSettings.json")
-	if settings_data == null:
+	if settings_data == {}:
 		return
 	
 	settings = Settings.new(settings_data)
@@ -218,9 +222,9 @@ func load_settings():
 
 func load_save():
 	var save_data := load_file("APCounter.json")
-	if save_data == null:
+	if save_data == {}:
 		return
-		
+	
 	timer = save_data["timer"]
 	var l = save_data["log"]
 	

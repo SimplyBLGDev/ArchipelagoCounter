@@ -13,5 +13,5 @@ func update():
 	var frame_width := atlas_width / frames_in_atlas
 	var item_count := Counter.get_item_count(item_code)
 	
-	texture.region.position.x = frame_width * item_count
+	texture.region.position.x = frame_width * min(item_count, frames_in_atlas - 1)
 	texture.region.size.x = frame_width
