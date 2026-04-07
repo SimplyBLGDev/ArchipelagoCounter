@@ -3,18 +3,10 @@
 [ext_resource type="FontFile" uid="uid://cdkhdgy8yaj4p" path="res://UI/Roboto-Bold.ttf" id="1_23v3e"]
 [ext_resource type="FontFile" uid="uid://ctdqkp2p4x26u" path="res://UI/Roboto-Regular.ttf" id="1_yd3fu"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_23v3e"]
-bg_color = Color(0.35418743, 0.0010556036, 0.8695061, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
 [resource]
 default_font = ExtResource("1_yd3fu")
 default_font_size = 32
 BoxContainer/constants/separation = 0
-Button/styles/normal = SubResource("StyleBoxFlat_23v3e")
 RichTextLabel/constants/line_separation = 0
 RichTextLabel/constants/paragraph_separation = 6
 RichTextLabel/font_sizes/bold_font_size = 18

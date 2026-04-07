@@ -34,8 +34,8 @@ func print_item(log_message: LogMessage_Item):
 			"receiver": destination_player,
 			"item": item_name,
 			"location": location_name,
-			"sender_color": get_color_for_slot(source_player).to_html(),
-			"receiver_color": get_color_for_slot(destination_player).to_html(),
+			"sender_color": Counter.get_color_for_slot(source_player).to_html(),
+			"receiver_color": Counter.get_color_for_slot(destination_player).to_html(),
 			"item_color": Counter.settings.log_item_color.to_html(),
 			"location_color": Counter.settings.log_location_color.to_html(),
 			"timestamp_color": Counter.settings.log_timestamp_color.to_html(),
@@ -44,12 +44,6 @@ func print_item(log_message: LogMessage_Item):
 	
 	full_text += "\n" + msg
 	queue_redraw()
-
-
-func get_color_for_slot(slot: String) -> Color:
-	if slot in Counter.settings.custom_slot_colors:
-		return Counter.settings.custom_slot_colors[slot]
-	return Counter.settings.log_default_slot_color
 
 
 func seconds_to_hms(seconds: float) -> String:

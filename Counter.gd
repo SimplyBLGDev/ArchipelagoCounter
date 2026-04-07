@@ -41,14 +41,7 @@ func _ready():
 	add_child(socket)
 	await socket.fetch_room_info()
 	for game in settings.games:
-		data_packages[game] = await socket.fetch_data_package(game)
-		item_lookup[game] = {} as Dictionary[int, String]
-		for item in data_packages[game]["item_name_to_id"]:
-			item_lookup[game][int(data_packages[game]["item_name_to_id"][item])] = item
-		
-		location_lookup[game] = {} as Dictionary[int, String]
-		for location in data_packages[game]["location_name_to_id"]:
-			location_lookup[game][int(data_packages[game]["location_name_to_id"][location])] = location
+		await build_lookup(game, socket)
 	
 	for game in settings.games:
 		var inventory := await socket.fetch_inventory(game, settings.games[game], data_packages[game]["checksum"])
@@ -61,6 +54,17 @@ func _ready():
 	socket.update_received.connect(update_received)
 	update.emit()
 	load_complete.emit()
+
+
+func build_lookup(game: String, socket: Socket):
+	data_packages[game] = await socket.fetch_data_package(game)
+	item_lookup[game] = {} as Dictionary[int, String]
+	for item in data_packages[game]["item_name_to_id"]:
+		item_lookup[game][int(data_packages[game]["item_name_to_id"][item])] = item
+	
+	location_lookup[game] = {} as Dictionary[int, String]
+	for location in data_packages[game]["location_name_to_id"]:
+		location_lookup[game][int(data_packages[game]["location_name_to_id"][location])] = location
 
 
 func process_connected(packet):
@@ -169,6 +173,12 @@ func get_item_count(code: String) -> int:
 		return items[code]
 	
 	return 0
+
+
+func get_color_for_slot(slot: String) -> Color:
+	if slot in settings.custom_slot_colors:
+		return settings.custom_slot_colors[slot]
+	return settings.log_default_slot_color
 
 
 func on_load():

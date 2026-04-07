@@ -5,7 +5,10 @@ static func from_json(json) -> LogMessage:
 	match json["type"]:
 		"item":
 			return LogMessage_Item.from_json(json)
-		
+		"join":
+			return LogMessage_Join.from_json(json)
+		"part":
+			return LogMessage_Join.from_json(json)
 	
 	return null
 
