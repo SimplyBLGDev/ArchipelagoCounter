@@ -109,14 +109,14 @@ func print_json_update(packet) -> Update:
 			if packet["data"][0]["text"].contains("playing"):
 				var update := Update_Player.new()
 				update.update_type = Update_Player.Player_Update_Type.Join
-				update.slot = packet["slot"]
+				update.slot = int(packet["slot"])
 				return update
 		
 		"Part":
 			if packet["data"][0]["text"].contains("left"):
 				var update := Update_Player.new()
 				update.update_type = Update_Player.Player_Update_Type.Part
-				update.slot = packet["slot"]
+				update.slot = int(packet["slot"])
 				return update
 		
 		"ItemSend":
@@ -125,7 +125,8 @@ func print_json_update(packet) -> Update:
 			update.location_id = int(packet["item"]["location"])
 			update.receiving_player_id = int(packet["receiving"])
 			update.sending_player_id = int(packet["item"]["player"])
-
+			update.flags = int(packet["item"]["flags"])
+			
 			return update
 	
 	return null
@@ -143,7 +144,7 @@ class Update:
 class Update_Player extends Update:
 	enum Player_Update_Type { Join, Part }
 	var update_type: Player_Update_Type
-	var slot: String
+	var slot: int
 
 
 class Update_Item extends Update:
@@ -151,3 +152,4 @@ class Update_Item extends Update:
 	var location_id: int
 	var receiving_player_id: int
 	var sending_player_id: int
+	var flags: int

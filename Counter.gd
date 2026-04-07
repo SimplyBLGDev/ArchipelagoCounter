@@ -2,10 +2,10 @@ extends Node
 
 signal update
 signal timer_update
-signal item_received(log_message: LogMessage)
+signal log(log_message: LogMessage)
 signal load_complete
 
-const VERSION := "1.0.0"
+const VERSION := "1.1"
 
 var settings: Settings
 
@@ -16,8 +16,7 @@ var checks := 0
 var total_checks := 0
 var total_checks_counted_slots: Array[int] = []
 
-var timer := 0.0
-var log: Array[LogMessage] = []
+var save: Save
 
 var active_players: Array = []
 
@@ -30,7 +29,7 @@ var location_lookup: Dictionary[String, Dictionary]
 
 func _process(delta: float) -> void:
 	if len(active_players) > 0:
-		timer += delta
+		save.timer += delta
 		timer_update.emit()
 
 
@@ -54,7 +53,8 @@ func _ready():
 	for game in settings.games:
 		var inventory := await socket.fetch_inventory(game, settings.games[game], data_packages[game]["checksum"])
 		process_connected(inventory.connected_packet)
-		process_received_items(get_slot_id_from_name(settings.games[game]), inventory.received_items_packet)
+		if inventory.received_items_packet != {}:
+			process_received_items(get_slot_id_from_name(settings.games[game]), inventory.received_items_packet)
 	
 	var watch_slot: String = settings.games.keys()[0]
 	socket.watch_for_updates(watch_slot, settings.games[watch_slot], data_packages[watch_slot]["checksum"])
@@ -94,9 +94,10 @@ func update_received(update: Socket.Update):
 	
 	if update is Socket.Update_Item:
 		var ui := update as Socket.Update_Item
-		log_item(ui.sending_player_id, ui.receiving_player_id, ui.item_id, ui.location_id)
 		get_item(ui.receiving_player_id, ui.item_id)
-		update.emit()
+		self.update.emit()
+	
+	log_update(update)
 
 
 func get_item(slot_id: int, item_id: int):
@@ -111,11 +112,11 @@ func get_item(slot_id: int, item_id: int):
 	items[item_code] += 1
 
 
-func log_item(sending_player_id: int, receiving_player_id: int, item_id: int, location_id: int):
-	var log_object := LogMessage.new(timer, sending_player_id, receiving_player_id, location_id, item_id)
-	log.append(log_object)
+func log_update(update: Socket.Update):
+	var log_object := LogMessage.from_update(update)
 	
-	item_received.emit(log_object)
+	save.log.append(log_object)
+	log.emit(log_object)
 
 
 func get_player_name_from_id(id: int) -> String:
@@ -176,44 +177,11 @@ func on_load():
 
 
 func on_quit():
-	var log_data := []
-	for log_message in log:
-		log_data.append(log_message.to_json())
-
-	# Save current timer and timestamp to disk
-	var save_data := {
-		"timer": timer,
-		"log": log_data,
-		"starting_time": Time.get_unix_time_from_system(),
-		"generated_version": VERSION,
-	}
-
-	save_file("APCounter.json", save_data)
-
-
-func load_file(file_name: String) -> Dictionary:
-	var executable_path := OS.get_executable_path()
-	var file_path := executable_path.get_base_dir() + "/" + file_name
-	var file := FileAccess.open(file_path, FileAccess.READ)
-	if file:
-		var data = JSON.parse_string(file.get_as_text())
-		file.close()
-		return data
-	
-	return {}
-
-
-func save_file(file_name: String, data: Dictionary) -> void:
-	var executable_path := OS.get_executable_path()
-	var file_path := executable_path.get_base_dir() + "/" + file_name
-	var file := FileAccess.open(file_path, FileAccess.WRITE)
-	if file:
-		file.store_string(JSON.stringify(data))
-		file.close()
+	save.save()
 
 
 func load_settings():
-	var settings_data := load_file("APSettings.json")
+	var settings_data := Save.load_file("APSettings.json")
 	if settings_data == {}:
 		return
 	
@@ -221,15 +189,5 @@ func load_settings():
 
 
 func load_save():
-	var save_data := load_file("APCounter.json")
-	if save_data == {}:
-		return
-	
-	timer = save_data["timer"]
-	var l = save_data["log"]
-	
-	for entry in l:
-		var log_message := LogMessage.from_json(entry)
-		log.append(log_message)
-	
+	save = Save.load()
 	timer_update.emit()

@@ -7,7 +7,7 @@ func _ready():
 
 
 func update_timer() -> void:
-	text = seconds_to_hms(Counter.timer)
+	text = seconds_to_hms(Counter.save.timer)
 
 
 func seconds_to_hms(seconds: float) -> String:

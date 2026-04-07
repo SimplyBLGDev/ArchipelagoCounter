@@ -9,15 +9,20 @@ extends PanelContainer
 var full_text := ""
 
 func _ready():
-	Counter.item_received.connect(print_item)
+	Counter.log.connect(print_log)
 	
 	await Counter.load_complete
 	
-	for log_entry in Counter.log:
-		print_item(log_entry)
+	for log_entry in Counter.save.log:
+		print_log(log_entry)
 
 
-func print_item(log_message: LogMessage):
+func print_log(log_message: LogMessage):
+	if log_message is LogMessage_Item:
+		print_item(log_message)
+
+
+func print_item(log_message: LogMessage_Item):
 	var source_player := Counter.get_player_name_from_id(log_message.sender_id)
 	var destination_player := Counter.get_player_name_from_id(log_message.receiver_id)
 	var item_name := Counter.get_item_name_from_id(log_message.receiver_id, log_message.item_id)

@@ -285,7 +285,7 @@ texture = ExtResource("12_1sttb")
 expand_mode = 2
 stretch_mode = 5
 script = ExtResource("10_ofsay")
-item_code = "Ship of Harkinian::Fairy Bow"
+item_code = "Ship of Harkinian::Progressive Bow"
 
 [node name="OoTLightArrow" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoT/HBoxContainer" unique_id=1429090017]
 texture_filter = 1
