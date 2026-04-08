@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dyp8ah3c0ggje"]
 
 [ext_resource type="FontFile" uid="uid://cdkhdgy8yaj4p" path="res://UI/Roboto-Bold.ttf" id="1_a7tnh"]
-[ext_resource type="Script" uid="uid://bmq18lt7bwe7o" path="res://LayoutTool/PendingItems/LayoutTool_PendingItems_Entry.gd" id="1_e6uu2"]
+[ext_resource type="Script" uid="uid://bmq18lt7bwe7o" path="res://LayoutTool/PendingItems/Entry/LayoutTool_PendingItems_Entry.gd" id="1_e6uu2"]
 [ext_resource type="FontFile" uid="uid://ctdqkp2p4x26u" path="res://UI/Roboto-Regular.ttf" id="2_gka7x"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gka7x"]
