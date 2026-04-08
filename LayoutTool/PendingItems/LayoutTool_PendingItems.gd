@@ -57,7 +57,8 @@ func generate_grid():
 		for item in pending_items[player].keys():
 			var player_entry := LayoutTool_PendingItems_Entry.instantiate(player, Counter.get_color_for_slot(player), true)
 			var item_entry := LayoutTool_PendingItems_Entry.instantiate(item, Counter.settings.log_item_color, true, HorizontalAlignment.HORIZONTAL_ALIGNMENT_LEFT)
-			var count_entry := LayoutTool_PendingItems_Entry.instantiate("x" + str(pending_items[player][item]), Color.WHITE, false)
+			var count_text := "x" + str(pending_items[player][item]) if pending_items[player][item] > 1 else ""
+			var count_entry := LayoutTool_PendingItems_Entry.instantiate(count_text, Color.WHITE, false)
 			
 			var panel_style := panel_style_even if count % 2 == 0 else panel_style_odd
 			item_entry.size_flags_horizontal = Control.SIZE_EXPAND_FILL

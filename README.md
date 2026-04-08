@@ -17,7 +17,7 @@ This software is free to use and modify by anyone. If you use it on a stream ple
 
 ```yaml
 Item Code: A unique code representing an item within a game, composed of {Name}::{Item Name}.
-    Example: "Super Mario 64::Power Star"
+	Example: "Super Mario 64::Power Star"
 ```
 
 ### Check Counter
@@ -41,8 +41,8 @@ Parameters:
 item_code: The code of the item to be tracked
 threshold: Amount of items required to be collected for the item to be considered found
 missing_texture_mode: The type of texture filter to use when the item is missing.
-    SEMI_TRANSPARENT_BW: Semi-transparent black and white texture
-    SEMI_TRANSPARENT_BW_INVERTED: Semi-transparent black and white texture, but inverted
+	SEMI_TRANSPARENT_BW: Semi-transparent black and white texture
+	SEMI_TRANSPARENT_BW_INVERTED: Semi-transparent black and white texture, but inverted
 ```
 
 ### ItemAtlas
@@ -76,16 +76,16 @@ Parameters:
 
 ```yaml
 text_format: String to be formatted for an item entry, the following substrings will be replaced:
-    {timestamp}: The timestamp of the event
-    {sender}: Name of the slot that sent the item
-    {receiver}: Name of the slot that received the item
-    {item}: The name of the item that was sent
-    {location}: The location where the item was found
-    {timestamp_color}: Color of the timestamp (defined in APSettings.json)
-    {sender_color}: Color of the sender (defined in APSettings.json)
-    {receiver_color}: Color of the receiver (defined in APSettings.json)
-    {item_color}: Color of the item (defined in APSettings.json)
-    {location_color}: Color of the location (defined in APSettings.json)
+	{timestamp}: The timestamp of the event
+	{sender}: Name of the slot that sent the item
+	{receiver}: Name of the slot that received the item
+	{item}: The name of the item that was sent
+	{location}: The location where the item was found
+	{timestamp_color}: Color of the timestamp (defined in APSettings.json)
+	{sender_color}: Color of the sender (defined in APSettings.json)
+	{receiver_color}: Color of the receiver (defined in APSettings.json)
+	{item_color}: Color of the item (defined in APSettings.json)
+	{location_color}: Color of the location (defined in APSettings.json)
 ```
 
 ### PendingItems

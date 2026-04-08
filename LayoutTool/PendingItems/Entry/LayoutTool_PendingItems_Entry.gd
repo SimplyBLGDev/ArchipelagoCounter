@@ -12,7 +12,7 @@ extends PanelContainer
 
 static func instantiate(text: String, color: Color, bold: bool, h_align := HorizontalAlignment.HORIZONTAL_ALIGNMENT_CENTER) -> LayoutTool_PendingItems_Entry:
 	var entry: LayoutTool_PendingItems_Entry = \
-		load("res://LayoutTool/PendingItems/LayoutTool_PendingItems_Entry.tscn").instantiate()
+		load("res://LayoutTool/PendingItems/Entry/LayoutTool_PendingItems_Entry.tscn").instantiate()
 	entry.text = text
 	entry.color = color
 	entry.bold = bold
