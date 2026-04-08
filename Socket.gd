@@ -59,9 +59,9 @@ func await_cmd_packet(socket: WebSocketPeer, cmd: String):
 
 func fetch_data_package(game):
 	socket.send_text('[{"cmd":"GetDataPackage","games":["' + game + '"]}]')
-
-	var data_package = await await_packet(socket)
-	return data_package[0]["data"]["games"][data_package[0]["data"]["games"].keys()[0]]
+	
+	var data_package = await await_cmd_packet(socket, "DataPackage")
+	return data_package["data"]["games"][game]
 
 
 func fetch_inventory(game: String, slot: String, uuid: String) -> Game_Inventory:

@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://c5empkuku1n2t"]
+
+[ext_resource type="Script" uid="uid://btf0gsakp4qs6" path="res://LayoutTool/PendingItems/LayoutTool_PendingItems.gd" id="1_f2hfu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o7bdb"]
+bg_color = Color(0.13333334, 0.14117648, 0.14901961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bt7e7"]
+content_margin_left = 6.0
+content_margin_top = 3.0
+content_margin_right = 6.0
+content_margin_bottom = 2.0
+bg_color = Color(0.13333334, 0.14117648, 0.14901961, 1)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o6sr8"]
+content_margin_left = 6.0
+content_margin_top = 3.0
+content_margin_right = 6.0
+content_margin_bottom = 2.0
+bg_color = Color(0.16510773, 0.17422089, 0.18333429, 1)
+corner_detail = 1
+
+[node name="PendingItems" type="PanelContainer" unique_id=49771699 node_paths=PackedStringArray("grid")]
+custom_minimum_size = Vector2(450, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_o7bdb")
+script = ExtResource("1_f2hfu")
+grid = NodePath("ScrollContainer/GridContainer")
+panel_style_even = SubResource("StyleBoxFlat_bt7e7")
+panel_style_odd = SubResource("StyleBoxFlat_o6sr8")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=974843273]
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 4
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer" unique_id=1127759964]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 3

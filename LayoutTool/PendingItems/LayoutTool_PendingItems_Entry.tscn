@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dyp8ah3c0ggje"]
+
+[ext_resource type="FontFile" uid="uid://cdkhdgy8yaj4p" path="res://UI/Roboto-Bold.ttf" id="1_a7tnh"]
+[ext_resource type="Script" uid="uid://bmq18lt7bwe7o" path="res://LayoutTool/PendingItems/LayoutTool_PendingItems_Entry.gd" id="1_e6uu2"]
+[ext_resource type="FontFile" uid="uid://ctdqkp2p4x26u" path="res://UI/Roboto-Regular.ttf" id="2_gka7x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gka7x"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8g1gf"]
+resource_local_to_scene = true
+font = ExtResource("1_a7tnh")
+font_size = 20
+
+[node name="Entry" type="PanelContainer" unique_id=1286684295 node_paths=PackedStringArray("label")]
+theme_override_styles/panel = SubResource("StyleBoxEmpty_gka7x")
+script = ExtResource("1_e6uu2")
+label = NodePath("Label")
+normal_font = ExtResource("2_gka7x")
+bold_font = ExtResource("1_a7tnh")
+
+[node name="Label" type="Label" parent="." unique_id=81971490]
+layout_mode = 2
+text = "BLGSM64"
+label_settings = SubResource("LabelSettings_8g1gf")
+horizontal_alignment = 1
+vertical_alignment = 1
