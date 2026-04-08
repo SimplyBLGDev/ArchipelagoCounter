@@ -35,25 +35,31 @@ func _process(delta: float) -> void:
 
 func _ready():
 	tree_exiting.connect(on_quit)
+	print("Loading settings and save...")
 	on_load()
 	
+	print("Fetching Room Info")
 	var socket := Socket.new(settings.url, settings.password)
 	add_child(socket)
 	await socket.fetch_room_info()
 	for game in settings.games:
+		print("Building lookup for {0}".format([game]))
 		await build_lookup(game, socket)
 	
 	for game in settings.games:
+		print("Fetching inventory for {0}".format([game]))
 		var inventory := await socket.fetch_inventory(game, settings.games[game], data_packages[game]["checksum"])
 		process_connected(inventory.connected_packet)
 		if inventory.received_items_packet != {}:
 			process_received_items(get_slot_id_from_name(settings.games[game]), inventory.received_items_packet)
 	
 	var watch_slot: String = settings.games.keys()[0]
+	print("Watching for updates on {0}".format([watch_slot]))
 	socket.watch_for_updates(watch_slot, settings.games[watch_slot], data_packages[watch_slot]["checksum"])
 	socket.update_received.connect(update_received)
 	update.emit()
 	load_complete.emit()
+	print("Load complete")
 
 
 func build_lookup(game: String, socket: Socket):
