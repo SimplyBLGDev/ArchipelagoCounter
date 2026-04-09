@@ -37,11 +37,14 @@ func update_pending_items_list(log_message: LogMessage):
 			pending_items[receiver] = {}
 		if item_name not in pending_items[receiver]:
 			pending_items[receiver][item_name] = 0
-
+		
 		pending_items[receiver][item_name] += 1
-
+	
 	elif log_message is LogMessage_Join:
 		var join: LogMessage_Join = log_message
+		if join.join == false: # Part
+			return
+		
 		var player_name := Counter.get_player_name_from_id(join.slot)
 		if player_name in pending_items:
 			pending_items.erase(player_name)

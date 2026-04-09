@@ -39,6 +39,8 @@ static func load() -> Save:
 	
 	var log_data: Array = save_data.get("log", [])
 	for log_entry in log_data:
+		if log_entry == null:
+			continue
 		save.log.append(LogMessage.from_json(log_entry))
 	
 	return save

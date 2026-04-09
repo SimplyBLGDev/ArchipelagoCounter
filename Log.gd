@@ -2,6 +2,7 @@ class_name Log
 extends PanelContainer
 
 @export var label: RichTextLabel
+@export var print_excluded_locations := false
 @export_multiline var message_template := \
 	"[color=#{timestamp_color}][{timestamp}][/color] [b][color=#{sender_color}]{sender}[/color][/b] sent " + \
 	"[b][color=#{item_color}]{item}[/color][/b] to [b][color=#{receiver_color}]{receiver}[/color][/b] " + \
@@ -23,6 +24,9 @@ func print_log(log_message: LogMessage):
 
 
 func print_item(log_message: LogMessage_Item):
+	if not print_excluded_locations and Counter.is_location_excluded(log_message.sender_id, log_message.location_id):
+		return
+	
 	var source_player := Counter.get_player_name_from_id(log_message.sender_id)
 	var destination_player := Counter.get_player_name_from_id(log_message.receiver_id)
 	var item_name := Counter.get_item_name_from_id(log_message.receiver_id, log_message.item_id)

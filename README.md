@@ -1,10 +1,14 @@
 # ArchipelagoCounter
 
-A software tool for counting and tracking archipelago data, meant to be used to create custom layouts for streams.
+A software tool for counting and tracking Archipelago data, meant to be used to create custom layouts for streams.
 
 ## License & Attribution
 
-This software is free to use and modify by anyone. If you use it on a stream please credit @SimplyBLG (twitch.tv/simplyblg) if you feel like it.
+This software is free to use and modify by anyone for any non-commercial venture or purpose, however, this license and attribution must remain intact.
+
+If you use it on a stream please credit @SimplyBLG (twitch.tv/simplyblg) if you feel like it and let me know.
+
+Feel free to contact me if you want a custom layout made for you or to ask any questions.
 
 ## Getting Started
 
@@ -22,7 +26,7 @@ Item Code: A unique code representing an item within a game, composed of {Name}:
 
 ### Check Counter
 
-Displays the total number of checks across all games in the archipelago that have been collected so far.
+Displays the total number of checks across all games in the Archipelago that have been collected so far.
 The total is automatically calculated on startup.
 
 Parameters:
@@ -96,13 +100,41 @@ Displays a list of all *progression* items per game that have been collected sin
 
 Displays the amount of Super Mario 64 stars that have been collected so far.
 
+## Configuring APSettings.json
+
+This file is used to configure the Archipelago server and the games that will be monitored.
+
+```yaml
+url: The URL of the Archipelago server
+password: The password of the Archipelago server
+games: List of games included in the Archipelago
+	slot: Slot of the game
+	game: Name of the game (as it appears in the Archipelago server)
+conditions: List of conditions that can be read by Layout Tools to display information about the goals of the run
+	"{name of the condition}": {value of the condition}
+log_colors:
+	timestamp: Color used when printing the timestamp to a Log
+	item: Color used when printing the item name to a Log
+	location: Color used when printing the location name to a Log
+	default_slot: Color used when printing a slot name to a Log
+	slots:
+		"{slot name}": {custom color to be used for the slot}
+overrides: List of override settings, any entry here can be removed if not needed
+	games:
+		{name of the game}:
+			data_package_file: path to a custom data package file to be used when loading the game, relative to the executable
+			exclude_location: List of regex compatible patterns, locations matching any of these patterns will not count towards the check counter
+```
+
 ## Export executable
 
 1. Export project to an exe
 2. Move `APSettings.json` to the executable directory
 3. Modify `APSettings.json` to contain the URL and password of your AP server, as well as the game and slots to be monitored
 
-## Recommended custom export template
+## Recommended custom export template (optimized for file size)
+
+Replace platform parameter as needed:
 ```
-scons platform=windows target=template_release disable_3d=yes disable_physics_2d=yes disable_physics_3d=yes disable_navigation_2d=yes disable_navigation_3d=yes disable_xr=yes
+scons platform=<windows/linux> target=template_release disable_3d=yes disable_physics_2d=yes disable_physics_3d=yes disable_navigation_2d=yes disable_navigation_3d=yes disable_xr=yes
 ```
