@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://2n2xblq2l8j0"]
+
+[ext_resource type="Texture2D" uid="uid://mnhelj6xw7dx" path="res://Icons/OoT_Magic.png" id="1_nvle1"]
+[ext_resource type="Script" uid="uid://cle4fmbfqyo0e" path="res://LayoutTool/LayoutTool_ItemAtlas.gd" id="2_p58pn"]
+[ext_resource type="Texture2D" uid="uid://c7aucn3b0gw25" path="res://Icons/OoT_Bow.png" id="3_1mff8"]
+[ext_resource type="Script" uid="uid://bxmtiakkb00gf" path="res://LayoutTool/LayoutTool_Item.gd" id="4_fkcny"]
+[ext_resource type="Texture2D" uid="uid://cn564ukxoyval" path="res://Icons/OoT_LightArrow.png" id="5_c0iba"]
+[ext_resource type="Texture2D" uid="uid://cse15qe7b5y4d" path="res://Icons/OoT_Medallion.png" id="6_d636q"]
+[ext_resource type="Script" uid="uid://hi4qcrd2vs53" path="res://LayoutTool/LayoutTool_ItemCounter.gd" id="7_8p7xn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22lk6"]
+atlas = ExtResource("1_nvle1")
+region = Rect2(0, 0, 32, 0)
+
+[node name="OoT" type="HBoxContainer" unique_id=1619894384]
+
+[node name="OoTMagic" type="TextureRect" parent="." unique_id=418252291]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("AtlasTexture_22lk6")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("2_p58pn")
+frames_in_atlas = 3
+item_code = "Ship of Harkinian::Progressive Magic Meter"
+
+[node name="OoTBow" type="TextureRect" parent="." unique_id=1506528943]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("3_1mff8")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("4_fkcny")
+item_code = "Ship of Harkinian::Progressive Bow"
+
+[node name="OoTLightArrow" type="TextureRect" parent="." unique_id=1004792906]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("5_c0iba")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("4_fkcny")
+item_code = "Ship of Harkinian::Light Arrow"
+
+[node name="OoTDungeonRewardIcon" type="TextureRect" parent="." unique_id=683493987]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("6_d636q")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="OoTDungeonRewardCount" type="Label" parent="." unique_id=2010211747]
+layout_mode = 2
+text = "0/6"
+script = ExtResource("7_8p7xn")
+items = Array[String](["Ship of Harkinian::Kokiri's Emerald", "Ship of Harkinian::Goron's Ruby", "Ship of Harkinian::Zora's Sapphire", "Ship of Harkinian::Forest Medallion", "Ship of Harkinian::Fire Medallion", "Ship of Harkinian::Water Medallion", "Ship of Harkinian::Shadow Medallion", "Ship of Harkinian::Spirit Medallion", "Ship of Harkinian::Light Medallion"])
+condition = "Ship of Harkinian::Dungeon Reward Count"

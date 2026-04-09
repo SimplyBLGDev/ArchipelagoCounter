@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://qs6puj7bsrbb"]
+
+[ext_resource type="Texture2D" uid="uid://cx7c77agc3xyl" path="res://Icons/MM_Oath.png" id="1_2p7wk"]
+[ext_resource type="Script" uid="uid://bxmtiakkb00gf" path="res://LayoutTool/LayoutTool_Item.gd" id="2_hs3jg"]
+[ext_resource type="Texture2D" uid="uid://d36rbj0k86c57" path="res://Icons/MM_Remains.png" id="3_315wd"]
+[ext_resource type="Script" uid="uid://hi4qcrd2vs53" path="res://LayoutTool/LayoutTool_ItemCounter.gd" id="4_3vqn0"]
+
+[node name="MM" type="HBoxContainer" unique_id=388441856]
+
+[node name="MMOath" type="TextureRect" parent="." unique_id=837648651]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("1_2p7wk")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("2_hs3jg")
+item_code = "Majora's Mask Recompiled::Oath to Order"
+
+[node name="MMRemainsIcon" type="TextureRect" parent="." unique_id=1678516268]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("3_315wd")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="MMRemainsCount" type="Label" parent="." unique_id=508921208]
+layout_mode = 2
+text = "0/3"
+script = ExtResource("4_3vqn0")
+items = Array[String](["Majora's Mask Recompiled::Odolwa's Remains", "Majora's Mask Recompiled::Goht's Remains", "Majora's Mask Recompiled::Gyorg's Remains", "Majora's Mask Recompiled::Twinmold's Remains"])
+condition = "Majora's Mask Recompiled::Remains Count"

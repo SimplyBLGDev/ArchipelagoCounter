@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://ctnldj7dktmty"]
+
+[ext_resource type="Texture2D" uid="uid://cdeobn1fu16ca" path="res://Icons/Minish_Swords.png" id="1_8xw3s"]
+[ext_resource type="Script" uid="uid://cle4fmbfqyo0e" path="res://LayoutTool/LayoutTool_ItemAtlas.gd" id="2_w71iq"]
+[ext_resource type="Script" uid="uid://hi4qcrd2vs53" path="res://LayoutTool/LayoutTool_ItemCounter.gd" id="3_sjkcf"]
+[ext_resource type="Texture2D" uid="uid://y17vsk47qeib" path="res://Icons/Minish_Element.png" id="4_n8dts"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6bqf"]
+atlas = ExtResource("1_8xw3s")
+region = Rect2(0, 0, 16, 0)
+
+[node name="MinishCap" type="HBoxContainer" unique_id=1413241670]
+
+[node name="MinishSwordIcon" type="TextureRect" parent="." unique_id=1426897199]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("AtlasTexture_p6bqf")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("2_w71iq")
+frames_in_atlas = 6
+item_code = "The Minish Cap::Progressive Sword"
+
+[node name="MinishSwordCount" type="Label" parent="." unique_id=848571655]
+layout_mode = 2
+text = "0/5"
+script = ExtResource("3_sjkcf")
+items = Array[String](["The Minish Cap::Progressive Sword"])
+condition = "The Minish Cap::Swords"
+
+[node name="Control" type="Control" parent="." unique_id=211699368]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+
+[node name="MinishElementIcon" type="TextureRect" parent="." unique_id=1192319600]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_n8dts")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="MinishElementCount" type="Label" parent="." unique_id=699245509]
+layout_mode = 2
+text = "0/3"
+script = ExtResource("3_sjkcf")
+items = Array[String](["The Minish Cap::Earth Element", "The Minish Cap::Fire Element", "The Minish Cap::Water Element", "The Minish Cap::Wind Element"])
+condition = "The Minish Cap::Elements"

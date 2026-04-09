@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bmuju0oajlqxb"]
+
+[ext_resource type="Texture2D" uid="uid://bb81n1y6mmqh" path="res://Icons/DX_Ocarina.png" id="2_q05f6"]
+[ext_resource type="Script" uid="uid://bxmtiakkb00gf" path="res://LayoutTool/LayoutTool_Item.gd" id="3_q2xp0"]
+[ext_resource type="Texture2D" uid="uid://dnyvulxurpsj0" path="res://Icons/DX_Ballad.png" id="4_o04e6"]
+[ext_resource type="Texture2D" uid="uid://nw414cqbi4pk" path="res://Icons/Instrument.png" id="5_0aycs"]
+[ext_resource type="Script" uid="uid://hi4qcrd2vs53" path="res://LayoutTool/LayoutTool_ItemCounter.gd" id="6_3l33q"]
+
+[node name="LADX" type="HBoxContainer" unique_id=1679351992]
+
+[node name="DXOcarina" type="TextureRect" parent="." unique_id=1181485436]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("2_q05f6")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("3_q2xp0")
+item_code = "Links Awakening DX::Ocarina"
+
+[node name="DXBallad" type="TextureRect" parent="." unique_id=2066671793]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_o04e6")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("3_q2xp0")
+item_code = "Links Awakening DX::Ballad of the Wind Fish"
+
+[node name="InstrumentIcon" type="TextureRect" parent="." unique_id=866316250]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("5_0aycs")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="InstrumentCount" type="Label" parent="." unique_id=3993487]
+layout_mode = 2
+text = "0/6"
+script = ExtResource("6_3l33q")
+items = Array[String](["Links Awakening DX::Full Moon Cello", "Links Awakening DX::Conch Horn", "Links Awakening DX::Sea Lily's Bell", "Links Awakening DX::Surf Harp", "Links Awakening DX::Wind Marimba", "Links Awakening DX::Coral Triangle", "Links Awakening DX::Organ of Evening Calm", "Links Awakening DX::Thunder Drum"])
+condition = "Links Awakening DX::Instrument Count"

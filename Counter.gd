@@ -126,7 +126,10 @@ func process_received_items(slot_id: int, packet):
 			continue
 		
 		var item_id := int(item["item"])
+		var location_id := int(item["location"])
 		
+		if not is_location_excluded(slot_id, location_id):
+			checks += 1
 		get_item(slot_id, item_id)
 
 

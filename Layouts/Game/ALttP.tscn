@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://i3v3y8gr8k62"]
+
+[ext_resource type="Texture2D" uid="uid://cffe3gremtly6" path="res://Icons/ALttPTriforce.png" id="1_6f8hg"]
+[ext_resource type="Script" uid="uid://hi4qcrd2vs53" path="res://LayoutTool/LayoutTool_ItemCounter.gd" id="2_e4l5q"]
+
+[node name="ALttP" type="HBoxContainer" unique_id=1054017773]
+
+[node name="ALttPTriforceIcon" type="TextureRect" parent="." unique_id=1127008420]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("1_6f8hg")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="ALttPTriforceCount" type="Label" parent="." unique_id=2003420616]
+layout_mode = 2
+text = "00/25"
+script = ExtResource("2_e4l5q")
+items = Array[String](["A Link to the Past::Triforce Piece"])
+condition = "A Link to the Past::Triforce Count"

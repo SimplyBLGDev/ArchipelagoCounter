@@ -33,6 +33,10 @@ func update_pending_items_list(log_message: LogMessage):
 		var receiver := Counter.get_player_name_from_id(item.receiver_id)
 		var item_name := Counter.get_item_name_from_id(item.receiver_id, item.item_id)
 		
+		## Don't count items received by an active player
+		if receiver in Counter.active_players:
+			return
+		
 		if receiver not in pending_items:
 			pending_items[receiver] = {}
 		if item_name not in pending_items[receiver]:
@@ -42,8 +46,6 @@ func update_pending_items_list(log_message: LogMessage):
 	
 	elif log_message is LogMessage_Join:
 		var join: LogMessage_Join = log_message
-		if join.join == false: # Part
-			return
 		
 		var player_name := Counter.get_player_name_from_id(join.slot)
 		if player_name in pending_items:

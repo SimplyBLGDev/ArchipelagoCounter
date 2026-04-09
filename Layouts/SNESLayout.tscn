@@ -4,26 +4,13 @@
 [ext_resource type="Script" uid="uid://c4h3oqhvbq7yn" path="res://Log.gd" id="2_jnrrn"]
 [ext_resource type="Texture2D" uid="uid://c68mmj61blj8v" path="res://Marquee/Marquee_Generic.png" id="2_myfee"]
 [ext_resource type="FontFile" uid="uid://cdkhdgy8yaj4p" path="res://UI/Roboto-Bold.ttf" id="3_jnrrn"]
-[ext_resource type="Texture2D" uid="uid://cuc3ldv36yb1l" path="res://Icons/StarCounter.png" id="4_gfaq2"]
-[ext_resource type="Texture2D" uid="uid://chjbar040xlxs" path="res://UI/Mario64Numbers.png" id="5_oer0i"]
-[ext_resource type="Texture2D" uid="uid://qcvovsoml1y2" path="res://Icons/Mario64Key.png" id="6_ljm2f"]
-[ext_resource type="Script" uid="uid://bgev8be5nunjk" path="res://LayoutTool/LayoutTool_StarCounter.gd" id="7_oer0i"]
-[ext_resource type="Texture2D" uid="uid://bb81n1y6mmqh" path="res://Icons/DX_Ocarina.png" id="7_wfh75"]
-[ext_resource type="Texture2D" uid="uid://dnyvulxurpsj0" path="res://Icons/DX_Ballad.png" id="8_nam3n"]
-[ext_resource type="Texture2D" uid="uid://nw414cqbi4pk" path="res://Icons/Instrument.png" id="9_rwhxv"]
-[ext_resource type="Texture2D" uid="uid://mnhelj6xw7dx" path="res://Icons/OoT_Magic.png" id="10_22lk6"]
-[ext_resource type="Script" uid="uid://bxmtiakkb00gf" path="res://LayoutTool/LayoutTool_Item.gd" id="10_ljm2f"]
-[ext_resource type="Texture2D" uid="uid://c7aucn3b0gw25" path="res://Icons/OoT_Bow.png" id="11_8q6yi"]
-[ext_resource type="Texture2D" uid="uid://cn564ukxoyval" path="res://Icons/OoT_LightArrow.png" id="12_avl06"]
-[ext_resource type="Script" uid="uid://hi4qcrd2vs53" path="res://LayoutTool/LayoutTool_ItemCounter.gd" id="12_ljm2f"]
-[ext_resource type="Texture2D" uid="uid://cse15qe7b5y4d" path="res://Icons/OoT_Medallion.png" id="13_bqr5i"]
-[ext_resource type="Texture2D" uid="uid://cx7c77agc3xyl" path="res://Icons/MM_Oath.png" id="14_242g8"]
-[ext_resource type="Texture2D" uid="uid://d36rbj0k86c57" path="res://Icons/MM_Remains.png" id="15_svpno"]
-[ext_resource type="Texture2D" uid="uid://cffe3gremtly6" path="res://Icons/ALttPTriforce.png" id="16_ykpn0"]
-[ext_resource type="Script" uid="uid://cle4fmbfqyo0e" path="res://LayoutTool/LayoutTool_ItemAtlas.gd" id="17_wfh75"]
-[ext_resource type="Texture2D" uid="uid://cdeobn1fu16ca" path="res://Icons/Minish_Swords.png" id="17_y68lw"]
-[ext_resource type="Texture2D" uid="uid://y17vsk47qeib" path="res://Icons/Minish_Element.png" id="18_vsyfl"]
-[ext_resource type="Texture2D" uid="uid://b888kvps8hvy6" path="res://Icons/OoS_Essence.png" id="19_5v8vk"]
+[ext_resource type="PackedScene" uid="uid://bupwjdbwh15vf" path="res://Layouts/Game/SM64.tscn" id="5_87n7i"]
+[ext_resource type="PackedScene" uid="uid://bmuju0oajlqxb" path="res://Layouts/Game/LADX.tscn" id="6_q6n17"]
+[ext_resource type="PackedScene" uid="uid://2n2xblq2l8j0" path="res://Layouts/Game/OoT.tscn" id="7_vce1i"]
+[ext_resource type="PackedScene" uid="uid://qs6puj7bsrbb" path="res://Layouts/Game/MM.tscn" id="8_dsjyu"]
+[ext_resource type="PackedScene" uid="uid://i3v3y8gr8k62" path="res://Layouts/Game/ALttP.tscn" id="9_wy4yq"]
+[ext_resource type="PackedScene" uid="uid://ctnldj7dktmty" path="res://Layouts/Game/MinishCap.tscn" id="10_i0rcy"]
+[ext_resource type="PackedScene" uid="uid://tk3tlq3px4k0" path="res://Layouts/Game/OoS.tscn" id="11_b6fh7"]
 [ext_resource type="Script" uid="uid://uf4ckcqtqd57" path="res://RunTimer.gd" id="20_7dagj"]
 [ext_resource type="Texture2D" uid="uid://dak3ndpe784vl" path="res://Icons/Twitch.png" id="21_no6oy"]
 [ext_resource type="Texture2D" uid="uid://dnniil0l7k67m" path="res://Icons/Youtube.png" id="22_8y85m"]
@@ -52,26 +39,6 @@ font = ExtResource("3_jnrrn")
 font_size = 26
 shadow_color = Color(0, 0, 0, 0.7019608)
 shadow_offset = Vector2(2, 2)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wfh75"]
-atlas = ExtResource("5_oer0i")
-region = Rect2(0, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nam3n"]
-atlas = ExtResource("5_oer0i")
-region = Rect2(0, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rwhxv"]
-atlas = ExtResource("5_oer0i")
-region = Rect2(0, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_22lk6"]
-atlas = ExtResource("10_22lk6")
-region = Rect2(0, 0, 32, 0)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8q6yi"]
-atlas = ExtResource("17_y68lw")
-region = Rect2(0, 0, 16, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ldgsc"]
 line_spacing = 0.0
@@ -142,56 +109,8 @@ text = "Super Mario 64"
 label_settings = SubResource("LabelSettings_gq74i")
 vertical_alignment = 1
 
-[node name="StarIcon" type="TextureRect" parent="VBoxContainer/SM64/HBoxContainer" unique_id=1174730438]
-custom_minimum_size = Vector2(78, 0)
+[node name="SM64" parent="VBoxContainer/SM64/HBoxContainer" unique_id=535599633 instance=ExtResource("5_87n7i")]
 layout_mode = 2
-texture = ExtResource("4_gfaq2")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="StarCounter" type="HBoxContainer" parent="VBoxContainer/SM64/HBoxContainer" unique_id=1522311165 node_paths=PackedStringArray("star_0", "star_1", "star_2")]
-custom_minimum_size = Vector2(83, 0)
-layout_mode = 2
-theme_override_constants/separation = -20
-script = ExtResource("7_oer0i")
-star_0 = NodePath("StarNumber0")
-star_1 = NodePath("StarNumber1")
-star_2 = NodePath("StarNumber2")
-
-[node name="StarNumber0" type="TextureRect" parent="VBoxContainer/SM64/HBoxContainer/StarCounter" unique_id=518826074]
-layout_mode = 2
-texture = SubResource("AtlasTexture_wfh75")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="StarNumber1" type="TextureRect" parent="VBoxContainer/SM64/HBoxContainer/StarCounter" unique_id=1457884909]
-layout_mode = 2
-texture = SubResource("AtlasTexture_nam3n")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="StarNumber2" type="TextureRect" parent="VBoxContainer/SM64/HBoxContainer/StarCounter" unique_id=1171903360]
-layout_mode = 2
-texture = SubResource("AtlasTexture_rwhxv")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="Key0" type="TextureRect" parent="VBoxContainer/SM64/HBoxContainer" unique_id=878360682]
-layout_mode = 2
-texture = ExtResource("6_ljm2f")
-expand_mode = 2
-stretch_mode = 5
-script = ExtResource("10_ljm2f")
-item_code = "Super Mario 64::Progressive Key"
-
-[node name="Key1" type="TextureRect" parent="VBoxContainer/SM64/HBoxContainer" unique_id=529424416]
-layout_mode = 2
-texture = ExtResource("6_ljm2f")
-expand_mode = 2
-stretch_mode = 5
-script = ExtResource("10_ljm2f")
-item_code = "Super Mario 64::Progressive Key"
-threshold = 2
 
 [node name="LADX" type="PanelContainer" parent="VBoxContainer" unique_id=551461547]
 self_modulate = Color(0.7879864, 0.8591524, 1, 1)
@@ -210,37 +129,8 @@ text = "Link's Awakening DX"
 label_settings = SubResource("LabelSettings_gq74i")
 vertical_alignment = 1
 
-[node name="DXOcarina" type="TextureRect" parent="VBoxContainer/LADX/HBoxContainer" unique_id=1924786329]
-texture_filter = 1
+[node name="LADX" parent="VBoxContainer/LADX/HBoxContainer" unique_id=1679351992 instance=ExtResource("6_q6n17")]
 layout_mode = 2
-texture = ExtResource("7_wfh75")
-expand_mode = 2
-stretch_mode = 5
-script = ExtResource("10_ljm2f")
-item_code = "Links Awakening DX::Ocarina"
-
-[node name="DXBallad" type="TextureRect" parent="VBoxContainer/LADX/HBoxContainer" unique_id=1086767902]
-texture_filter = 1
-layout_mode = 2
-texture = ExtResource("8_nam3n")
-expand_mode = 2
-stretch_mode = 5
-script = ExtResource("10_ljm2f")
-item_code = "Links Awakening DX::Ballad of the Wind Fish"
-
-[node name="InstrumentIcon" type="TextureRect" parent="VBoxContainer/LADX/HBoxContainer" unique_id=928016923]
-texture_filter = 1
-layout_mode = 2
-texture = ExtResource("9_rwhxv")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="InstrumentCount" type="Label" parent="VBoxContainer/LADX/HBoxContainer" unique_id=1040419469]
-layout_mode = 2
-text = "0/6"
-script = ExtResource("12_ljm2f")
-items = Array[String](["Links Awakening DX::Full Moon Cello", "Links Awakening DX::Conch Horn", "Links Awakening DX::Sea Lily's Bell", "Links Awakening DX::Surf Harp", "Links Awakening DX::Wind Marimba", "Links Awakening DX::Coral Triangle", "Links Awakening DX::Organ of Evening Calm", "Links Awakening DX::Thunder Drum"])
-condition = "Links Awakening DX::Instrument Count"
 
 [node name="OoT" type="PanelContainer" parent="VBoxContainer" unique_id=185834467]
 self_modulate = Color(1, 0.945, 0.89, 1)
@@ -259,47 +149,8 @@ text = "Ocarina of Time"
 label_settings = SubResource("LabelSettings_gq74i")
 vertical_alignment = 1
 
-[node name="OoTMagic" type="TextureRect" parent="VBoxContainer/OoT/HBoxContainer" unique_id=1854939631]
-texture_filter = 1
+[node name="OoT" parent="VBoxContainer/OoT/HBoxContainer" unique_id=1619894384 instance=ExtResource("7_vce1i")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_22lk6")
-expand_mode = 2
-stretch_mode = 5
-script = ExtResource("17_wfh75")
-frames_in_atlas = 3
-item_code = "Ship of Harkinian::Progressive Magic Meter"
-
-[node name="OoTBow" type="TextureRect" parent="VBoxContainer/OoT/HBoxContainer" unique_id=702891670]
-texture_filter = 1
-layout_mode = 2
-texture = ExtResource("11_8q6yi")
-expand_mode = 2
-stretch_mode = 5
-script = ExtResource("10_ljm2f")
-item_code = "Ship of Harkinian::Progressive Bow"
-
-[node name="OoTLightArrow" type="TextureRect" parent="VBoxContainer/OoT/HBoxContainer" unique_id=741042934]
-texture_filter = 1
-layout_mode = 2
-texture = ExtResource("12_avl06")
-expand_mode = 2
-stretch_mode = 5
-script = ExtResource("10_ljm2f")
-item_code = "Ship of Harkinian::Light Arrow"
-
-[node name="OoTDungeonRewardIcon" type="TextureRect" parent="VBoxContainer/OoT/HBoxContainer" unique_id=1195105777]
-texture_filter = 1
-layout_mode = 2
-texture = ExtResource("13_bqr5i")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="OoTDungeonRewardCount" type="Label" parent="VBoxContainer/OoT/HBoxContainer" unique_id=834777219]
-layout_mode = 2
-text = "0/6"
-script = ExtResource("12_ljm2f")
-items = Array[String](["Ship of Harkinian::Kokiri's Emerald", "Ship of Harkinian::Goron's Ruby", "Ship of Harkinian::Zora's Sapphire", "Ship of Harkinian::Forest Medallion", "Ship of Harkinian::Fire Medallion", "Ship of Harkinian::Water Medallion", "Ship of Harkinian::Shadow Medallion", "Ship of Harkinian::Spirit Medallion", "Ship of Harkinian::Light Medallion"])
-condition = "Ship of Harkinian::Dungeon Reward Count"
 
 [node name="MM" type="PanelContainer" parent="VBoxContainer" unique_id=34406531]
 self_modulate = Color(0.986, 0.86, 1, 1)
@@ -318,28 +169,8 @@ text = "Majora's Mask"
 label_settings = SubResource("LabelSettings_gq74i")
 vertical_alignment = 1
 
-[node name="MMOath" type="TextureRect" parent="VBoxContainer/MM/HBoxContainer" unique_id=934438761]
-texture_filter = 1
+[node name="MM" parent="VBoxContainer/MM/HBoxContainer" unique_id=388441856 instance=ExtResource("8_dsjyu")]
 layout_mode = 2
-texture = ExtResource("14_242g8")
-expand_mode = 2
-stretch_mode = 5
-script = ExtResource("10_ljm2f")
-item_code = "Majora's Mask Recompiled::Oath to Order"
-
-[node name="MMRemainsIcon" type="TextureRect" parent="VBoxContainer/MM/HBoxContainer" unique_id=1218883850]
-texture_filter = 1
-layout_mode = 2
-texture = ExtResource("15_svpno")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="MMRemainsCount" type="Label" parent="VBoxContainer/MM/HBoxContainer" unique_id=169293707]
-layout_mode = 2
-text = "0/3"
-script = ExtResource("12_ljm2f")
-items = Array[String](["Majora's Mask Recompiled::Odolwa's Remains", "Majora's Mask Recompiled::Goht's Remains", "Majora's Mask Recompiled::Gyorg's Remains", "Majora's Mask Recompiled::Twinmold's Remains"])
-condition = "Majora's Mask Recompiled::Remains Count"
 
 [node name="ALttP" type="PanelContainer" parent="VBoxContainer" unique_id=1073938437]
 custom_minimum_size = Vector2(0, 53)
@@ -357,19 +188,8 @@ text = "A Link to the Past"
 label_settings = SubResource("LabelSettings_gq74i")
 vertical_alignment = 1
 
-[node name="ALttPTriforceIcon" type="TextureRect" parent="VBoxContainer/ALttP/HBoxContainer" unique_id=1223635724]
-texture_filter = 1
+[node name="ALttP" parent="VBoxContainer/ALttP/HBoxContainer" unique_id=1054017773 instance=ExtResource("9_wy4yq")]
 layout_mode = 2
-texture = ExtResource("16_ykpn0")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="ALttPTriforceCount" type="Label" parent="VBoxContainer/ALttP/HBoxContainer" unique_id=1543223391]
-layout_mode = 2
-text = "00/25"
-script = ExtResource("12_ljm2f")
-items = Array[String](["A Link to the Past::Triforce Piece"])
-condition = "A Link to the Past::Triforce Count"
 
 [node name="MinishCap" type="PanelContainer" parent="VBoxContainer" unique_id=1493181845]
 self_modulate = Color(0.82, 1, 0.877, 1)
@@ -388,40 +208,8 @@ text = "Minish Cap"
 label_settings = SubResource("LabelSettings_gq74i")
 vertical_alignment = 1
 
-[node name="MinishSwordIcon" type="TextureRect" parent="VBoxContainer/MinishCap/HBoxContainer" unique_id=1176538770]
-texture_filter = 1
+[node name="MinishCap" parent="VBoxContainer/MinishCap/HBoxContainer" unique_id=1413241670 instance=ExtResource("10_i0rcy")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_8q6yi")
-expand_mode = 2
-stretch_mode = 5
-script = ExtResource("17_wfh75")
-frames_in_atlas = 6
-item_code = "The Minish Cap::Progressive Sword"
-
-[node name="MinishSwordCount" type="Label" parent="VBoxContainer/MinishCap/HBoxContainer" unique_id=561788677]
-layout_mode = 2
-text = "0/5"
-script = ExtResource("12_ljm2f")
-items = Array[String](["The Minish Cap::Progressive Sword"])
-condition = "The Minish Cap::Swords"
-
-[node name="Control" type="Control" parent="VBoxContainer/MinishCap/HBoxContainer" unique_id=641155501]
-custom_minimum_size = Vector2(4, 0)
-layout_mode = 2
-
-[node name="MinishElementIcon" type="TextureRect" parent="VBoxContainer/MinishCap/HBoxContainer" unique_id=1914618734]
-texture_filter = 1
-layout_mode = 2
-texture = ExtResource("18_vsyfl")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="MinishElementCount" type="Label" parent="VBoxContainer/MinishCap/HBoxContainer" unique_id=1590855527]
-layout_mode = 2
-text = "0/3"
-script = ExtResource("12_ljm2f")
-items = Array[String](["The Minish Cap::Earth Element", "The Minish Cap::Fire Element", "The Minish Cap::Water Element", "The Minish Cap::Wind Element"])
-condition = "The Minish Cap::Elements"
 
 [node name="OoS" type="PanelContainer" parent="VBoxContainer" unique_id=787644570]
 custom_minimum_size = Vector2(0, 53)
@@ -439,19 +227,8 @@ text = "Oracle of Seasons"
 label_settings = SubResource("LabelSettings_gq74i")
 vertical_alignment = 1
 
-[node name="OoSEssenceIcon" type="TextureRect" parent="VBoxContainer/OoS/HBoxContainer" unique_id=1300028371]
-texture_filter = 1
+[node name="OoS" parent="VBoxContainer/OoS/HBoxContainer" unique_id=744261680 instance=ExtResource("11_b6fh7")]
 layout_mode = 2
-texture = ExtResource("19_5v8vk")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="OoSEssenceCount" type="Label" parent="VBoxContainer/OoS/HBoxContainer" unique_id=1418148956]
-layout_mode = 2
-text = "0/6"
-script = ExtResource("12_ljm2f")
-items = Array[String](["The Legend of Zelda - Oracle of Seasons::Fertile Soil", "The Legend of Zelda - Oracle of Seasons::Gift of Time", "The Legend of Zelda - Oracle of Seasons::Bright Sun", "The Legend of Zelda - Oracle of Seasons::Soothing Rain", "The Legend of Zelda - Oracle of Seasons::Nurturing Warmth", "The Legend of Zelda - Oracle of Seasons::Blowing Wind", "The Legend of Zelda - Oracle of Seasons::Seed of Life", "The Legend of Zelda - Oracle of Seasons::Changing Seasons"])
-condition = "The Legend of Zelda - Oracle of Seasons::Essences"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1817338575]
 layout_mode = 2

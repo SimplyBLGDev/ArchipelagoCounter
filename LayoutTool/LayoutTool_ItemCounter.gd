@@ -2,6 +2,8 @@ class_name LayoutTool_ItemCounter
 extends Label
 
 @export var text_format := "{0}/{1}"
+@export var regular_color: Color
+@export var completed_color: Color
 @export var items: Array[String]
 @export var condition := ""
 
