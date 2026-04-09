@@ -12,8 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://i3v3y8gr8k62" path="res://Layouts/Game/ALttP.tscn" id="10_dkicx"]
 [ext_resource type="PackedScene" uid="uid://ctnldj7dktmty" path="res://Layouts/Game/MinishCap.tscn" id="11_0b02u"]
 [ext_resource type="PackedScene" uid="uid://tk3tlq3px4k0" path="res://Layouts/Game/OoS.tscn" id="12_fu3g7"]
+[ext_resource type="Script" uid="uid://bbhvigrs7yh4t" path="res://LayoutTool/LayoutTool_CheckCounterAdvanced.gd" id="13_eqmnl"]
 [ext_resource type="Script" uid="uid://uf4ckcqtqd57" path="res://RunTimer.gd" id="21_1kbda"]
-[ext_resource type="Script" uid="uid://dge62fjj66m10" path="res://LayoutTool/LayoutTool_CheckCounter.gd" id="22_0rerg"]
 [ext_resource type="Texture2D" uid="uid://dak3ndpe784vl" path="res://Icons/Twitch.png" id="22_i0trt"]
 [ext_resource type="Texture2D" uid="uid://dnniil0l7k67m" path="res://Icons/Youtube.png" id="23_k6080"]
 
@@ -277,9 +277,10 @@ text = "Total Checks
 0625/1299"
 label_settings = SubResource("LabelSettings_xoxj5")
 horizontal_alignment = 1
-script = ExtResource("22_0rerg")
+script = ExtResource("13_eqmnl")
 text_format = "Total Checks
-{0}/{1}"
+{0}/{1} ({2}%)
+{3} cpm"
 
 [node name="RunTimer" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1142855615]
 layout_mode = 2
