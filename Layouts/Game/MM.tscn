@@ -14,7 +14,7 @@ texture = ExtResource("1_2p7wk")
 expand_mode = 2
 stretch_mode = 5
 script = ExtResource("2_hs3jg")
-item_code = "Majora's Mask Recompiled::Oath to Order"
+item_code = "BLGMM::Oath to Order"
 
 [node name="MMRemainsIcon" type="TextureRect" parent="." unique_id=1678516268]
 texture_filter = 1
@@ -27,5 +27,5 @@ stretch_mode = 5
 layout_mode = 2
 text = "0/3"
 script = ExtResource("4_3vqn0")
-items = Array[String](["Majora's Mask Recompiled::Odolwa's Remains", "Majora's Mask Recompiled::Goht's Remains", "Majora's Mask Recompiled::Gyorg's Remains", "Majora's Mask Recompiled::Twinmold's Remains"])
-condition = "Majora's Mask Recompiled::Remains Count"
+items = Array[String](["BLGMM::Odolwa's Remains", "BLGMM::Goht's Remains", "BLGMM::Gyorg's Remains", "BLGMM::Twinmold's Remains"])
+condition = "BLGMM::Remains Count"

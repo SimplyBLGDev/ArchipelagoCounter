@@ -1,6 +1,8 @@
 class_name LayoutTool_StarCounter
 extends HBoxContainer
 
+@export var slot := ""
+
 @export var star_0: TextureRect
 @export var star_1: TextureRect
 @export var star_2: TextureRect
@@ -10,7 +12,7 @@ func _ready():
 
 
 func update():
-	var star_count := Counter.get_item_count("Super Mario 64::Power Star")
+	var star_count := Counter.get_item_count(slot + "::Power Star")
 	var star_count_str := str(star_count).pad_zeros(3)
 	set_number_texture_number(star_0, int(star_count_str[0]))
 	set_number_texture_number(star_1, int(star_count_str[1]))

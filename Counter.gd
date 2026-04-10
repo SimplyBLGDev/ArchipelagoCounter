@@ -85,8 +85,8 @@ func build_lookup(game: String, socket: Socket):
 	for location in data_packages[game]["location_name_to_id"]:
 		location_lookup[game][int(data_packages[game]["location_name_to_id"][location])] = location
 
-	game_checks[game] = 0
-	total_game_checks[game] = 0
+	game_checks[settings.games[game]] = 0
+	total_game_checks[settings.games[game]] = 0
 
 
 func get_data_package_for_game(game: String, socket: Socket) -> Dictionary:
@@ -123,7 +123,7 @@ func process_connected(packet):
 			location_count += 1
 	
 	total_checks += location_count
-	total_game_checks[get_game_from_slot(slot_id)] += location_count
+	total_game_checks[get_slot_from_id(slot_id)] += location_count
 
 
 func is_location_excluded(slot_id: int, location_id: int) -> bool:
@@ -153,7 +153,7 @@ func process_received_items(slot_id: int, packet):
 		
 		if not is_location_excluded(slot_id, location_id):
 			checks += 1
-			game_checks[get_game_from_slot(slot_id)] += 1
+			game_checks[get_slot_from_id(slot_id)] += 1
 		get_item(slot_id, item_id)
 
 
@@ -178,15 +178,15 @@ func update_received(update: Socket.Update):
 		
 		if not is_location_excluded(ui.sending_player_id, ui.location_id):
 			checks += 1
-			game_checks[get_game_from_slot(ui.sending_player_id)] += 1
+			game_checks[get_slot_from_id(ui.sending_player_id)] += 1
 		get_item(ui.receiving_player_id, ui.item_id)
 
 
 func get_item(slot_id: int, item_id: int):
-	var game_name := get_game_from_slot(slot_id)
+	var slot_name := get_slot_from_id(slot_id)
 	
 	var item_name := get_item_name_from_id(slot_id, item_id)
-	var item_code := "{0}::{1}".format([game_name, item_name])
+	var item_code := "{0}::{1}".format([slot_name, item_name])
 	if item_code not in items:
 		items[item_code] = 0
 	

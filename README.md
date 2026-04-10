@@ -20,8 +20,8 @@ Feel free to contact me if you want a custom layout made for you or to ask any q
 ### Glossary
 
 ```yaml
-Item Code: A unique code representing an item within a game, composed of {Game Name}::{Item Name}.
-	Example: "Super Mario 64::Power Star"
+Item Code: A unique code representing an item within a game, composed of {Slot Name}::{Item Name}.
+	Example: "BLGSM64::Power Star"
 ```
 
 ### Check Counter
@@ -33,6 +33,26 @@ Parameters:
 
 ```yaml
 text_format: String to be formatted with the count, {0} will be replaced with the count, {1} will be replaced with the total.
+```
+
+### CheckCounterAdvanced
+
+Displays the total number of checks, current checks found, percentage of checks to the total, and checks per minute of either a particular slot or the entire AP.
+
+Parameters:
+```yaml
+text_format: String to be formatted with the count, {0} will be replaced with the count, {1} will be replaced with the total, {2} will be replaced with the percentage, {3} will be replaced with the checks per minute
+game: slot of the game to be tracked
+```
+
+### CompletionIndicator
+
+Displays a texture if a particular game has been completed.
+
+Parameters:
+
+```yaml
+slot: slot of the game to be tracked
 ```
 
 ### Item
@@ -96,9 +116,52 @@ text_format: String to be formatted for an item entry, the following substrings 
 
 Displays a list of all *progression* items per game that have been collected since the last time that game was opened.
 
+### AdvancedTimer
+
+DIsplays the amount of time spent in a particular slot.
+
+Parameters:
+
+```yaml
+text_format: String to be formatted with the time, {0} will be replaced with the time, {1} will be replaced with the percentage of the total time represented by the slot's time
+game: The slot of the game to be tracked
+```
+
+### MultiView
+
+Alternates between the children of the node to show one at a time over time in regular intervals.
+
+Parameters:
+
+```yaml
+view_change_speed: Time in seconds between each switch
+fade_time: Time in seconds for the fade in/out of each switch
+```
+
+### ProgressPanel
+
+Converts a control node into a progress bar representing the ratio of checks to total checks of a particular slot.
+
+Parameters:
+
+```yaml
+color_rect: A Color rect node to be used
+game: The slot of the game to be tracked
+```
+
+### RunTimer
+
+Displays the amount of time spent in the current run.
+
 ### StarCounter
 
 Displays the amount of Super Mario 64 stars that have been collected so far.
+
+Parameters:
+
+```yaml
+slot: The slot of the game to be tracked
+```
 
 ## Configuring APSettings.json
 

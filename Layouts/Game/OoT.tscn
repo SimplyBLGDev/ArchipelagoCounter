@@ -22,7 +22,7 @@ expand_mode = 2
 stretch_mode = 5
 script = ExtResource("2_p58pn")
 frames_in_atlas = 3
-item_code = "Ship of Harkinian::Progressive Magic Meter"
+item_code = "BLGOoT::Progressive Magic Meter"
 
 [node name="OoTBow" type="TextureRect" parent="." unique_id=1506528943]
 texture_filter = 1
@@ -31,7 +31,7 @@ texture = ExtResource("3_1mff8")
 expand_mode = 2
 stretch_mode = 5
 script = ExtResource("4_fkcny")
-item_code = "Ship of Harkinian::Progressive Bow"
+item_code = "BLGOoT::Progressive Bow"
 
 [node name="OoTLightArrow" type="TextureRect" parent="." unique_id=1004792906]
 texture_filter = 1
@@ -40,7 +40,7 @@ texture = ExtResource("5_c0iba")
 expand_mode = 2
 stretch_mode = 5
 script = ExtResource("4_fkcny")
-item_code = "Ship of Harkinian::Light Arrow"
+item_code = "BLGOoT::Light Arrow"
 
 [node name="OoTDungeonRewardIcon" type="TextureRect" parent="." unique_id=683493987]
 texture_filter = 1
@@ -53,5 +53,5 @@ stretch_mode = 5
 layout_mode = 2
 text = "0/6"
 script = ExtResource("7_8p7xn")
-items = Array[String](["Ship of Harkinian::Kokiri's Emerald", "Ship of Harkinian::Goron's Ruby", "Ship of Harkinian::Zora's Sapphire", "Ship of Harkinian::Forest Medallion", "Ship of Harkinian::Fire Medallion", "Ship of Harkinian::Water Medallion", "Ship of Harkinian::Shadow Medallion", "Ship of Harkinian::Spirit Medallion", "Ship of Harkinian::Light Medallion"])
-condition = "Ship of Harkinian::Dungeon Reward Count"
+items = Array[String](["BLGOoT::Kokiri's Emerald", "BLGOoT::Goron's Ruby", "BLGOoT::Zora's Sapphire", "BLGOoT::Forest Medallion", "BLGOoT::Fire Medallion", "BLGOoT::Water Medallion", "BLGOoT::Shadow Medallion", "BLGOoT::Spirit Medallion", "BLGOoT::Light Medallion"])
+condition = "BLGOoT::Dungeon Reward Count"

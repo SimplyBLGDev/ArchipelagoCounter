@@ -160,6 +160,7 @@ custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 theme_override_constants/separation = -20
 script = ExtResource("8_uugkj")
+slot = "BLGSM64"
 star_0 = NodePath("StarNumber0")
 star_1 = NodePath("StarNumber1")
 star_2 = NodePath("StarNumber2")
@@ -192,7 +193,7 @@ texture = ExtResource("7_xuha7")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("11_crynv")
-item_code = "Super Mario 64::Progressive Key"
+item_code = "BLGSM64::Progressive Key"
 
 [node name="Key1" type="TextureRect" parent="VBoxContainer/VBoxContainer/SM64/HBoxContainer" unique_id=1551626107]
 custom_minimum_size = Vector2(28, 0)
@@ -201,7 +202,7 @@ texture = ExtResource("7_xuha7")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("11_crynv")
-item_code = "Super Mario 64::Progressive Key"
+item_code = "BLGSM64::Progressive Key"
 threshold = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer" unique_id=80978757]
@@ -256,7 +257,7 @@ expand_mode = 1
 stretch_mode = 5
 script = ExtResource("16_xuha7")
 frames_in_atlas = 3
-item_code = "Ship of Harkinian::Progressive Magic Meter"
+item_code = "BLGOoT::Progressive Magic Meter"
 
 [node name="OoTBow" type="TextureRect" parent="VBoxContainer/VBoxContainer3/OoT/HBoxContainer" unique_id=229848965]
 texture_filter = 1
@@ -266,7 +267,7 @@ texture = ExtResource("12_2o4q8")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("11_crynv")
-item_code = "Ship of Harkinian::Progressive Bow"
+item_code = "BLGOoT::Progressive Bow"
 
 [node name="OoTLightArrow" type="TextureRect" parent="VBoxContainer/VBoxContainer3/OoT/HBoxContainer" unique_id=1067117709]
 texture_filter = 1
@@ -276,7 +277,7 @@ texture = ExtResource("13_iq11a")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("11_crynv")
-item_code = "Ship of Harkinian::Light Arrow"
+item_code = "BLGOoT::Light Arrow"
 
 [node name="OoTDungeonRewardIcon" type="TextureRect" parent="VBoxContainer/VBoxContainer3/OoT/HBoxContainer" unique_id=190621832]
 texture_filter = 1
@@ -290,8 +291,8 @@ stretch_mode = 5
 layout_mode = 2
 text = "0/6"
 script = ExtResource("14_crynv")
-items = Array[String](["Ship of Harkinian::Kokiri's Emerald", "Ship of Harkinian::Goron's Ruby", "Ship of Harkinian::Zora's Sapphire", "Ship of Harkinian::Forest Medallion", "Ship of Harkinian::Fire Medallion", "Ship of Harkinian::Water Medallion", "Ship of Harkinian::Shadow Medallion", "Ship of Harkinian::Spirit Medallion", "Ship of Harkinian::Light Medallion"])
-condition = "Ship of Harkinian::Dungeon Reward Count"
+items = Array[String](["BLGOoT::Kokiri's Emerald", "BLGOoT::Goron's Ruby", "BLGOoT::Zora's Sapphire", "BLGOoT::Forest Medallion", "BLGOoT::Fire Medallion", "BLGOoT::Water Medallion", "BLGOoT::Shadow Medallion", "BLGOoT::Spirit Medallion", "BLGOoT::Light Medallion"])
+condition = "BLGOoT::Dungeon Reward Count"
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="VBoxContainer" unique_id=845461004]
 layout_mode = 2

@@ -19,14 +19,14 @@ expand_mode = 2
 stretch_mode = 5
 script = ExtResource("2_w71iq")
 frames_in_atlas = 6
-item_code = "The Minish Cap::Progressive Sword"
+item_code = "BLGMC::Progressive Sword"
 
 [node name="MinishSwordCount" type="Label" parent="." unique_id=848571655]
 layout_mode = 2
 text = "0/5"
 script = ExtResource("3_sjkcf")
-items = Array[String](["The Minish Cap::Progressive Sword"])
-condition = "The Minish Cap::Swords"
+items = Array[String](["BLGMC::Progressive Sword"])
+condition = "BLGMC::Swords"
 
 [node name="Control" type="Control" parent="." unique_id=211699368]
 custom_minimum_size = Vector2(4, 0)
@@ -43,5 +43,5 @@ stretch_mode = 5
 layout_mode = 2
 text = "0/3"
 script = ExtResource("3_sjkcf")
-items = Array[String](["The Minish Cap::Earth Element", "The Minish Cap::Fire Element", "The Minish Cap::Water Element", "The Minish Cap::Wind Element"])
-condition = "The Minish Cap::Elements"
+items = Array[String](["BLGMC::Earth Element", "BLGMC::Fire Element", "BLGMC::Water Element", "BLGMC::Wind Element"])
+condition = "BLGMC::Elements"

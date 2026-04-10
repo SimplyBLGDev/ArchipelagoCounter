@@ -16,5 +16,5 @@ stretch_mode = 5
 layout_mode = 2
 text = "0/6"
 script = ExtResource("2_7cibm")
-items = Array[String](["The Legend of Zelda - Oracle of Seasons::Fertile Soil", "The Legend of Zelda - Oracle of Seasons::Gift of Time", "The Legend of Zelda - Oracle of Seasons::Bright Sun", "The Legend of Zelda - Oracle of Seasons::Soothing Rain", "The Legend of Zelda - Oracle of Seasons::Nurturing Warmth", "The Legend of Zelda - Oracle of Seasons::Blowing Wind", "The Legend of Zelda - Oracle of Seasons::Seed of Life", "The Legend of Zelda - Oracle of Seasons::Changing Seasons"])
-condition = "The Legend of Zelda - Oracle of Seasons::Essences"
+items = Array[String](["BLGOoS::Fertile Soil", "BLGOoS::Gift of Time", "BLGOoS::Bright Sun", "BLGOoS::Soothing Rain", "BLGOoS::Nurturing Warmth", "BLGOoS::Blowing Wind", "BLGOoS::Seed of Life", "BLGOoS::Changing Seasons"])
+condition = "BLGOoS::Essences"

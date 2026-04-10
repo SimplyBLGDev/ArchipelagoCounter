@@ -144,7 +144,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_1sttb")
 
 [node name="Tint" parent="VBoxContainer/HBoxContainer/VBoxContainer/SM64" unique_id=1460687381 instance=ExtResource("6_0b02u")]
 layout_mode = 2
-game = "Super Mario 64"
+game = "BLGSM64"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/SM64" unique_id=700662345]
 layout_mode = 2
@@ -153,7 +153,7 @@ alignment = 2
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/SM64/HBoxContainer" unique_id=1042762476]
 layout_mode = 2
 size_flags_horizontal = 0
-text = "Super Mario 64"
+text = "BLGSM64"
 label_settings = SubResource("LabelSettings_vyb6t")
 vertical_alignment = 1
 
@@ -188,7 +188,7 @@ text = "Total Checks
 label_settings = SubResource("LabelSettings_60ajr")
 horizontal_alignment = 1
 script = ExtResource("13_eqmnl")
-game = "Super Mario 64"
+game = "BLGSM64"
 text_format = "Total Checks
 {0}/{1} ({2}%)"
 
@@ -202,7 +202,7 @@ horizontal_alignment = 1
 script = ExtResource("11_dkicx")
 text_format = "{0}
 ({1}%)"
-game = "Super Mario 64"
+game = "BLGSM64"
 
 [node name="LADX" type="PanelContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=731785557]
 self_modulate = Color(0.7879864, 0.8591524, 1, 1)
@@ -212,7 +212,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_1sttb")
 
 [node name="Tint" parent="VBoxContainer/HBoxContainer/VBoxContainer/LADX" unique_id=88653522 instance=ExtResource("6_0b02u")]
 layout_mode = 2
-game = "Links Awakening DX"
+game = "BLGDX"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/LADX" unique_id=416143881]
 layout_mode = 2
@@ -256,7 +256,7 @@ text = "Total Checks
 label_settings = SubResource("LabelSettings_60ajr")
 horizontal_alignment = 1
 script = ExtResource("13_eqmnl")
-game = "Links Awakening DX"
+game = "BLGDX"
 text_format = "Total Checks
 {0}/{1} ({2}%)"
 
@@ -270,7 +270,7 @@ horizontal_alignment = 1
 script = ExtResource("11_dkicx")
 text_format = "{0}
 ({1}%)"
-game = "Links Awakening DX"
+game = "BLGDX"
 
 [node name="OoT" type="PanelContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=214425530]
 self_modulate = Color(1, 0.945, 0.89, 1)
@@ -280,7 +280,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_1sttb")
 
 [node name="Tint" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoT" unique_id=1345044590 instance=ExtResource("6_0b02u")]
 layout_mode = 2
-game = "Ship of Harkinian"
+game = "BLGOoT"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoT" unique_id=1196878836]
 layout_mode = 2
@@ -324,7 +324,7 @@ text = "Total Checks
 label_settings = SubResource("LabelSettings_60ajr")
 horizontal_alignment = 1
 script = ExtResource("13_eqmnl")
-game = "Ship of Harkinian"
+game = "BLGOoT"
 text_format = "Total Checks
 {0}/{1} ({2}%)"
 
@@ -338,7 +338,7 @@ horizontal_alignment = 1
 script = ExtResource("11_dkicx")
 text_format = "{0}
 ({1}%)"
-game = "Ship of Harkinian"
+game = "BLGOoT"
 
 [node name="MM" type="PanelContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1318264283]
 self_modulate = Color(0.986, 0.86, 1, 1)
@@ -348,7 +348,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_1sttb")
 
 [node name="Tint" parent="VBoxContainer/HBoxContainer/VBoxContainer/MM" unique_id=1038334873 instance=ExtResource("6_0b02u")]
 layout_mode = 2
-game = "Majora's Mask Recompiled"
+game = "BLGMM"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/MM" unique_id=2107860813]
 layout_mode = 2
@@ -392,7 +392,7 @@ text = "Total Checks
 label_settings = SubResource("LabelSettings_60ajr")
 horizontal_alignment = 1
 script = ExtResource("13_eqmnl")
-game = "Majora's Mask Recompiled"
+game = "BLGMM"
 text_format = "Total Checks
 {0}/{1} ({2}%)"
 
@@ -406,7 +406,7 @@ horizontal_alignment = 1
 script = ExtResource("11_dkicx")
 text_format = "{0}
 ({1}%)"
-game = "Majora's Mask Recompiled"
+game = "BLGMM"
 
 [node name="ALttP" type="PanelContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=872434607]
 self_modulate = Color(0.92778, 0.94, 0.69560003, 1)
@@ -416,7 +416,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_1sttb")
 
 [node name="Tint" parent="VBoxContainer/HBoxContainer/VBoxContainer/ALttP" unique_id=2143723978 instance=ExtResource("6_0b02u")]
 layout_mode = 2
-game = "A Link to the Past"
+game = "BLGLttP"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/ALttP" unique_id=1063887736]
 layout_mode = 2
@@ -460,7 +460,7 @@ text = "Total Checks
 label_settings = SubResource("LabelSettings_60ajr")
 horizontal_alignment = 1
 script = ExtResource("13_eqmnl")
-game = "A Link to the Past"
+game = "BLGLttP"
 text_format = "Total Checks
 {0}/{1} ({2}%)"
 
@@ -474,7 +474,7 @@ horizontal_alignment = 1
 script = ExtResource("11_dkicx")
 text_format = "{0}
 ({1}%)"
-game = "A Link to the Past"
+game = "BLGLttP"
 
 [node name="MinishCap" type="PanelContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1411685992]
 self_modulate = Color(0.82, 1, 0.877, 1)
@@ -484,7 +484,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_1sttb")
 
 [node name="Tint" parent="VBoxContainer/HBoxContainer/VBoxContainer/MinishCap" unique_id=356377550 instance=ExtResource("6_0b02u")]
 layout_mode = 2
-game = "The Minish Cap"
+game = "BLGMC"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/MinishCap" unique_id=905083892]
 layout_mode = 2
@@ -528,7 +528,7 @@ text = "Total Checks
 label_settings = SubResource("LabelSettings_60ajr")
 horizontal_alignment = 1
 script = ExtResource("13_eqmnl")
-game = "The Minish Cap"
+game = "BLGMC"
 text_format = "Total Checks
 {0}/{1} ({2}%)"
 
@@ -542,7 +542,7 @@ horizontal_alignment = 1
 script = ExtResource("11_dkicx")
 text_format = "{0}
 ({1}%)"
-game = "The Minish Cap"
+game = "BLGMC"
 
 [node name="OoS" type="PanelContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=939230011]
 custom_minimum_size = Vector2(0, 53)
@@ -551,7 +551,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_1sttb")
 
 [node name="Tint" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoS" unique_id=1220154199 instance=ExtResource("6_0b02u")]
 layout_mode = 2
-game = "The Legend of Zelda - Oracle of Seasons"
+game = "BLGOoS"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoS" unique_id=2069909768]
 layout_mode = 2
@@ -595,7 +595,7 @@ text = "Total Checks
 label_settings = SubResource("LabelSettings_60ajr")
 horizontal_alignment = 1
 script = ExtResource("13_eqmnl")
-game = "The Legend of Zelda - Oracle of Seasons"
+game = "BLGOoS"
 text_format = "Total Checks
 {0}/{1} ({2}%)"
 
@@ -609,7 +609,7 @@ horizontal_alignment = 1
 script = ExtResource("11_dkicx")
 text_format = "{0}
 ({1}%)"
-game = "The Legend of Zelda - Oracle of Seasons"
+game = "BLGOoS"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=483834115]
 custom_minimum_size = Vector2(350, 0)

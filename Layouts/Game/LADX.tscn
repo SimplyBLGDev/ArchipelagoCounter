@@ -15,7 +15,7 @@ texture = ExtResource("2_q05f6")
 expand_mode = 2
 stretch_mode = 5
 script = ExtResource("3_q2xp0")
-item_code = "Links Awakening DX::Ocarina"
+item_code = "BLGDX::Ocarina"
 
 [node name="DXBallad" type="TextureRect" parent="." unique_id=2066671793]
 texture_filter = 1
@@ -24,7 +24,7 @@ texture = ExtResource("4_o04e6")
 expand_mode = 2
 stretch_mode = 5
 script = ExtResource("3_q2xp0")
-item_code = "Links Awakening DX::Ballad of the Wind Fish"
+item_code = "BLGDX::Ballad of the Wind Fish"
 
 [node name="InstrumentIcon" type="TextureRect" parent="." unique_id=866316250]
 texture_filter = 1
@@ -37,5 +37,5 @@ stretch_mode = 5
 layout_mode = 2
 text = "0/6"
 script = ExtResource("6_3l33q")
-items = Array[String](["Links Awakening DX::Full Moon Cello", "Links Awakening DX::Conch Horn", "Links Awakening DX::Sea Lily's Bell", "Links Awakening DX::Surf Harp", "Links Awakening DX::Wind Marimba", "Links Awakening DX::Coral Triangle", "Links Awakening DX::Organ of Evening Calm", "Links Awakening DX::Thunder Drum"])
-condition = "Links Awakening DX::Instrument Count"
+items = Array[String](["BLGDX::Full Moon Cello", "BLGDX::Conch Horn", "BLGDX::Sea Lily's Bell", "BLGDX::Surf Harp", "BLGDX::Wind Marimba", "BLGDX::Coral Triangle", "BLGDX::Organ of Evening Calm", "BLGDX::Thunder Drum"])
+condition = "BLGDX::Instrument Count"

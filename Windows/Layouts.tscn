@@ -109,7 +109,7 @@ texture = ExtResource("6_cy7qq")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("7_qd2n0")
-item_code = "The Legend of Zelda - Oracle of Seasons::Fertile Soil"
+item_code = "BLGOoS::Fertile Soil"
 
 [node name="GiftOfTime" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoSEssences/CenterContainer/GridContainer" unique_id=275010254]
 texture_filter = 1
@@ -119,7 +119,7 @@ texture = ExtResource("8_1chow")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("7_qd2n0")
-item_code = "The Legend of Zelda - Oracle of Seasons::Gift of Time"
+item_code = "BLGOoS::Gift of Time"
 
 [node name="BrightSun" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoSEssences/CenterContainer/GridContainer" unique_id=1032652948]
 texture_filter = 1
@@ -129,7 +129,7 @@ texture = ExtResource("9_raf65")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("7_qd2n0")
-item_code = "The Legend of Zelda - Oracle of Seasons::Bright Sun"
+item_code = "BLGOoS::Bright Sun"
 
 [node name="SoothingRain" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoSEssences/CenterContainer/GridContainer" unique_id=1991668851]
 texture_filter = 1
@@ -139,7 +139,7 @@ texture = ExtResource("10_n3tvl")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("7_qd2n0")
-item_code = "The Legend of Zelda - Oracle of Seasons::Soothing Rain"
+item_code = "BLGOoS::Soothing Rain"
 
 [node name="NurturingWarmth" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoSEssences/CenterContainer/GridContainer" unique_id=802830179]
 texture_filter = 1
@@ -149,7 +149,7 @@ texture = ExtResource("11_cqlr4")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("7_qd2n0")
-item_code = "The Legend of Zelda - Oracle of Seasons::Nurturing Warmth"
+item_code = "BLGOoS::Nurturing Warmth"
 
 [node name="BlowingWind" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoSEssences/CenterContainer/GridContainer" unique_id=1084328156]
 texture_filter = 1
@@ -159,7 +159,7 @@ texture = ExtResource("12_v6qi0")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("7_qd2n0")
-item_code = "The Legend of Zelda - Oracle of Seasons::Blowing Wind"
+item_code = "BLGOoS::Blowing Wind"
 
 [node name="SeedOfLife" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoSEssences/CenterContainer/GridContainer" unique_id=1167739490]
 texture_filter = 1
@@ -169,7 +169,7 @@ texture = ExtResource("13_au7vp")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("7_qd2n0")
-item_code = "The Legend of Zelda - Oracle of Seasons::Seed of Lfie"
+item_code = "BLGOoS::Seed of Lfie"
 
 [node name="ChangingSeasons" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoSEssences/CenterContainer/GridContainer" unique_id=855295370]
 texture_filter = 1
@@ -179,7 +179,7 @@ texture = ExtResource("14_vmxiu")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("7_qd2n0")
-item_code = "The Legend of Zelda - Oracle of Seasons::Changing Seasons"
+item_code = "BLGOoS::Changing Seasons"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=470396597]
 layout_mode = 2

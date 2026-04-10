@@ -39,13 +39,13 @@
 		}
 	],
 	"conditions": {
-		"Links Awakening DX::Instrument Count": 6,
-		"Ship of Harkinian::Dungeon Reward Count": 7,
-		"Majora's Mask Recompiled::Remains Count": 3,
-		"The Minish Cap::Swords": 5,
-		"The Minish Cap::Elements": 3,
-		"A Link to the Past::Triforce Count": 25,
-		"The Legend of Zelda - Oracle of Seasons::Essences": 6
+		"BLGDX::Instrument Count": 6,
+		"BLGOoT::Dungeon Reward Count": 7,
+		"BLGMM::Remains Count": 3,
+		"BLGMC::Swords": 5,
+		"BLGMC::Elements": 3,
+		"BLGLttP::Triforce Count": 25,
+		"BLGOoS::Essences": 6
 	},
 	"log_colors": {
 		"timestamp": "ffffff9b",

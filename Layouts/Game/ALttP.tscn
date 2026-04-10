@@ -16,5 +16,5 @@ stretch_mode = 5
 layout_mode = 2
 text = "00/25"
 script = ExtResource("2_e4l5q")
-items = Array[String](["A Link to the Past::Triforce Piece"])
-condition = "A Link to the Past::Triforce Count"
+items = Array[String](["BLGLttP::Triforce Piece"])
+condition = "BLGLttP::Triforce Count"

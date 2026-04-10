@@ -32,6 +32,7 @@ custom_minimum_size = Vector2(83, 0)
 layout_mode = 2
 theme_override_constants/separation = -20
 script = ExtResource("2_axvic")
+slot = "BLGSM64"
 star_0 = NodePath("StarNumber0")
 star_1 = NodePath("StarNumber1")
 star_2 = NodePath("StarNumber2")
@@ -61,7 +62,7 @@ texture = ExtResource("4_nln47")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("5_hufnj")
-item_code = "Super Mario 64::Progressive Key"
+item_code = "BLGSM64::Progressive Key"
 
 [node name="Key1" type="TextureRect" parent="." unique_id=1551586786]
 custom_minimum_size = Vector2(26, 0)
@@ -70,5 +71,5 @@ texture = ExtResource("4_nln47")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("5_hufnj")
-item_code = "Super Mario 64::Progressive Key"
+item_code = "BLGSM64::Progressive Key"
 threshold = 2
