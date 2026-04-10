@@ -25,7 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://2i82c74ucmsu" path="res://Marquee/MarqueeOoS.png" id="23_sjhyx"]
 [ext_resource type="PackedScene" uid="uid://tk3tlq3px4k0" path="res://Layouts/Game/OoS.tscn" id="24_x1dn2"]
 [ext_resource type="FontFile" uid="uid://cdkhdgy8yaj4p" path="res://UI/Roboto-Bold.ttf" id="25_1j0uq"]
-[ext_resource type="Script" uid="uid://uf4ckcqtqd57" path="res://RunTimer.gd" id="26_ymnca"]
+[ext_resource type="Script" uid="uid://uf4ckcqtqd57" path="res://LayoutTool/LayoutTool_RunTimer.gd" id="26_ymnca"]
 [ext_resource type="Texture2D" uid="uid://dak3ndpe784vl" path="res://Icons/Twitch.png" id="27_7auer"]
 [ext_resource type="Texture2D" uid="uid://dnniil0l7k67m" path="res://Icons/Youtube.png" id="28_j8pkq"]
 [ext_resource type="Script" uid="uid://dge62fjj66m10" path="res://LayoutTool/LayoutTool_CheckCounter.gd" id="29_lff02"]

@@ -7,12 +7,13 @@ var timer := 0.0
 var log: Array[LogMessage] = []
 var version: String = ProjectSettings.get_setting("application/config/version")
 var starting_time := 0.0
+var game_timer := {}
 
 static func save_file(file_name: String, data: Dictionary) -> void:
 	var path := OS.get_executable_path().get_base_dir().path_join(file_name)
 	var file := FileAccess.open(path, FileAccess.WRITE)
 	if file:
-		file.store_string(JSON.stringify(data))
+		file.store_string(JSON.stringify(data, "", false))
 		file.close()
 
 
@@ -36,6 +37,7 @@ static func load() -> Save:
 	save.timer = save_data.get("timer", 0.0)
 	save.starting_time = save_data.get("starting_time", Time.get_unix_time_from_system())
 	save.version = save_data.get("generated_version", ProjectSettings.get("application/config/version"))
+	save.game_timer = JSON.parse_string(save_data.get("game_timer", "{}"))
 	
 	var log_data: Array = save_data.get("log", [])
 	for log_entry in log_data:
@@ -56,6 +58,7 @@ func save():
 		"log": log_data,
 		"starting_time": starting_time,
 		"generated_version": version,
+		"game_timer": JSON.stringify(game_timer)
 	}
 	
 	save_file(FILENAME, save_data)

@@ -65,7 +65,6 @@
 	"overrides": {
 		"games": {
 			"TUNIC": {
-				"data_package_file": "overrides/TUNIC_datapackage.json",
 				"exclude_locations": [
 					".*Grass.*\\([0-9\\.,]+\\)",
 					".*Bush.*\\([0-9\\.,]+\\)"

@@ -13,6 +13,9 @@ var items: Dictionary[String, int] = {}
 var checks := 0
 var total_checks := 0
 var total_checks_counted_slots: Array[int] = []
+var completed_games: Array[String] = []
+var game_checks: Dictionary[String, int] = {}
+var total_game_checks: Dictionary[String, int] = {}
 
 var save: Save
 
@@ -31,6 +34,11 @@ var game_lookup: Dictionary[int, String] = {}
 func _process(delta: float) -> void:
 	if len(active_players) > 0:
 		save.timer += delta
+		for player in active_players:
+			var game := get_game_from_slot(player)
+			if game not in save.game_timer:
+				save.game_timer[game] = 0.0
+			save.game_timer[game] += delta
 		timer_update.emit()
 
 
@@ -54,6 +62,8 @@ func _ready():
 		if inventory.received_items_packet != {}:
 			process_received_items(get_slot_id_from_name(settings.games[game]), inventory.received_items_packet)
 	
+	process_save()
+	
 	var watch_slot: String = settings.games.keys()[0]
 	print("Watching for updates on {0}".format([watch_slot]))
 	socket.watch_for_updates(watch_slot, settings.games[watch_slot], data_packages[watch_slot]["checksum"])
@@ -74,6 +84,9 @@ func build_lookup(game: String, socket: Socket):
 	location_lookup[game] = {} as Dictionary[int, String]
 	for location in data_packages[game]["location_name_to_id"]:
 		location_lookup[game][int(data_packages[game]["location_name_to_id"][location])] = location
+
+	game_checks[game] = 0
+	total_game_checks[game] = 0
 
 
 func get_data_package_for_game(game: String, socket: Socket) -> Dictionary:
@@ -110,6 +123,7 @@ func process_connected(packet):
 			location_count += 1
 	
 	total_checks += location_count
+	total_game_checks[get_game_from_slot(slot_id)] += location_count
 
 
 func is_location_excluded(slot_id: int, location_id: int) -> bool:
@@ -139,6 +153,7 @@ func process_received_items(slot_id: int, packet):
 		
 		if not is_location_excluded(slot_id, location_id):
 			checks += 1
+			game_checks[get_game_from_slot(slot_id)] += 1
 		get_item(slot_id, item_id)
 
 
@@ -154,7 +169,7 @@ func update_received(update: Socket.Update):
 	if update is Socket.Update_Player:
 		var up := update as Socket.Update_Player
 		if up.update_type == Socket.Update_Player.Player_Update_Type.Join:
-			active_players.append(up.slot)
+			active_players.append( up.slot)
 		elif up.update_type == Socket.Update_Player.Player_Update_Type.Part:
 			active_players.erase(up.slot)
 	
@@ -163,6 +178,7 @@ func update_received(update: Socket.Update):
 		
 		if not is_location_excluded(ui.sending_player_id, ui.location_id):
 			checks += 1
+			game_checks[get_game_from_slot(ui.sending_player_id)] += 1
 		get_item(ui.receiving_player_id, ui.item_id)
 
 
@@ -181,6 +197,8 @@ func log_update(update: Socket.Update):
 	var log_object := LogMessage.from_update(update)
 	if log_object == null:
 		return
+	
+	process_log_entry(log_object)
 	
 	save.log.append(log_object)
 	log.emit(log_object)
@@ -212,6 +230,14 @@ func get_slot_id_from_name(name: String) -> int:
 			return int(player["slot"])
 	
 	return 0
+
+
+func get_slot_from_id(id: int) -> String:
+	for player in players:
+		if int(player["slot"]) == id:
+			return player["name"]
+	
+	return "Someone"
 
 
 func get_item_name_from_id(slot_id: int, item_id: int) -> String:
@@ -265,3 +291,13 @@ func load_settings():
 func load_save():
 	save = Save.load()
 	timer_update.emit()
+
+
+func process_save():
+	for log in save.log:
+		process_log_entry(log)
+
+
+func process_log_entry(log_message: LogMessage):
+	if log_message is LogMessage_SlotEvent and log_message.type == "goal":
+		completed_games.append(get_slot_from_id(log_message.slot))

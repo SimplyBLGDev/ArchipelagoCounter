@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://i3v3y8gr8k62" path="res://Layouts/Game/ALttP.tscn" id="19_22sia"]
 [ext_resource type="PackedScene" uid="uid://ctnldj7dktmty" path="res://Layouts/Game/MinishCap.tscn" id="20_uugkj"]
 [ext_resource type="PackedScene" uid="uid://tk3tlq3px4k0" path="res://Layouts/Game/OoS.tscn" id="21_crynv"]
-[ext_resource type="Script" uid="uid://uf4ckcqtqd57" path="res://RunTimer.gd" id="21_udf5c"]
+[ext_resource type="Script" uid="uid://uf4ckcqtqd57" path="res://LayoutTool/LayoutTool_RunTimer.gd" id="21_udf5c"]
 [ext_resource type="Script" uid="uid://dge62fjj66m10" path="res://LayoutTool/LayoutTool_CheckCounter.gd" id="26_xuha7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gq74i"]
@@ -326,6 +326,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ALttP" type="PanelContainer" parent="VBoxContainer/VBoxContainer5" unique_id=1883782741]
+self_modulate = Color(0.92941177, 0.9411765, 0.69411767, 1)
 custom_minimum_size = Vector2(0, 53)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_plnk0")

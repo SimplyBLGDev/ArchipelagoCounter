@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://i3v3y8gr8k62" path="res://Layouts/Game/ALttP.tscn" id="9_makpk"]
 [ext_resource type="PackedScene" uid="uid://ctnldj7dktmty" path="res://Layouts/Game/MinishCap.tscn" id="10_rekja"]
 [ext_resource type="PackedScene" uid="uid://tk3tlq3px4k0" path="res://Layouts/Game/OoS.tscn" id="11_6b2bu"]
-[ext_resource type="Script" uid="uid://uf4ckcqtqd57" path="res://RunTimer.gd" id="19_t2gpa"]
+[ext_resource type="Script" uid="uid://uf4ckcqtqd57" path="res://LayoutTool/LayoutTool_RunTimer.gd" id="19_t2gpa"]
 [ext_resource type="Texture2D" uid="uid://dak3ndpe784vl" path="res://Icons/Twitch.png" id="20_3nvr0"]
 [ext_resource type="Texture2D" uid="uid://dnniil0l7k67m" path="res://Icons/Youtube.png" id="21_rl2h3"]
 [ext_resource type="Script" uid="uid://dge62fjj66m10" path="res://LayoutTool/LayoutTool_CheckCounter.gd" id="25_fem3p"]
@@ -176,6 +176,7 @@ vertical_alignment = 1
 layout_mode = 2
 
 [node name="ALttP" type="PanelContainer" parent="VBoxContainer" unique_id=1105685387]
+self_modulate = Color(0.92941177, 0.9411765, 0.69411767, 1)
 custom_minimum_size = Vector2(0, 53)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_plnk0")

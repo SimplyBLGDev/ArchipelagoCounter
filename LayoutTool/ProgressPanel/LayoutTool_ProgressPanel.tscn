@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dmlmc5kt35xlm"]
+
+[ext_resource type="Script" uid="uid://dscv0kwgp7o32" path="res://LayoutTool/LayoutTool_ProgressPanel.gd" id="1_1hrgd"]
+
+[sub_resource type="Shader" id="Shader_60ajr"]
+code = "shader_type canvas_item;
+render_mode blend_mul;
+
+uniform float progress = 0.5;
+uniform float contrast = 0.5;
+
+void fragment() {
+	if (UV.x > progress) {
+		COLOR.rgb *= contrast;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_onfxy"]
+resource_local_to_scene = true
+shader = SubResource("Shader_60ajr")
+shader_parameter/progress = 1.0
+shader_parameter/contrast = 0.7
+
+[node name="Tint" type="MarginContainer" unique_id=1460687381 node_paths=PackedStringArray("color_rect")]
+theme_override_constants/margin_left = -6
+theme_override_constants/margin_top = -6
+theme_override_constants/margin_right = -6
+theme_override_constants/margin_bottom = -6
+script = ExtResource("1_1hrgd")
+color_rect = NodePath("ColorRect")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=860439534]
+material = SubResource("ShaderMaterial_onfxy")
+layout_mode = 2

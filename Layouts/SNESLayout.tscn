@@ -5,13 +5,15 @@
 [ext_resource type="Texture2D" uid="uid://c68mmj61blj8v" path="res://Marquee/Marquee_Generic.png" id="2_myfee"]
 [ext_resource type="FontFile" uid="uid://cdkhdgy8yaj4p" path="res://UI/Roboto-Bold.ttf" id="3_jnrrn"]
 [ext_resource type="PackedScene" uid="uid://bupwjdbwh15vf" path="res://Layouts/Game/SM64.tscn" id="5_87n7i"]
+[ext_resource type="Texture2D" uid="uid://jn3j0id8bpr7" path="res://Icons/Star.png" id="5_vce1i"]
+[ext_resource type="Script" uid="uid://bb8s8i2lg88hp" path="res://LayoutTool/LayoutTool_CompletionIndicator.gd" id="6_dsjyu"]
 [ext_resource type="PackedScene" uid="uid://bmuju0oajlqxb" path="res://Layouts/Game/LADX.tscn" id="6_q6n17"]
 [ext_resource type="PackedScene" uid="uid://2n2xblq2l8j0" path="res://Layouts/Game/OoT.tscn" id="7_vce1i"]
 [ext_resource type="PackedScene" uid="uid://qs6puj7bsrbb" path="res://Layouts/Game/MM.tscn" id="8_dsjyu"]
 [ext_resource type="PackedScene" uid="uid://i3v3y8gr8k62" path="res://Layouts/Game/ALttP.tscn" id="9_wy4yq"]
 [ext_resource type="PackedScene" uid="uid://ctnldj7dktmty" path="res://Layouts/Game/MinishCap.tscn" id="10_i0rcy"]
 [ext_resource type="PackedScene" uid="uid://tk3tlq3px4k0" path="res://Layouts/Game/OoS.tscn" id="11_b6fh7"]
-[ext_resource type="Script" uid="uid://uf4ckcqtqd57" path="res://RunTimer.gd" id="20_7dagj"]
+[ext_resource type="Script" uid="uid://uf4ckcqtqd57" path="res://LayoutTool/LayoutTool_RunTimer.gd" id="20_7dagj"]
 [ext_resource type="Texture2D" uid="uid://dak3ndpe784vl" path="res://Icons/Twitch.png" id="21_no6oy"]
 [ext_resource type="Texture2D" uid="uid://dnniil0l7k67m" path="res://Icons/Youtube.png" id="22_8y85m"]
 [ext_resource type="Script" uid="uid://dge62fjj66m10" path="res://LayoutTool/LayoutTool_CheckCounter.gd" id="26_nam3n"]
@@ -104,10 +106,19 @@ alignment = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/SM64/HBoxContainer" unique_id=516431237]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 0
 text = "Super Mario 64"
 label_settings = SubResource("LabelSettings_gq74i")
 vertical_alignment = 1
+
+[node name="CompletionIndicator" type="TextureRect" parent="VBoxContainer/SM64/HBoxContainer" unique_id=1097160491]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("5_vce1i")
+stretch_mode = 5
+script = ExtResource("6_dsjyu")
+slot = "BLGSM64"
 
 [node name="SM64" parent="VBoxContainer/SM64/HBoxContainer" unique_id=535599633 instance=ExtResource("5_87n7i")]
 layout_mode = 2
@@ -124,10 +135,19 @@ alignment = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/LADX/HBoxContainer" unique_id=1713022929]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 0
 text = "Link's Awakening DX"
 label_settings = SubResource("LabelSettings_gq74i")
 vertical_alignment = 1
+
+[node name="CompletionIndicator2" type="TextureRect" parent="VBoxContainer/LADX/HBoxContainer" unique_id=921096748]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("5_vce1i")
+stretch_mode = 5
+script = ExtResource("6_dsjyu")
+slot = "BLGLADX"
 
 [node name="LADX" parent="VBoxContainer/LADX/HBoxContainer" unique_id=1679351992 instance=ExtResource("6_q6n17")]
 layout_mode = 2
@@ -144,10 +164,19 @@ alignment = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/OoT/HBoxContainer" unique_id=1560333832]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 0
 text = "Ocarina of Time"
 label_settings = SubResource("LabelSettings_gq74i")
 vertical_alignment = 1
+
+[node name="CompletionIndicator3" type="TextureRect" parent="VBoxContainer/OoT/HBoxContainer" unique_id=1375339763]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("5_vce1i")
+stretch_mode = 5
+script = ExtResource("6_dsjyu")
+slot = "BLGOoT"
 
 [node name="OoT" parent="VBoxContainer/OoT/HBoxContainer" unique_id=1619894384 instance=ExtResource("7_vce1i")]
 layout_mode = 2
@@ -164,15 +193,25 @@ alignment = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/MM/HBoxContainer" unique_id=95453209]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 0
 text = "Majora's Mask"
 label_settings = SubResource("LabelSettings_gq74i")
 vertical_alignment = 1
+
+[node name="CompletionIndicator4" type="TextureRect" parent="VBoxContainer/MM/HBoxContainer" unique_id=825179061]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("5_vce1i")
+stretch_mode = 5
+script = ExtResource("6_dsjyu")
+slot = "BLGMM"
 
 [node name="MM" parent="VBoxContainer/MM/HBoxContainer" unique_id=388441856 instance=ExtResource("8_dsjyu")]
 layout_mode = 2
 
 [node name="ALttP" type="PanelContainer" parent="VBoxContainer" unique_id=1073938437]
+self_modulate = Color(0.92941177, 0.9411765, 0.69411767, 1)
 custom_minimum_size = Vector2(0, 53)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_plnk0")
@@ -183,10 +222,19 @@ alignment = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/ALttP/HBoxContainer" unique_id=1238115536]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 0
 text = "A Link to the Past"
 label_settings = SubResource("LabelSettings_gq74i")
 vertical_alignment = 1
+
+[node name="CompletionIndicator5" type="TextureRect" parent="VBoxContainer/ALttP/HBoxContainer" unique_id=1495790317]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("5_vce1i")
+stretch_mode = 5
+script = ExtResource("6_dsjyu")
+slot = "BLGLttP"
 
 [node name="ALttP" parent="VBoxContainer/ALttP/HBoxContainer" unique_id=1054017773 instance=ExtResource("9_wy4yq")]
 layout_mode = 2
@@ -203,10 +251,19 @@ alignment = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/MinishCap/HBoxContainer" unique_id=1045901320]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 0
 text = "Minish Cap"
 label_settings = SubResource("LabelSettings_gq74i")
 vertical_alignment = 1
+
+[node name="CompletionIndicator6" type="TextureRect" parent="VBoxContainer/MinishCap/HBoxContainer" unique_id=687794069]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("5_vce1i")
+stretch_mode = 5
+script = ExtResource("6_dsjyu")
+slot = "BLGMC"
 
 [node name="MinishCap" parent="VBoxContainer/MinishCap/HBoxContainer" unique_id=1413241670 instance=ExtResource("10_i0rcy")]
 layout_mode = 2
@@ -222,10 +279,19 @@ alignment = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/OoS/HBoxContainer" unique_id=1405358872]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 0
 text = "Oracle of Seasons"
 label_settings = SubResource("LabelSettings_gq74i")
 vertical_alignment = 1
+
+[node name="CompletionIndicator7" type="TextureRect" parent="VBoxContainer/OoS/HBoxContainer" unique_id=338633776]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("5_vce1i")
+stretch_mode = 5
+script = ExtResource("6_dsjyu")
+slot = "BLGOoS"
 
 [node name="OoS" parent="VBoxContainer/OoS/HBoxContainer" unique_id=744261680 instance=ExtResource("11_b6fh7")]
 layout_mode = 2

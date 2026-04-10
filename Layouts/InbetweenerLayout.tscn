@@ -5,15 +5,20 @@
 [ext_resource type="Texture2D" uid="uid://c68mmj61blj8v" path="res://Marquee/Marquee_Generic.png" id="3_0rerg"]
 [ext_resource type="PackedScene" uid="uid://c5empkuku1n2t" path="res://LayoutTool/PendingItems/LayoutTool_PendingItems.tscn" id="4_3d06i"]
 [ext_resource type="FontFile" uid="uid://cdkhdgy8yaj4p" path="res://UI/Roboto-Bold.ttf" id="4_gccbt"]
+[ext_resource type="PackedScene" uid="uid://dmlmc5kt35xlm" path="res://LayoutTool/ProgressPanel/LayoutTool_ProgressPanel.tscn" id="6_0b02u"]
+[ext_resource type="Script" uid="uid://qh5eo302rrxb" path="res://LayoutTool/LayoutTool_MultiView.gd" id="6_60ajr"]
 [ext_resource type="PackedScene" uid="uid://bupwjdbwh15vf" path="res://Layouts/Game/SM64.tscn" id="6_eqmnl"]
+[ext_resource type="Texture2D" uid="uid://jn3j0id8bpr7" path="res://Icons/Star.png" id="6_onfxy"]
+[ext_resource type="Script" uid="uid://bb8s8i2lg88hp" path="res://LayoutTool/LayoutTool_CompletionIndicator.gd" id="7_2s2nv"]
 [ext_resource type="PackedScene" uid="uid://bmuju0oajlqxb" path="res://Layouts/Game/LADX.tscn" id="7_60ajr"]
 [ext_resource type="PackedScene" uid="uid://2n2xblq2l8j0" path="res://Layouts/Game/OoT.tscn" id="8_onfxy"]
 [ext_resource type="PackedScene" uid="uid://qs6puj7bsrbb" path="res://Layouts/Game/MM.tscn" id="9_2s2nv"]
 [ext_resource type="PackedScene" uid="uid://i3v3y8gr8k62" path="res://Layouts/Game/ALttP.tscn" id="10_dkicx"]
 [ext_resource type="PackedScene" uid="uid://ctnldj7dktmty" path="res://Layouts/Game/MinishCap.tscn" id="11_0b02u"]
+[ext_resource type="Script" uid="uid://chn0o4excpugo" path="res://LayoutTool/LayoutTool_AdvancedTimer.gd" id="11_dkicx"]
 [ext_resource type="PackedScene" uid="uid://tk3tlq3px4k0" path="res://Layouts/Game/OoS.tscn" id="12_fu3g7"]
 [ext_resource type="Script" uid="uid://bbhvigrs7yh4t" path="res://LayoutTool/LayoutTool_CheckCounterAdvanced.gd" id="13_eqmnl"]
-[ext_resource type="Script" uid="uid://uf4ckcqtqd57" path="res://RunTimer.gd" id="21_1kbda"]
+[ext_resource type="Script" uid="uid://uf4ckcqtqd57" path="res://LayoutTool/LayoutTool_RunTimer.gd" id="21_1kbda"]
 [ext_resource type="Texture2D" uid="uid://dak3ndpe784vl" path="res://Icons/Twitch.png" id="22_i0trt"]
 [ext_resource type="Texture2D" uid="uid://dnniil0l7k67m" path="res://Icons/Youtube.png" id="23_k6080"]
 
@@ -43,6 +48,12 @@ font = ExtResource("4_gccbt")
 font_size = 26
 shadow_color = Color(0, 0, 0, 0.7019608)
 shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_60ajr"]
+font = ExtResource("4_gccbt")
+
+[sub_resource type="LabelSettings" id="LabelSettings_2s2nv"]
+font = ExtResource("4_gccbt")
 
 [sub_resource type="LabelSettings" id="LabelSettings_xoxj5"]
 line_spacing = 0.0
@@ -126,9 +137,14 @@ theme_override_constants/separation = 4
 
 [node name="SM64" type="PanelContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1049690740]
 self_modulate = Color(1, 0.8, 0.8, 1)
+clip_children = 2
 custom_minimum_size = Vector2(0, 53)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_1sttb")
+
+[node name="Tint" parent="VBoxContainer/HBoxContainer/VBoxContainer/SM64" unique_id=1460687381 instance=ExtResource("6_0b02u")]
+layout_mode = 2
+game = "Super Mario 64"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/SM64" unique_id=700662345]
 layout_mode = 2
@@ -136,13 +152,57 @@ alignment = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/SM64/HBoxContainer" unique_id=1042762476]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 0
 text = "Super Mario 64"
 label_settings = SubResource("LabelSettings_vyb6t")
 vertical_alignment = 1
 
-[node name="SM64" parent="VBoxContainer/HBoxContainer/VBoxContainer/SM64/HBoxContainer" unique_id=535599633 instance=ExtResource("6_eqmnl")]
+[node name="CompletionIndicator" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/SM64/HBoxContainer" unique_id=1809267889]
+texture_filter = 1
 layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("6_onfxy")
+stretch_mode = 5
+script = ExtResource("7_2s2nv")
+slot = "BLGSM64"
+
+[node name="MultiView" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/SM64/HBoxContainer" unique_id=1811306486]
+layout_mode = 2
+alignment = 2
+script = ExtResource("6_60ajr")
+
+[node name="SM64" parent="VBoxContainer/HBoxContainer/VBoxContainer/SM64/HBoxContainer/MultiView" unique_id=535599633 instance=ExtResource("6_eqmnl")]
+layout_mode = 2
+
+[node name="Stats" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/SM64/HBoxContainer/MultiView" unique_id=865615005]
+visible = false
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/SM64/HBoxContainer/MultiView/Stats" unique_id=959630787]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Total Checks
+012/256 (12.15%)"
+label_settings = SubResource("LabelSettings_60ajr")
+horizontal_alignment = 1
+script = ExtResource("13_eqmnl")
+game = "Super Mario 64"
+text_format = "Total Checks
+{0}/{1} ({2}%)"
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/SM64/HBoxContainer/MultiView/Stats" unique_id=1874208411]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "04:12:16
+(07.25%)"
+label_settings = SubResource("LabelSettings_2s2nv")
+horizontal_alignment = 1
+script = ExtResource("11_dkicx")
+text_format = "{0}
+({1}%)"
+game = "Super Mario 64"
 
 [node name="LADX" type="PanelContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=731785557]
 self_modulate = Color(0.7879864, 0.8591524, 1, 1)
@@ -150,19 +210,67 @@ custom_minimum_size = Vector2(0, 53)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_1sttb")
 
+[node name="Tint" parent="VBoxContainer/HBoxContainer/VBoxContainer/LADX" unique_id=88653522 instance=ExtResource("6_0b02u")]
+layout_mode = 2
+game = "Links Awakening DX"
+
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/LADX" unique_id=416143881]
 layout_mode = 2
 alignment = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/LADX/HBoxContainer" unique_id=1671657056]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 0
 text = "Link's Awakening DX"
 label_settings = SubResource("LabelSettings_vyb6t")
 vertical_alignment = 1
 
-[node name="LADX" parent="VBoxContainer/HBoxContainer/VBoxContainer/LADX/HBoxContainer" unique_id=1679351992 instance=ExtResource("7_60ajr")]
+[node name="CompletionIndicator" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/LADX/HBoxContainer" unique_id=822624051]
+texture_filter = 1
 layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("6_onfxy")
+stretch_mode = 5
+script = ExtResource("7_2s2nv")
+slot = "BLGLADX"
+
+[node name="MultiView" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/LADX/HBoxContainer" unique_id=73233258]
+layout_mode = 2
+alignment = 2
+script = ExtResource("6_60ajr")
+
+[node name="LADX" parent="VBoxContainer/HBoxContainer/VBoxContainer/LADX/HBoxContainer/MultiView" unique_id=1679351992 instance=ExtResource("7_60ajr")]
+layout_mode = 2
+
+[node name="Stats" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/LADX/HBoxContainer/MultiView" unique_id=280327546]
+visible = false
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/LADX/HBoxContainer/MultiView/Stats" unique_id=917588541]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Total Checks
+012/256 (12.15%)"
+label_settings = SubResource("LabelSettings_60ajr")
+horizontal_alignment = 1
+script = ExtResource("13_eqmnl")
+game = "Links Awakening DX"
+text_format = "Total Checks
+{0}/{1} ({2}%)"
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/LADX/HBoxContainer/MultiView/Stats" unique_id=803551195]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "04:12:16
+(07.25%)"
+label_settings = SubResource("LabelSettings_2s2nv")
+horizontal_alignment = 1
+script = ExtResource("11_dkicx")
+text_format = "{0}
+({1}%)"
+game = "Links Awakening DX"
 
 [node name="OoT" type="PanelContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=214425530]
 self_modulate = Color(1, 0.945, 0.89, 1)
@@ -170,19 +278,67 @@ custom_minimum_size = Vector2(0, 53)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_1sttb")
 
+[node name="Tint" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoT" unique_id=1345044590 instance=ExtResource("6_0b02u")]
+layout_mode = 2
+game = "Ship of Harkinian"
+
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoT" unique_id=1196878836]
 layout_mode = 2
 alignment = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoT/HBoxContainer" unique_id=721000341]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 0
 text = "Ocarina of Time"
 label_settings = SubResource("LabelSettings_vyb6t")
 vertical_alignment = 1
 
-[node name="OoT" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoT/HBoxContainer" unique_id=1619894384 instance=ExtResource("8_onfxy")]
+[node name="CompletionIndicator" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoT/HBoxContainer" unique_id=492161755]
+texture_filter = 1
 layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("6_onfxy")
+stretch_mode = 5
+script = ExtResource("7_2s2nv")
+slot = "BLGOoT"
+
+[node name="MultiView" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoT/HBoxContainer" unique_id=1468560440]
+layout_mode = 2
+alignment = 2
+script = ExtResource("6_60ajr")
+
+[node name="OoT" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoT/HBoxContainer/MultiView" unique_id=1619894384 instance=ExtResource("8_onfxy")]
+layout_mode = 2
+
+[node name="Stats" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoT/HBoxContainer/MultiView" unique_id=1389800525]
+visible = false
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoT/HBoxContainer/MultiView/Stats" unique_id=1030020226]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Total Checks
+012/256 (12.15%)"
+label_settings = SubResource("LabelSettings_60ajr")
+horizontal_alignment = 1
+script = ExtResource("13_eqmnl")
+game = "Ship of Harkinian"
+text_format = "Total Checks
+{0}/{1} ({2}%)"
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoT/HBoxContainer/MultiView/Stats" unique_id=1903484365]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "04:12:16
+(07.25%)"
+label_settings = SubResource("LabelSettings_2s2nv")
+horizontal_alignment = 1
+script = ExtResource("11_dkicx")
+text_format = "{0}
+({1}%)"
+game = "Ship of Harkinian"
 
 [node name="MM" type="PanelContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1318264283]
 self_modulate = Color(0.986, 0.86, 1, 1)
@@ -190,24 +346,77 @@ custom_minimum_size = Vector2(0, 53)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_1sttb")
 
+[node name="Tint" parent="VBoxContainer/HBoxContainer/VBoxContainer/MM" unique_id=1038334873 instance=ExtResource("6_0b02u")]
+layout_mode = 2
+game = "Majora's Mask Recompiled"
+
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/MM" unique_id=2107860813]
 layout_mode = 2
 alignment = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/MM/HBoxContainer" unique_id=566435731]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 0
 text = "Majora's Mask"
 label_settings = SubResource("LabelSettings_vyb6t")
 vertical_alignment = 1
 
-[node name="MM" parent="VBoxContainer/HBoxContainer/VBoxContainer/MM/HBoxContainer" unique_id=388441856 instance=ExtResource("9_2s2nv")]
+[node name="CompletionIndicator" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/MM/HBoxContainer" unique_id=619617313]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("6_onfxy")
+stretch_mode = 5
+script = ExtResource("7_2s2nv")
+slot = "BLGMM"
+
+[node name="MultiView" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/MM/HBoxContainer" unique_id=1178885246]
+layout_mode = 2
+alignment = 2
+script = ExtResource("6_60ajr")
+
+[node name="MM" parent="VBoxContainer/HBoxContainer/VBoxContainer/MM/HBoxContainer/MultiView" unique_id=388441856 instance=ExtResource("9_2s2nv")]
 layout_mode = 2
 
+[node name="Stats" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/MM/HBoxContainer/MultiView" unique_id=1185648006]
+visible = false
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/MM/HBoxContainer/MultiView/Stats" unique_id=1455303498]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Total Checks
+012/256 (12.15%)"
+label_settings = SubResource("LabelSettings_60ajr")
+horizontal_alignment = 1
+script = ExtResource("13_eqmnl")
+game = "Majora's Mask Recompiled"
+text_format = "Total Checks
+{0}/{1} ({2}%)"
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/MM/HBoxContainer/MultiView/Stats" unique_id=602047054]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "04:12:16
+(07.25%)"
+label_settings = SubResource("LabelSettings_2s2nv")
+horizontal_alignment = 1
+script = ExtResource("11_dkicx")
+text_format = "{0}
+({1}%)"
+game = "Majora's Mask Recompiled"
+
 [node name="ALttP" type="PanelContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=872434607]
+self_modulate = Color(0.92778, 0.94, 0.69560003, 1)
 custom_minimum_size = Vector2(0, 53)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_1sttb")
+
+[node name="Tint" parent="VBoxContainer/HBoxContainer/VBoxContainer/ALttP" unique_id=2143723978 instance=ExtResource("6_0b02u")]
+layout_mode = 2
+game = "A Link to the Past"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/ALttP" unique_id=1063887736]
 layout_mode = 2
@@ -215,13 +424,57 @@ alignment = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/ALttP/HBoxContainer" unique_id=335424055]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 0
 text = "A Link to the Past"
 label_settings = SubResource("LabelSettings_vyb6t")
 vertical_alignment = 1
 
-[node name="ALttP" parent="VBoxContainer/HBoxContainer/VBoxContainer/ALttP/HBoxContainer" unique_id=1054017773 instance=ExtResource("10_dkicx")]
+[node name="CompletionIndicator" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/ALttP/HBoxContainer" unique_id=898016051]
+texture_filter = 1
 layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("6_onfxy")
+stretch_mode = 5
+script = ExtResource("7_2s2nv")
+slot = "BLGLttP"
+
+[node name="MultiView" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/ALttP/HBoxContainer" unique_id=1319577203]
+layout_mode = 2
+alignment = 2
+script = ExtResource("6_60ajr")
+
+[node name="ALttP" parent="VBoxContainer/HBoxContainer/VBoxContainer/ALttP/HBoxContainer/MultiView" unique_id=1054017773 instance=ExtResource("10_dkicx")]
+layout_mode = 2
+
+[node name="Stats" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/ALttP/HBoxContainer/MultiView" unique_id=1063850546]
+visible = false
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/ALttP/HBoxContainer/MultiView/Stats" unique_id=1911379619]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Total Checks
+012/256 (12.15%)"
+label_settings = SubResource("LabelSettings_60ajr")
+horizontal_alignment = 1
+script = ExtResource("13_eqmnl")
+game = "A Link to the Past"
+text_format = "Total Checks
+{0}/{1} ({2}%)"
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/ALttP/HBoxContainer/MultiView/Stats" unique_id=434662525]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "04:12:16
+(07.25%)"
+label_settings = SubResource("LabelSettings_2s2nv")
+horizontal_alignment = 1
+script = ExtResource("11_dkicx")
+text_format = "{0}
+({1}%)"
+game = "A Link to the Past"
 
 [node name="MinishCap" type="PanelContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1411685992]
 self_modulate = Color(0.82, 1, 0.877, 1)
@@ -229,24 +482,76 @@ custom_minimum_size = Vector2(0, 53)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_1sttb")
 
+[node name="Tint" parent="VBoxContainer/HBoxContainer/VBoxContainer/MinishCap" unique_id=356377550 instance=ExtResource("6_0b02u")]
+layout_mode = 2
+game = "The Minish Cap"
+
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/MinishCap" unique_id=905083892]
 layout_mode = 2
 alignment = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/MinishCap/HBoxContainer" unique_id=668900837]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 0
 text = "Minish Cap"
 label_settings = SubResource("LabelSettings_vyb6t")
 vertical_alignment = 1
 
-[node name="MinishCap" parent="VBoxContainer/HBoxContainer/VBoxContainer/MinishCap/HBoxContainer" unique_id=1413241670 instance=ExtResource("11_0b02u")]
+[node name="CompletionIndicator" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/MinishCap/HBoxContainer" unique_id=1234682941]
+texture_filter = 1
 layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("6_onfxy")
+stretch_mode = 5
+script = ExtResource("7_2s2nv")
+slot = "BLGMC"
+
+[node name="MultiView" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/MinishCap/HBoxContainer" unique_id=1822106453]
+layout_mode = 2
+alignment = 2
+script = ExtResource("6_60ajr")
+
+[node name="MinishCap" parent="VBoxContainer/HBoxContainer/VBoxContainer/MinishCap/HBoxContainer/MultiView" unique_id=1413241670 instance=ExtResource("11_0b02u")]
+layout_mode = 2
+
+[node name="Stats" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/MinishCap/HBoxContainer/MultiView" unique_id=1488528800]
+visible = false
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/MinishCap/HBoxContainer/MultiView/Stats" unique_id=571368817]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Total Checks
+012/256 (12.15%)"
+label_settings = SubResource("LabelSettings_60ajr")
+horizontal_alignment = 1
+script = ExtResource("13_eqmnl")
+game = "The Minish Cap"
+text_format = "Total Checks
+{0}/{1} ({2}%)"
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/MinishCap/HBoxContainer/MultiView/Stats" unique_id=647287198]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "04:12:16
+(07.25%)"
+label_settings = SubResource("LabelSettings_2s2nv")
+horizontal_alignment = 1
+script = ExtResource("11_dkicx")
+text_format = "{0}
+({1}%)"
+game = "The Minish Cap"
 
 [node name="OoS" type="PanelContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=939230011]
 custom_minimum_size = Vector2(0, 53)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_1sttb")
+
+[node name="Tint" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoS" unique_id=1220154199 instance=ExtResource("6_0b02u")]
+layout_mode = 2
+game = "The Legend of Zelda - Oracle of Seasons"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoS" unique_id=2069909768]
 layout_mode = 2
@@ -254,13 +559,57 @@ alignment = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoS/HBoxContainer" unique_id=1981918873]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 0
 text = "Oracle of Seasons"
 label_settings = SubResource("LabelSettings_vyb6t")
 vertical_alignment = 1
 
-[node name="OoS" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoS/HBoxContainer" unique_id=744261680 instance=ExtResource("12_fu3g7")]
+[node name="CompletionIndicator" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoS/HBoxContainer" unique_id=1415631431]
+texture_filter = 1
 layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("6_onfxy")
+stretch_mode = 5
+script = ExtResource("7_2s2nv")
+slot = "BLGOoS"
+
+[node name="MultiView" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoS/HBoxContainer" unique_id=566483520]
+layout_mode = 2
+alignment = 2
+script = ExtResource("6_60ajr")
+
+[node name="OoS" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoS/HBoxContainer/MultiView" unique_id=744261680 instance=ExtResource("12_fu3g7")]
+layout_mode = 2
+
+[node name="Stats" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoS/HBoxContainer/MultiView" unique_id=433056986]
+visible = false
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoS/HBoxContainer/MultiView/Stats" unique_id=1898141863]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Total Checks
+012/256 (12.15%)"
+label_settings = SubResource("LabelSettings_60ajr")
+horizontal_alignment = 1
+script = ExtResource("13_eqmnl")
+game = "The Legend of Zelda - Oracle of Seasons"
+text_format = "Total Checks
+{0}/{1} ({2}%)"
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoS/HBoxContainer/MultiView/Stats" unique_id=1049413067]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "04:12:16
+(07.25%)"
+label_settings = SubResource("LabelSettings_2s2nv")
+horizontal_alignment = 1
+script = ExtResource("11_dkicx")
+text_format = "{0}
+({1}%)"
+game = "The Legend of Zelda - Oracle of Seasons"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=483834115]
 custom_minimum_size = Vector2(350, 0)
