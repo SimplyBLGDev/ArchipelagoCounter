@@ -6,7 +6,7 @@ A software tool for counting and tracking Archipelago data, meant to be used to 
 
 This software is free to use and modify by anyone for any non-commercial venture or purpose, however, this license and attribution must remain intact.
 
-If you use it on a stream please credit @SimplyBLG (twitch.tv/simplyblg) if you feel like it and let me know.
+If you use it on a stream please credit @SimplyBLG (https://www.twitch.tv/simplyblg) if you feel like it and let me know.
 
 Feel free to contact me if you want a custom layout made for you or to ask any questions.
 

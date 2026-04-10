@@ -65,6 +65,8 @@ func _ready():
 
 func build_lookup(game: String, socket: Socket):
 	data_packages[game] = await get_data_package_for_game(game, socket)
+	if data_packages[game] == {}:
+		return
 	item_lookup[game] = {} as Dictionary[int, String]
 	for item in data_packages[game]["item_name_to_id"]:
 		item_lookup[game][int(data_packages[game]["item_name_to_id"][item])] = item
@@ -82,7 +84,10 @@ func get_data_package_for_game(game: String, socket: Socket) -> Dictionary:
 	if override != {}:
 		return override
 	
-	return await socket.fetch_data_package(game)
+	var data_package = await socket.fetch_data_package(game)
+	if data_package == null:
+		return {}
+	return data_package
 
 
 func process_connected(packet):

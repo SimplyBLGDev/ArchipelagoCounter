@@ -1,6 +1,7 @@
 class_name Socket
 extends Node
 
+const MAXIMUM_PACKET_SIZE := 512 * 1024
 const CONNECTION_COMMAND := '[{"cmd":"Connect","password":"{password}","game":"{game}","name":"{slot}","uuid":"{uuid}","version":{version},"items_handling":{items_handling},"tags":["AP","Tracker","TextOnly"],"slot_data":true}]'
 
 signal updates_received(updates: Array[Update])
@@ -17,6 +18,7 @@ func _init(url: String, password: String) -> void:
 
 
 func _ready():
+	socket.inbound_buffer_size = MAXIMUM_PACKET_SIZE
 	set_process(false)
 
 
@@ -48,9 +50,13 @@ func await_packet(socket: WebSocketPeer):
 				if socket.was_string_packet():
 					var packet_text = packet.get_string_from_utf8()
 					return JSON.parse_string(packet_text)
+				else:
+					print("Received binary data")
 		
 		elif state == WebSocketPeer.STATE_CLOSED:
-			return null
+			var code = socket.get_close_code()
+			var reason = socket.get_close_reason()
+			print("WebSocket closed with code: %d, reason %s. Clean: %s" % [code, reason, code != -1])
 		
 		await get_tree().physics_frame
 
@@ -58,6 +64,8 @@ func await_packet(socket: WebSocketPeer):
 func await_cmd_packet(socket: WebSocketPeer, cmd: String):
 	while true:
 		var packet_pack = await await_packet(socket)
+		if packet_pack == null:
+			continue
 		for packet in packet_pack:
 			if packet["cmd"] == cmd:
 				return packet
