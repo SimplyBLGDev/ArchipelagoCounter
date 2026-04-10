@@ -10,6 +10,7 @@ var pending_items: Dictionary[String, Dictionary] = {}
 
 func _ready() -> void:
 	Counter.log.connect(log_received)
+	Counter.update.connect(generate_grid)
 	
 	await Counter.load_complete
 	
@@ -21,7 +22,6 @@ func _ready() -> void:
 
 func log_received(log_message: LogMessage):
 	update_pending_items_list(log_message)
-	generate_grid()
 
 
 func update_pending_items_list(log_message: LogMessage):
@@ -44,10 +44,12 @@ func update_pending_items_list(log_message: LogMessage):
 		
 		pending_items[receiver][item_name] += 1
 	
-	elif log_message is LogMessage_Join:
-		var join: LogMessage_Join = log_message
+	elif log_message is LogMessage_SlotEvent:
+		var event: LogMessage_SlotEvent = log_message
+		if event.type not in ["join", "part"]:
+			return
 		
-		var player_name := Counter.get_player_name_from_id(join.slot)
+		var player_name := Counter.get_player_name_from_id(event.slot)
 		if player_name in pending_items:
 			pending_items.erase(player_name)
 

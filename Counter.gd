@@ -5,7 +5,7 @@ signal timer_update
 signal log(log_message: LogMessage)
 signal load_complete
 
-const VERSION := "1.1"
+const VERSION := "1.2"
 
 var settings: Settings
 
@@ -26,6 +26,9 @@ var players: Array = []
 var item_lookup: Dictionary[String, Dictionary]
 # relates game to a lookup table that relates location id to name
 var location_lookup: Dictionary[String, Dictionary]
+# relates slot id to game name
+var game_lookup: Dictionary[int, String] = {}
+
 
 func _process(delta: float) -> void:
 	if len(active_players) > 0:
@@ -56,7 +59,7 @@ func _ready():
 	var watch_slot: String = settings.games.keys()[0]
 	print("Watching for updates on {0}".format([watch_slot]))
 	socket.watch_for_updates(watch_slot, settings.games[watch_slot], data_packages[watch_slot]["checksum"])
-	socket.update_received.connect(update_received)
+	socket.updates_received.connect(updates_received)
 	update.emit()
 	load_complete.emit()
 	print("Load complete")
@@ -107,13 +110,16 @@ func process_connected(packet):
 
 
 func is_location_excluded(slot_id: int, location_id: int) -> bool:
-	var location_name := get_location_name_from_id(slot_id, location_id)
 	var game_name := get_game_from_slot(slot_id)
 	var excluded_locations := settings.get_excluded_locations_for_game(game_name)
 	
-	var r := RegEx.new()
+	if excluded_locations == []:
+		return false
+	
+	var location_name := get_location_name_from_id(slot_id, location_id)
+	
 	for excluded_location in excluded_locations:
-		r.compile(excluded_location)
+		var r := RegEx.create_from_string(excluded_location)
 		if r.search(location_name):
 			return true
 	
@@ -133,6 +139,14 @@ func process_received_items(slot_id: int, packet):
 		get_item(slot_id, item_id)
 
 
+func updates_received(updates: Array[Socket.Update]):
+	for update in updates:
+		update_received(update)
+		log_update(update)
+	
+	update.emit()
+
+
 func update_received(update: Socket.Update):
 	if update is Socket.Update_Player:
 		var up := update as Socket.Update_Player
@@ -147,9 +161,6 @@ func update_received(update: Socket.Update):
 		if not is_location_excluded(ui.sending_player_id, ui.location_id):
 			checks += 1
 		get_item(ui.receiving_player_id, ui.item_id)
-		self.update.emit()
-	
-	log_update(update)
 
 
 func get_item(slot_id: int, item_id: int):
@@ -165,6 +176,8 @@ func get_item(slot_id: int, item_id: int):
 
 func log_update(update: Socket.Update):
 	var log_object := LogMessage.from_update(update)
+	if log_object == null:
+		return
 	
 	save.log.append(log_object)
 	log.emit(log_object)
@@ -179,14 +192,15 @@ func get_player_name_from_id(id: int) -> String:
 
 
 func get_game_from_slot(id: int) -> String:
-	for player in players:
-		if int(player["slot"]) == id:
-			var n: String = player["name"]
-			for game in settings.games:
-				if settings.games[game] == n:
-					return game
+	if not id in game_lookup:
+		for player in players:
+			if int(player["slot"]) == id:
+				var n: String = player["name"]
+				for game in settings.games:
+					if settings.games[game] == n:
+						game_lookup[id] = game
 	
-	return ""
+	return game_lookup[id]
 
 
 func get_slot_id_from_name(name: String) -> int:
