@@ -1,6 +1,13 @@
 {
-	"url": "ws://localhost:38281",
-	"password": "",
+	"archipelago_connection_data": {
+		"url": "ws://localhost:38281",
+		"password": "",
+		"version": {
+			"major": 0,
+			"minor": 6,
+			"build": 5
+		}
+	},
 	"games": [
 		{
 			"slot": "BLGLttP",

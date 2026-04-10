@@ -11,11 +11,12 @@ var log_location_color := Color("00ff00")
 var log_default_slot_color := Color("ff0000")
 var custom_slot_colors: Dictionary[String, Color] = {}
 var overrides: Dictionary = {}
+var archipelago_connection_data: Dictionary = {}
 
 func _init(data):
-	url = data["url"]
-	password = data["password"]
-
+	url = data["archipelago_connection_data"]["url"]
+	password = data["archipelago_connection_data"]["password"]
+	
 	for game in data["games"]:
 		var game_name: String = game["game"]
 		var slot_name: String = game["slot"]
@@ -27,9 +28,15 @@ func _init(data):
 	log_item_color = Color(data["log_colors"]["item"])
 	log_location_color = Color(data["log_colors"]["location"])
 	log_default_slot_color = Color(data["log_colors"]["default_slot"])
-
+	
 	for slot_color in data["log_colors"]["slots"]:
 		custom_slot_colors[slot_color] = Color(data["log_colors"]["slots"][slot_color])
+	
+	archipelago_connection_data = data["archipelago_connection_data"]
+	archipelago_connection_data["version"]["build"] = int(archipelago_connection_data["version"]["build"])
+	archipelago_connection_data["version"]["major"] = int(archipelago_connection_data["version"]["major"])
+	archipelago_connection_data["version"]["minor"] = int(archipelago_connection_data["version"]["minor"])
+	archipelago_connection_data["version"]["class"] = "Version"
 	
 	if data.has("overrides"):
 		overrides = data["overrides"]

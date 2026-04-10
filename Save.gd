@@ -5,7 +5,7 @@ const FILENAME := "APCounter.json"
 
 var timer := 0.0
 var log: Array[LogMessage] = []
-var version: String = Counter.VERSION
+var version: String = ProjectSettings.get_setting("application/config/version")
 var starting_time := 0.0
 
 static func save_file(file_name: String, data: Dictionary) -> void:
@@ -35,7 +35,7 @@ static func load() -> Save:
 	var save := Save.new()
 	save.timer = save_data.get("timer", 0.0)
 	save.starting_time = save_data.get("starting_time", Time.get_unix_time_from_system())
-	save.version = save_data.get("generated_version", Counter.VERSION)
+	save.version = save_data.get("generated_version", ProjectSettings.get("application/config/version"))
 	
 	var log_data: Array = save_data.get("log", [])
 	for log_entry in log_data:

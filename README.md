@@ -20,7 +20,7 @@ Feel free to contact me if you want a custom layout made for you or to ask any q
 ### Glossary
 
 ```yaml
-Item Code: A unique code representing an item within a game, composed of {Name}::{Item Name}.
+Item Code: A unique code representing an item within a game, composed of {Game Name}::{Item Name}.
 	Example: "Super Mario 64::Power Star"
 ```
 
@@ -105,8 +105,13 @@ Displays the amount of Super Mario 64 stars that have been collected so far.
 This file is used to configure the Archipelago server and the games that will be monitored.
 
 ```yaml
-url: The URL of the Archipelago server
-password: The password of the Archipelago server
+archipelago_connection_data: Settings relating to the archipelago connection
+	url: The URL of the Archipelago server
+	password: The password of the Archipelago server
+	version: Version of the Archipelago server, make sure it matches your server's AP version
+		major: Major version of the Archipelago server, ex.: AP 0.7.1 -> 0
+		minor: Minor version of the Archipelago server, ex.: AP 0.7.1 -> 7
+		build: Build version of the Archipelago server, ex.: AP 0.7.1 -> 1
 games: List of games included in the Archipelago
 	slot: Slot of the game
 	game: Name of the game (as it appears in the Archipelago server)

@@ -5,8 +5,6 @@ signal timer_update
 signal log(log_message: LogMessage)
 signal load_complete
 
-const VERSION := "1.2"
-
 var settings: Settings
 
 var initialized := false

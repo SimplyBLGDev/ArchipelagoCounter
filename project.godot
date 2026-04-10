@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ArchipelagoCounter"
-config/version="1.2"
+config/version="1.3"
 run/main_scene="uid://cw1crqxl0f5v5"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"

@@ -1,6 +1,8 @@
 class_name Socket
 extends Node
 
+const CONNECTION_COMMAND := '[{"cmd":"Connect","password":"{password}","game":"{game}","name":"{slot}","uuid":"{uuid}","version":{version},"items_handling":{items_handling},"tags":["AP","Tracker","TextOnly"],"slot_data":true}]'
+
 signal updates_received(updates: Array[Update])
 
 var socket = WebSocketPeer.new()
@@ -78,7 +80,16 @@ func fetch_inventory(game: String, slot: String, uuid: String) -> Game_Inventory
 		return
 	
 	await await_cmd_packet(game_socket, "RoomInfo")
-	game_socket.send_text('[{"cmd":"Connect","password":"' + password + '","game":"' + game + '","name":"' + slot + '","uuid":"' + uuid + '","version":{"major":0,"minor":6,"build":5,"class":"Version"},"items_handling":7,"tags":["AP","Tracker","TextOnly"],"slot_data":true}]')
+
+	var command := CONNECTION_COMMAND.format({
+		"password": password,
+		"game": game,
+		"slot": slot,
+		"uuid": uuid,
+		"items_handling": "7",
+		"version": JSON.stringify(Counter.settings.archipelago_connection_data.version)
+	})
+	game_socket.send_text(command)
 	
 	var packet_pack = await await_packet(game_socket)
 	for packet in packet_pack:
@@ -92,8 +103,17 @@ func fetch_inventory(game: String, slot: String, uuid: String) -> Game_Inventory
 
 
 func watch_for_updates(game: String, slot: String, uuid: String):
-	set_process(true)
-	socket.send_text('[{"cmd":"Connect","password":"' + password + '","game":"' + game + '","name":"' + slot + '","uuid":"' + uuid + '","version":{"major":0,"minor":6,"build":5,"class":"Version"},"items_handling":0,"tags":["AP","Tracker","TextOnly"],"slot_data":true}]')
+	set_process(true) # Start polling the socket in _process
+
+	var command := CONNECTION_COMMAND.format({
+		"password": password,
+		"game": game,
+		"slot": slot,
+		"uuid": uuid,
+		"items_handling": "0",
+		"version": JSON.stringify(Counter.settings.archipelago_connection_data.version)
+	})
+	socket.send_text(command)
 	
 	while true:
 		while len(pending_packets) == 0:
