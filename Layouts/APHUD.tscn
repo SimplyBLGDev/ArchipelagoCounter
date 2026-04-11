@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bsr72ukrumsof"]
 
 [ext_resource type="Theme" uid="uid://0p5lyyma5qpk" path="res://UI/Theme.tres" id="1_nv66w"]
-[ext_resource type="Script" uid="uid://c4h3oqhvbq7yn" path="res://Log.gd" id="2_l6cfq"]
+[ext_resource type="Script" uid="uid://c4h3oqhvbq7yn" path="res://LayoutTool/LayoutTool_Log.gd" id="2_l6cfq"]
 [ext_resource type="PackedScene" uid="uid://cwkljufepolyx" path="res://LayoutTool/Notes/Container/LayoutTool_Notes_Container.tscn" id="3_nv66w"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nv66w"]

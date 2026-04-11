@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://0p5lyyma5qpk" path="res://UI/Theme.tres" id="1_3c2bk"]
 [ext_resource type="PackedScene" uid="uid://crxdbxcnaodv0" path="res://Layouts/HorizontalLayout.tscn" id="1_mdrog"]
 [ext_resource type="PackedScene" uid="uid://bt8vngrck4rik" path="res://Layouts/SNESLayout.tscn" id="2_3c2bk"]
-[ext_resource type="Script" uid="uid://c4h3oqhvbq7yn" path="res://Log.gd" id="3_ig0yn"]
+[ext_resource type="Script" uid="uid://c4h3oqhvbq7yn" path="res://LayoutTool/LayoutTool_Log.gd" id="3_ig0yn"]
 [ext_resource type="PackedScene" uid="uid://ds2evqmcwnkax" path="res://Layouts/GBLayout.tscn" id="4_desgu"]
 [ext_resource type="PackedScene" uid="uid://rdlcfo1162nk" path="res://Layouts/GBALayout.tscn" id="5_h2rny"]
 [ext_resource type="Texture2D" uid="uid://dcxecx4mhdtm0" path="res://OoSEssences/FertileSoil.png" id="6_cy7qq"]
