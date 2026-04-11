@@ -12,7 +12,7 @@ var full_text := ""
 func _ready():
 	Counter.log.connect(print_log)
 	
-	await Counter.load_complete
+	await Counter.loaded()
 	
 	for log_entry in Counter.save.log:
 		print_log(log_entry)

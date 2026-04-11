@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://4fb7tjm012sl"]
+
+[ext_resource type="Script" uid="uid://b6kutc0pk5lck" path="res://LayoutTool/Notes/LayoutTool_Notes.gd" id="1_bby5q"]
+
+[node name="Generic" type="Control" unique_id=956269313]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bby5q")
+metadata/_tab_index = 0

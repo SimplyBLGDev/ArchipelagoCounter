@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://kr646sh44dnj"]
+
+[ext_resource type="PackedScene" uid="uid://4fb7tjm012sl" path="res://LayoutTool/Notes/LayoutTool_Notes.tscn" id="1_81wrx"]
+[ext_resource type="Theme" uid="uid://0p5lyyma5qpk" path="res://UI/Theme.tres" id="2_q32tu"]
+[ext_resource type="Script" uid="uid://bnikg1bs0ifyr" path="res://LayoutTool/Notes/Generic/LayoutTool_Notes_Generic.gd" id="3_q32tu"]
+
+[node name="Generic" unique_id=956269313 node_paths=PackedStringArray("code_edit") instance=ExtResource("1_81wrx")]
+theme = ExtResource("2_q32tu")
+script = ExtResource("3_q32tu")
+code_edit = NodePath("CodeEdit")
+
+[node name="CodeEdit" type="CodeEdit" parent="." index="0" unique_id=712361916]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "Write Notes here..."
+
+[connection signal="text_changed" from="CodeEdit" to="." method="_on_code_edit_text_changed"]

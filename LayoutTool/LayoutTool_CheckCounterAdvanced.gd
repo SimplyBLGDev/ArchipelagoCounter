@@ -6,7 +6,7 @@ extends LayoutTool_CheckCounter
 func _ready():
 	Counter.timer_update.connect(update)
 	
-	await Counter.load_complete
+	await Counter.loaded()
 	
 	update()
 

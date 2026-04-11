@@ -21,8 +21,9 @@ var save: Save
 
 var active_players: Array = []
 
-var data_packages: Dictionary = {}
+var checksums := {}
 var players: Array = []
+var slot_data := {}
 # relates game to a lookup table that relates item id to name
 var item_lookup: Dictionary[String, Dictionary]
 # relates game to a lookup table that relates location id to name
@@ -34,11 +35,13 @@ var game_lookup: Dictionary[int, String] = {}
 func _process(delta: float) -> void:
 	if len(active_players) > 0:
 		save.timer += delta
+		
 		for player in active_players:
-			var game := get_game_from_slot(player)
+			var game := get_slot_from_id(player)
 			if game not in save.game_timer:
 				save.game_timer[game] = 0.0
 			save.game_timer[game] += delta
+		
 		timer_update.emit()
 
 
@@ -57,7 +60,7 @@ func _ready():
 	
 	for game in settings.games:
 		print("Fetching inventory for {0}".format([game]))
-		var inventory := await socket.fetch_inventory(game, settings.games[game], data_packages[game]["checksum"])
+		var inventory := await socket.fetch_inventory(game, settings.games[game], checksums[game])
 		process_connected(inventory.connected_packet)
 		if inventory.received_items_packet != {}:
 			process_received_items(get_slot_id_from_name(settings.games[game]), inventory.received_items_packet)
@@ -66,33 +69,32 @@ func _ready():
 	
 	var watch_slot: String = settings.games.keys()[0]
 	print("Watching for updates on {0}".format([watch_slot]))
-	socket.watch_for_updates(watch_slot, settings.games[watch_slot], data_packages[watch_slot]["checksum"])
+	socket.watch_for_updates(watch_slot, settings.games[watch_slot], checksums[watch_slot])
 	socket.updates_received.connect(updates_received)
+	initialized = true
 	update.emit()
 	load_complete.emit()
 	print("Load complete")
 
 
 func build_lookup(game: String, socket: Socket):
-	data_packages[game] = await get_data_package_for_game(game, socket)
-	if data_packages[game] == {}:
+	var data_package = await get_data_package_for_game(game, socket)
+	if data_package == {}:
 		return
 	item_lookup[game] = {} as Dictionary[int, String]
-	for item in data_packages[game]["item_name_to_id"]:
-		item_lookup[game][int(data_packages[game]["item_name_to_id"][item])] = item
+	for item in data_package["item_name_to_id"]:
+		item_lookup[game][int(data_package["item_name_to_id"][item])] = item
 	
 	location_lookup[game] = {} as Dictionary[int, String]
-	for location in data_packages[game]["location_name_to_id"]:
-		location_lookup[game][int(data_packages[game]["location_name_to_id"][location])] = location
-
+	for location in data_package["location_name_to_id"]:
+		location_lookup[game][int(data_package["location_name_to_id"][location])] = location
+	
+	checksums[game] = data_package["checksum"]
 	game_checks[settings.games[game]] = 0
 	total_game_checks[settings.games[game]] = 0
 
 
 func get_data_package_for_game(game: String, socket: Socket) -> Dictionary:
-	if game in data_packages:
-		return data_packages[game]
-	
 	var override := settings.get_override_data_package_file_for_game(game)
 	if override != {}:
 		return override
@@ -110,6 +112,8 @@ func process_connected(packet):
 	
 	if players == []:
 		players = packet["players"]
+	
+	slot_data[get_slot_from_id(slot_id)] = packet["slot_data"]
 	
 	total_checks_counted_slots.append(slot_id)
 	
@@ -301,3 +305,10 @@ func process_save():
 func process_log_entry(log_message: LogMessage):
 	if log_message is LogMessage_SlotEvent and log_message.type == "goal":
 		completed_games.append(get_slot_from_id(log_message.slot))
+
+
+func loaded():
+	if initialized:
+		return
+	
+	await load_complete

@@ -6,11 +6,12 @@ extends Label
 
 func _ready():
 	Counter.timer_update.connect(update)
+	await Counter.loaded()
 	update()
 
 
 func update():
-	var time: float = Counter.save.game_timer[game] if game in Counter.save else 0.0
+	var time: float = Counter.save.game_timer[game] if game in Counter.save.game_timer else 0.0
 	
 	var percentage := time / Counter.save.timer if Counter.save.timer > 0.0 else 0.0
 	percentage *= 100

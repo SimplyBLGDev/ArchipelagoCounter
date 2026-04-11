@@ -2,7 +2,7 @@
 class_name LayoutTool_MultiView
 extends HBoxContainer
 
-@export var view_change_speed := 4.0 ## Seconds between view changes
+@export var view_change_speed := 8.0 ## Seconds between view changes
 @export var fade_time := 0.5 ## Seconds for fade in/out
 
 var timer: Timer

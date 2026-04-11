@@ -12,7 +12,7 @@ func _ready() -> void:
 	Counter.log.connect(log_received)
 	Counter.update.connect(generate_grid)
 	
-	await Counter.load_complete
+	await Counter.loaded()
 	
 	for log_entry in Counter.save.log:
 		update_pending_items_list(log_entry)

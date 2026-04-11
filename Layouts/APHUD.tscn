@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://0p5lyyma5qpk" path="res://UI/Theme.tres" id="1_nv66w"]
 [ext_resource type="Script" uid="uid://c4h3oqhvbq7yn" path="res://Log.gd" id="2_l6cfq"]
-[ext_resource type="PackedScene" uid="uid://c5empkuku1n2t" path="res://LayoutTool/PendingItems/LayoutTool_PendingItems.tscn" id="2_nv66w"]
+[ext_resource type="PackedScene" uid="uid://cwkljufepolyx" path="res://LayoutTool/Notes/Container/LayoutTool_Notes_Container.tscn" id="3_nv66w"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nv66w"]
 content_margin_left = 6.0
@@ -28,9 +28,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 4
 
-[node name="PendingItems" parent="VBoxContainer" unique_id=49771699 instance=ExtResource("2_nv66w")]
-layout_mode = 2
-
 [node name="LogContainer" type="PanelContainer" parent="VBoxContainer" unique_id=855935934 node_paths=PackedStringArray("label")]
 layout_mode = 2
 size_flags_vertical = 3
@@ -49,3 +46,10 @@ bbcode_enabled = true
 scroll_following = true
 vertical_alignment = 2
 selection_enabled = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=1039329560]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="NotesContainer" parent="VBoxContainer/VBoxContainer" unique_id=773876288 instance=ExtResource("3_nv66w")]
+layout_mode = 2
