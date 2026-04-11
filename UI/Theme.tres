@@ -1,6 +1,7 @@
 [gd_resource type="Theme" format=3 uid="uid://0p5lyyma5qpk"]
 
 [ext_resource type="FontFile" uid="uid://cdkhdgy8yaj4p" path="res://UI/Roboto-Bold.ttf" id="1_23v3e"]
+[ext_resource type="FontFile" uid="uid://3d6eow81qq1" path="res://UI/RobotoMono-VariableFont_wght.ttf" id="1_31i6c"]
 [ext_resource type="FontFile" uid="uid://ctdqkp2p4x26u" path="res://UI/Roboto-Regular.ttf" id="1_yd3fu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a4idc"]
@@ -62,8 +63,12 @@ default_font = ExtResource("1_yd3fu")
 default_font_size = 32
 BoxContainer/constants/separation = 0
 CodeEdit/font_sizes/font_size = 16
+CodeEdit/fonts/font = ExtResource("1_31i6c")
 CodeEdit/styles/focus = SubResource("StyleBoxFlat_a4idc")
 CodeEdit/styles/normal = SubResource("StyleBoxFlat_bxjpc")
+LineEdit/font_sizes/font_size = 16
+OptionButton/font_sizes/font_size = 16
+PopupMenu/font_sizes/font_size = 16
 RichTextLabel/constants/line_separation = 0
 RichTextLabel/constants/paragraph_separation = 6
 RichTextLabel/font_sizes/bold_font_size = 18

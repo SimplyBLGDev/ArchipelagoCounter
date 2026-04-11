@@ -1,6 +1,7 @@
 # ArchipelagoCounter
 
-A software tool for counting and tracking Archipelago data, meant to be used to create custom layouts for streams.
+A multigame multiworld tracker for Archipelago, capable of tracking and displaying the status of every game in an Archipelago, can be customized for any layout.
+Intended for streamers and multigame runs but can be used by anyone.
 
 ## License & Attribution
 

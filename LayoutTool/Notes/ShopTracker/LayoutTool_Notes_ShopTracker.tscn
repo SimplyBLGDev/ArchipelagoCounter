@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://d0sgsdiflq686"]
+
+[ext_resource type="Script" uid="uid://cerw7phwy5lvh" path="res://LayoutTool/Notes/ShopTracker/LayoutTool_Notes_ShopTracker.gd" id="1_7jqg5"]
+[ext_resource type="FontFile" uid="uid://ctdqkp2p4x26u" path="res://UI/Roboto-Regular.ttf" id="1_hrks6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hrks6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pevvf"]
+
+[sub_resource type="Theme" id="Theme_7jqg5"]
+default_font = ExtResource("1_hrks6")
+default_font_size = 16
+LineEdit/styles/focus = SubResource("StyleBoxEmpty_hrks6")
+LineEdit/styles/normal = SubResource("StyleBoxEmpty_pevvf")
+
+[node name="LayoutToolNotesShopTracker" type="VBoxContainer" unique_id=836345532]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_7jqg5")
+script = ExtResource("1_7jqg5")

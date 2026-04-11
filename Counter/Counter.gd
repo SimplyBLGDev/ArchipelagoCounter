@@ -4,6 +4,7 @@ signal update
 signal timer_update
 signal log(log_message: LogMessage)
 signal load_complete
+signal pre_save
 
 var settings: Settings
 
@@ -233,7 +234,7 @@ func get_slot_id_from_name(name: String) -> int:
 		if player["name"] == name:
 			return int(player["slot"])
 	
-	return 0
+	return -1
 
 
 func get_slot_from_id(id: int) -> String:
@@ -281,6 +282,7 @@ func on_load():
 
 
 func on_quit():
+	pre_save.emit()
 	save.save()
 
 

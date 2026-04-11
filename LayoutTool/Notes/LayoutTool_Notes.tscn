@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://4fb7tjm012sl"]
 
 [ext_resource type="Script" uid="uid://b6kutc0pk5lck" path="res://LayoutTool/Notes/LayoutTool_Notes.gd" id="1_bby5q"]
+[ext_resource type="Theme" uid="uid://0p5lyyma5qpk" path="res://UI/Theme.tres" id="1_w2und"]
 
 [node name="Generic" type="Control" unique_id=956269313]
 layout_mode = 3
@@ -9,5 +10,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_w2und")
 script = ExtResource("1_bby5q")
 metadata/_tab_index = 0

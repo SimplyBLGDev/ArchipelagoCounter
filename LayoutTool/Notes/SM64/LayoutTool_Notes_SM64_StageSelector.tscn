@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://oix6ds2ddjtd"]
+
+[node name="SM64StageSelector" type="OptionButton" unique_id=1312128280]
+custom_minimum_size = Vector2(90, 0)
+size_flags_horizontal = 3
+item_count = 15
+popup/item_0/text = "BoB"
+popup/item_0/id = 0
+popup/item_1/text = "WF"
+popup/item_1/id = 1
+popup/item_2/text = "CCM"
+popup/item_2/id = 2
+popup/item_3/text = "JRB"
+popup/item_3/id = 3
+popup/item_4/text = "BBH"
+popup/item_4/id = 4
+popup/item_5/text = "SSL"
+popup/item_5/id = 5
+popup/item_6/text = "LLL"
+popup/item_6/id = 6
+popup/item_7/text = "HMC"
+popup/item_7/id = 7
+popup/item_8/text = "DDD"
+popup/item_8/id = 8
+popup/item_9/text = "TTM"
+popup/item_9/id = 9
+popup/item_10/text = "SL"
+popup/item_10/id = 10
+popup/item_11/text = "WDW"
+popup/item_11/id = 12
+popup/item_12/text = "THI"
+popup/item_12/id = 11
+popup/item_13/text = "TTC"
+popup/item_13/id = 13
+popup/item_14/text = "RR"
+popup/item_14/id = 14

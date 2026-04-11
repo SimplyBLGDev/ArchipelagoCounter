@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://cxmgojl548wth"]
+
+[ext_resource type="PackedScene" uid="uid://4fb7tjm012sl" path="res://LayoutTool/Notes/LayoutTool_Notes.tscn" id="1_cm87x"]
+[ext_resource type="Script" uid="uid://bkk1symrb8ya2" path="res://LayoutTool/Notes/OoT/LayoutTool_Notes_OoT.gd" id="2_rptcr"]
+[ext_resource type="PackedScene" uid="uid://d0sgsdiflq686" path="res://LayoutTool/Notes/ShopTracker/LayoutTool_Notes_ShopTracker.tscn" id="3_v10sp"]
+[ext_resource type="Script" uid="uid://db1hlbwup2ahr" path="res://LayoutTool/Notes/ShopTracker/Shop/LayoutTool_Notes_ShopTracker_Shop_Shop.gd" id="4_sct3r"]
+
+[sub_resource type="Resource" id="Resource_ob4nj"]
+script = ExtResource("4_sct3r")
+name = "Kokiri Shop"
+color = Color(0.21960784, 0.4627451, 0.11372549, 1)
+metadata/_custom_type_script = "uid://db1hlbwup2ahr"
+
+[sub_resource type="Resource" id="Resource_i7qx2"]
+script = ExtResource("4_sct3r")
+name = "Goron Shop"
+color = Color(0.46, 0.33925, 0.115, 1)
+metadata/_custom_type_script = "uid://db1hlbwup2ahr"
+
+[sub_resource type="Resource" id="Resource_7gn42"]
+script = ExtResource("4_sct3r")
+name = "Zora Shop"
+color = Color(0.043137256, 0.3254902, 0.5803922, 1)
+metadata/_custom_type_script = "uid://db1hlbwup2ahr"
+
+[sub_resource type="Resource" id="Resource_ccl7m"]
+script = ExtResource("4_sct3r")
+name = "Market Bazaar"
+color = Color(0.20784314, 0.10980392, 0.45882353, 1)
+metadata/_custom_type_script = "uid://db1hlbwup2ahr"
+
+[sub_resource type="Resource" id="Resource_65msc"]
+script = ExtResource("4_sct3r")
+name = "Market Potion Shop"
+color = Color(0.043137256, 0.3254902, 0.5803922, 1)
+metadata/_custom_type_script = "uid://db1hlbwup2ahr"
+
+[sub_resource type="Resource" id="Resource_fg84o"]
+script = ExtResource("4_sct3r")
+name = "Market Bombchu Shop"
+color = Color(0.06666667, 0.33333334, 0.8, 1)
+metadata/_custom_type_script = "uid://db1hlbwup2ahr"
+
+[sub_resource type="Resource" id="Resource_lckob"]
+script = ExtResource("4_sct3r")
+name = "Kakariko Bazaar"
+color = Color(0.07450981, 0.30980393, 0.36078432, 1)
+metadata/_custom_type_script = "uid://db1hlbwup2ahr"
+
+[sub_resource type="Resource" id="Resource_46hmo"]
+script = ExtResource("4_sct3r")
+name = "Kakariko Potion Shop"
+color = Color(0.21960784, 0.4627451, 0.11372549, 1)
+metadata/_custom_type_script = "uid://db1hlbwup2ahr"
+
+[node name="OoT" unique_id=956269313 node_paths=PackedStringArray("code_edit", "shop_tracker") instance=ExtResource("1_cm87x")]
+script = ExtResource("2_rptcr")
+code_edit = NodePath("HBoxContainer/CodeEdit")
+shop_tracker = NodePath("HBoxContainer/ScrollContainer/ShopTracker")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." index="0" unique_id=753894925]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CodeEdit" type="CodeEdit" parent="HBoxContainer" index="0" unique_id=1308634719]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Write Notes here..."
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer" index="1" unique_id=1491675698]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 4
+
+[node name="ShopTracker" parent="HBoxContainer/ScrollContainer" index="0" unique_id=836345532 instance=ExtResource("3_v10sp")]
+layout_mode = 2
+shops = Array[ExtResource("4_sct3r")]([SubResource("Resource_ob4nj"), SubResource("Resource_i7qx2"), SubResource("Resource_7gn42"), SubResource("Resource_ccl7m"), SubResource("Resource_65msc"), SubResource("Resource_fg84o"), SubResource("Resource_lckob"), SubResource("Resource_46hmo")])

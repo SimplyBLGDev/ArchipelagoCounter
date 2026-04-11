@@ -1,0 +1,211 @@
+[gd_scene format=3 uid="uid://dfholk1kndfa1"]
+
+[ext_resource type="PackedScene" uid="uid://4fb7tjm012sl" path="res://LayoutTool/Notes/LayoutTool_Notes.tscn" id="1_63ntl"]
+[ext_resource type="Script" uid="uid://65vi63nypwuv" path="res://LayoutTool/Notes/SM64/LayoutTool_Notes_SM64.gd" id="2_hw56x"]
+[ext_resource type="PackedScene" uid="uid://oix6ds2ddjtd" path="res://LayoutTool/Notes/SM64/LayoutTool_Notes_SM64_StageSelector.tscn" id="3_7p64t"]
+[ext_resource type="FontFile" uid="uid://cdkhdgy8yaj4p" path="res://UI/Roboto-Bold.ttf" id="3_qsgj4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qsgj4"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.1584, 0.1584, 0.18, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hw56x"]
+font = ExtResource("3_qsgj4")
+font_size = 20
+
+[node name="SM64" unique_id=956269313 node_paths=PackedStringArray("code_edit", "locations") instance=ExtResource("1_63ntl")]
+script = ExtResource("2_hw56x")
+code_edit = NodePath("HBoxContainer/CodeEdit")
+locations = [NodePath("HBoxContainer/PanelContainer/GridContainer/BoB"), NodePath("HBoxContainer/PanelContainer/GridContainer/WF"), NodePath("HBoxContainer/PanelContainer/GridContainer/CCM"), NodePath("HBoxContainer/PanelContainer/GridContainer/JRB"), NodePath("HBoxContainer/PanelContainer/GridContainer/BBH"), NodePath("HBoxContainer/PanelContainer/GridContainer/SSL"), NodePath("HBoxContainer/PanelContainer/GridContainer/LLL"), NodePath("HBoxContainer/PanelContainer/GridContainer/HMC"), NodePath("HBoxContainer/PanelContainer/GridContainer/DDD"), NodePath("HBoxContainer/PanelContainer/GridContainer/TTM"), NodePath("HBoxContainer/PanelContainer/GridContainer/SL"), NodePath("HBoxContainer/PanelContainer/GridContainer/WDW"), NodePath("HBoxContainer/PanelContainer/GridContainer/THI"), NodePath("HBoxContainer/PanelContainer/GridContainer/TTC"), NodePath("HBoxContainer/PanelContainer/GridContainer/RR")]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." index="0" unique_id=645934963]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CodeEdit" type="CodeEdit" parent="HBoxContainer" index="0" unique_id=1737400411]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Write Notes here..."
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer" index="1" unique_id=320401144]
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qsgj4")
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer/PanelContainer" index="0" unique_id=992526113]
+layout_mode = 2
+columns = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/PanelContainer/GridContainer" index="0" unique_id=1799183705]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "BoB"
+label_settings = SubResource("LabelSettings_hw56x")
+horizontal_alignment = 1
+
+[node name="BoB" parent="HBoxContainer/PanelContainer/GridContainer" index="1" unique_id=1312128280 instance=ExtResource("3_7p64t")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+popup/item_11/id = 11
+popup/item_12/id = 12
+
+[node name="Label2" type="Label" parent="HBoxContainer/PanelContainer/GridContainer" index="2" unique_id=1446901812]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "WF"
+label_settings = SubResource("LabelSettings_hw56x")
+horizontal_alignment = 1
+
+[node name="WF" parent="HBoxContainer/PanelContainer/GridContainer" index="3" unique_id=1016035975 instance=ExtResource("3_7p64t")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="HBoxContainer/PanelContainer/GridContainer" index="4" unique_id=570289319]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "CCM"
+label_settings = SubResource("LabelSettings_hw56x")
+horizontal_alignment = 1
+
+[node name="CCM" parent="HBoxContainer/PanelContainer/GridContainer" index="5" unique_id=1641459328 instance=ExtResource("3_7p64t")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="HBoxContainer/PanelContainer/GridContainer" index="6" unique_id=611396737]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "JRB"
+label_settings = SubResource("LabelSettings_hw56x")
+horizontal_alignment = 1
+
+[node name="JRB" parent="HBoxContainer/PanelContainer/GridContainer" index="7" unique_id=1216741493 instance=ExtResource("3_7p64t")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+
+[node name="Label5" type="Label" parent="HBoxContainer/PanelContainer/GridContainer" index="8" unique_id=99886329]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "BBH"
+label_settings = SubResource("LabelSettings_hw56x")
+horizontal_alignment = 1
+
+[node name="BBH" parent="HBoxContainer/PanelContainer/GridContainer" index="9" unique_id=92757684 instance=ExtResource("3_7p64t")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+
+[node name="Label6" type="Label" parent="HBoxContainer/PanelContainer/GridContainer" index="10" unique_id=1986475905]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SSL"
+label_settings = SubResource("LabelSettings_hw56x")
+horizontal_alignment = 1
+
+[node name="SSL" parent="HBoxContainer/PanelContainer/GridContainer" index="11" unique_id=500133095 instance=ExtResource("3_7p64t")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+
+[node name="Label7" type="Label" parent="HBoxContainer/PanelContainer/GridContainer" index="12" unique_id=249338681]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "LLL"
+label_settings = SubResource("LabelSettings_hw56x")
+horizontal_alignment = 1
+
+[node name="LLL" parent="HBoxContainer/PanelContainer/GridContainer" index="13" unique_id=2128982254 instance=ExtResource("3_7p64t")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+
+[node name="Label8" type="Label" parent="HBoxContainer/PanelContainer/GridContainer" index="14" unique_id=1481886106]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "HMC"
+label_settings = SubResource("LabelSettings_hw56x")
+horizontal_alignment = 1
+
+[node name="HMC" parent="HBoxContainer/PanelContainer/GridContainer" index="15" unique_id=2000949605 instance=ExtResource("3_7p64t")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+
+[node name="Label9" type="Label" parent="HBoxContainer/PanelContainer/GridContainer" index="16" unique_id=1909223938]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "DDD"
+label_settings = SubResource("LabelSettings_hw56x")
+horizontal_alignment = 1
+
+[node name="DDD" parent="HBoxContainer/PanelContainer/GridContainer" index="17" unique_id=509722796 instance=ExtResource("3_7p64t")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+
+[node name="Label10" type="Label" parent="HBoxContainer/PanelContainer/GridContainer" index="18" unique_id=994026326]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "TTM"
+label_settings = SubResource("LabelSettings_hw56x")
+horizontal_alignment = 1
+
+[node name="TTM" parent="HBoxContainer/PanelContainer/GridContainer" index="19" unique_id=793451326 instance=ExtResource("3_7p64t")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+
+[node name="Label11" type="Label" parent="HBoxContainer/PanelContainer/GridContainer" index="20" unique_id=1301846801]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SL"
+label_settings = SubResource("LabelSettings_hw56x")
+horizontal_alignment = 1
+
+[node name="SL" parent="HBoxContainer/PanelContainer/GridContainer" index="21" unique_id=1100717532 instance=ExtResource("3_7p64t")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+
+[node name="Label12" type="Label" parent="HBoxContainer/PanelContainer/GridContainer" index="22" unique_id=227432817]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "WDW"
+label_settings = SubResource("LabelSettings_hw56x")
+horizontal_alignment = 1
+
+[node name="WDW" parent="HBoxContainer/PanelContainer/GridContainer" index="23" unique_id=1720648293 instance=ExtResource("3_7p64t")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+
+[node name="Label13" type="Label" parent="HBoxContainer/PanelContainer/GridContainer" index="24" unique_id=1858899326]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "THI"
+label_settings = SubResource("LabelSettings_hw56x")
+horizontal_alignment = 1
+
+[node name="THI" parent="HBoxContainer/PanelContainer/GridContainer" index="25" unique_id=1500098079 instance=ExtResource("3_7p64t")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+
+[node name="Label14" type="Label" parent="HBoxContainer/PanelContainer/GridContainer" index="26" unique_id=1799194500]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "TTC"
+label_settings = SubResource("LabelSettings_hw56x")
+horizontal_alignment = 1
+
+[node name="TTC" parent="HBoxContainer/PanelContainer/GridContainer" index="27" unique_id=1429460666 instance=ExtResource("3_7p64t")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+
+[node name="Label15" type="Label" parent="HBoxContainer/PanelContainer/GridContainer" index="28" unique_id=1084640744]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "RR"
+label_settings = SubResource("LabelSettings_hw56x")
+horizontal_alignment = 1
+
+[node name="RR" parent="HBoxContainer/PanelContainer/GridContainer" index="29" unique_id=873404024 instance=ExtResource("3_7p64t")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2

@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://cl1bdq8tc1x83"]
+
+[ext_resource type="Script" uid="uid://b0smmnr2b62ok" path="res://LayoutTool/Notes/ShopTracker/Shop/LayoutTool_Notes_ShopTracker_Shop.gd" id="1_u4xxm"]
+[ext_resource type="FontFile" uid="uid://cdkhdgy8yaj4p" path="res://UI/Roboto-Bold.ttf" id="2_hj05i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x54qk"]
+resource_local_to_scene = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fmj3"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+draw_center = false
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u4xxm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hj05i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x54qk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0fmj3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sjo0l"]
+
+[node name="Shop" type="PanelContainer" unique_id=533366876 node_paths=PackedStringArray("title", "container", "add_item")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_x54qk")
+script = ExtResource("1_u4xxm")
+title = NodePath("VBoxContainer/PanelContainer/ShopTitle")
+container = NodePath("VBoxContainer/ItemsContainer")
+add_item = NodePath("VBoxContainer/AddEntry")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=960903232]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer" unique_id=1374781999]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0fmj3")
+
+[node name="ShopTitle" type="Button" parent="VBoxContainer/PanelContainer" unique_id=2122386625]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_hj05i")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_u4xxm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hj05i")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_x54qk")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_0fmj3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sjo0l")
+text = "Kokiri Shop"
+
+[node name="ItemsContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=1889436010]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AddEntry" type="Button" parent="VBoxContainer" unique_id=259463054]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("2_hj05i")
+text = "Add..."
+flat = true
+
+[connection signal="pressed" from="VBoxContainer/PanelContainer/ShopTitle" to="." method="_on_shop_title_pressed"]
+[connection signal="pressed" from="VBoxContainer/AddEntry" to="." method="_on_add_entry_pressed"]

@@ -16,5 +16,5 @@ func load_notes():
 	code_edit.text = Counter.save.notes[slot]
 
 
-func _on_code_edit_text_changed() -> void:
+func save_notes() -> void:
 	Counter.save.notes[slot] = code_edit.text

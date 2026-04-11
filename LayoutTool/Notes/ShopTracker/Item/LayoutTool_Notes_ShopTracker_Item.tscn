@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://yyr3e8bqn7jt"]
+
+[ext_resource type="Script" uid="uid://cf2vrqhk5l1af" path="res://LayoutTool/Notes/ShopTracker/Item/LayoutTool_Notes_ShopTracker_Item.gd" id="1_cch8g"]
+[ext_resource type="Texture2D" uid="uid://dvyj51o67vast" path="res://UI/Trash.png" id="2_oblk3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cch8g"]
+
+[node name="Shop Item" type="PanelContainer" unique_id=1861447725 node_paths=PackedStringArray("check_box", "item_name", "price")]
+theme_override_styles/panel = SubResource("StyleBoxEmpty_cch8g")
+script = ExtResource("1_cch8g")
+check_box = NodePath("HBoxContainer/CheckBox")
+item_name = NodePath("HBoxContainer/ItemName")
+price = NodePath("HBoxContainer/Price")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1602948780]
+layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="HBoxContainer" unique_id=1302402489]
+layout_mode = 2
+flat = true
+
+[node name="ItemName" type="LineEdit" parent="HBoxContainer" unique_id=1779485013]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Item..."
+context_menu_enabled = false
+emoji_menu_enabled = false
+middle_mouse_paste_enabled = false
+virtual_keyboard_enabled = false
+
+[node name="Price" type="LineEdit" parent="HBoxContainer" unique_id=197942483]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+placeholder_text = "Price..."
+context_menu_enabled = false
+emoji_menu_enabled = false
+middle_mouse_paste_enabled = false
+virtual_keyboard_enabled = false
+
+[node name="Delete" type="Button" parent="HBoxContainer" unique_id=1999199145]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+icon = ExtResource("2_oblk3")
+flat = true
+icon_alignment = 1
+
+[connection signal="pressed" from="HBoxContainer/Delete" to="." method="_on_delete_pressed"]

@@ -17,5 +17,3 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 placeholder_text = "Write Notes here..."
-
-[connection signal="text_changed" from="CodeEdit" to="." method="_on_code_edit_text_changed"]

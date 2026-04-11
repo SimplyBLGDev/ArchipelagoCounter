@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://ccdc4mgjp8j7i"]
+
+[ext_resource type="PackedScene" uid="uid://4fb7tjm012sl" path="res://LayoutTool/Notes/LayoutTool_Notes.tscn" id="1_1jjao"]
+[ext_resource type="Script" uid="uid://bitapaqvmwu5m" path="res://LayoutTool/Notes/MM/LayoutTool_Notes_MM.gd" id="2_6xhlt"]
+[ext_resource type="PackedScene" uid="uid://d0sgsdiflq686" path="res://LayoutTool/Notes/ShopTracker/LayoutTool_Notes_ShopTracker.tscn" id="3_13uem"]
+[ext_resource type="Script" uid="uid://db1hlbwup2ahr" path="res://LayoutTool/Notes/ShopTracker/Shop/LayoutTool_Notes_ShopTracker_Shop_Shop.gd" id="4_6owcr"]
+
+[sub_resource type="Resource" id="Resource_1jjao"]
+script = ExtResource("4_6owcr")
+name = "Trading post day"
+color = Color(0.40392157, 0.30588236, 0.654902, 1)
+metadata/_custom_type_script = "uid://db1hlbwup2ahr"
+
+[sub_resource type="Resource" id="Resource_6xhlt"]
+script = ExtResource("4_6owcr")
+name = "Trading post night"
+color = Color(0.20784314, 0.10980392, 0.45882353, 1)
+metadata/_custom_type_script = "uid://db1hlbwup2ahr"
+
+[sub_resource type="Resource" id="Resource_13uem"]
+script = ExtResource("4_6owcr")
+name = "Bomb Shop"
+color = Color(0.043137256, 0.3254902, 0.5803922, 1)
+metadata/_custom_type_script = "uid://db1hlbwup2ahr"
+
+[sub_resource type="Resource" id="Resource_6owcr"]
+script = ExtResource("4_6owcr")
+name = "Curiosity Shop"
+color = Color(0.23921569, 0.52156866, 0.7764706, 1)
+metadata/_custom_type_script = "uid://db1hlbwup2ahr"
+
+[sub_resource type="Resource" id="Resource_x4swu"]
+script = ExtResource("4_6owcr")
+name = "Witches' Shop"
+color = Color(0.06666667, 0.33333334, 0.8, 1)
+metadata/_custom_type_script = "uid://db1hlbwup2ahr"
+
+[sub_resource type="Resource" id="Resource_uyagy"]
+script = ExtResource("4_6owcr")
+name = "Goron Shop"
+color = Color(0.23529412, 0.47058824, 0.84705883, 1)
+metadata/_custom_type_script = "uid://db1hlbwup2ahr"
+
+[sub_resource type="Resource" id="Resource_chl53"]
+script = ExtResource("4_6owcr")
+name = "Goron Shop (Spring)"
+color = Color(0.07450981, 0.30980393, 0.36078432, 1)
+metadata/_custom_type_script = "uid://db1hlbwup2ahr"
+
+[sub_resource type="Resource" id="Resource_sgmo4"]
+script = ExtResource("4_6owcr")
+name = "Zora Shop"
+color = Color(0.27058825, 0.5058824, 0.5568628, 1)
+metadata/_custom_type_script = "uid://db1hlbwup2ahr"
+
+[node name="MM" unique_id=956269313 node_paths=PackedStringArray("code_edit", "shop_tracker") instance=ExtResource("1_1jjao")]
+script = ExtResource("2_6xhlt")
+code_edit = NodePath("HBoxContainer/CodeEdit")
+shop_tracker = NodePath("HBoxContainer/ScrollContainer/ShopTracker")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." index="0" unique_id=1913753089]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CodeEdit" type="CodeEdit" parent="HBoxContainer" index="0" unique_id=1084516679]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Write Notes here..."
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer" index="1" unique_id=647331571]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 4
+
+[node name="ShopTracker" parent="HBoxContainer/ScrollContainer" index="0" unique_id=836345532 instance=ExtResource("3_13uem")]
+layout_mode = 2
+shops = Array[ExtResource("4_6owcr")]([SubResource("Resource_1jjao"), SubResource("Resource_6xhlt"), SubResource("Resource_13uem"), SubResource("Resource_6owcr"), SubResource("Resource_x4swu"), SubResource("Resource_uyagy"), SubResource("Resource_chl53"), SubResource("Resource_sgmo4")])
