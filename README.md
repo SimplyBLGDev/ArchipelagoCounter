@@ -113,6 +113,18 @@ text_format: String to be formatted for an item entry, the following substrings 
 	{location_color}: Color of the location (defined in APSettings.json)
 ```
 
+### DeathlinkCounter
+
+Displays the amount of deaths of a particular slot.
+
+Parameters:
+
+```yaml
+text_format: String to be formatted with the count, {0} will be replaced with the count
+slot: The slot of the game to be tracked
+```
+
+
 ### PendingItems
 
 Displays a list of all *progression* items per game that have been collected since the last time that game was opened.

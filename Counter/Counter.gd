@@ -305,7 +305,7 @@ func process_save():
 
 
 func process_log_entry(log_message: LogMessage):
-	if log_message is LogMessage_SlotEvent and log_message.type == "goal":
+	if log_message is LogMessage_SlotEvent and log_message.type == LogMessage_SlotEvent.TYPE.GOAL:
 		completed_games.append(get_slot_from_id(log_message.slot))
 
 

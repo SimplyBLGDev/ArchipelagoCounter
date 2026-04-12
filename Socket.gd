@@ -2,7 +2,7 @@ class_name Socket
 extends Node
 
 const MAXIMUM_PACKET_SIZE := 512 * 1024
-const CONNECTION_COMMAND := '[{"cmd":"Connect","password":"{password}","game":"{game}","name":"{slot}","uuid":"{uuid}","version":{version},"items_handling":{items_handling},"tags":["AP","Tracker","TextOnly"],"slot_data":true}]'
+const CONNECTION_COMMAND := '[{"cmd":"Connect","password":"{password}","game":"{game}","name":"{slot}","uuid":"{uuid}","version":{version},"items_handling":{items_handling},"tags":["AP","Tracker","DeathLink","TextOnly"],"slot_data":true}]'
 
 signal updates_received(updates: Array[Update])
 
@@ -132,10 +132,12 @@ func watch_for_updates(game: String, slot: String, uuid: String):
 			var packet_pack = pending_packets.pop_front()
 			
 			for packet in packet_pack:
-				if packet["cmd"] != "PrintJSON":
-					continue
-				
-				var update := print_json_update(packet)
+				var update: Update
+				match packet["cmd"]:
+					"PrintJSON":
+						update = print_json_update(packet)
+					"Bounced":
+						update = bounced_update(packet)
 				if update != null:
 					updates.append(update)
 		
@@ -204,6 +206,15 @@ func print_json_update(packet) -> Update:
 	return null
 
 
+func bounced_update(packet) -> Update:
+	if "DeathLink" in packet["tags"]:
+		var update := Update_DeathLink.new()
+		update.slot = Counter.get_slot_id_from_name(packet["data"]["source"])
+		return update
+	
+	return null
+
+
 class Game_Inventory:
 	var connected_packet: Dictionary
 	var received_items_packet: Dictionary
@@ -236,4 +247,8 @@ class Update_Collect extends Update:
 
 
 class Update_Release extends Update:
+	var slot: int
+
+
+class Update_DeathLink extends Update:
 	var slot: int
