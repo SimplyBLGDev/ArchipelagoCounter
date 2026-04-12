@@ -81,6 +81,7 @@ func fetch_data_package(game):
 func fetch_inventory(game: String, slot: String, uuid: String) -> Game_Inventory:
 	var inventory := Game_Inventory.new()
 	var game_socket := WebSocketPeer.new()
+	game_socket.inbound_buffer_size = MAXIMUM_PACKET_SIZE
 	var err = game_socket.connect_to_url(url)
 	
 	if err != OK:
