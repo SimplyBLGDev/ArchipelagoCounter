@@ -46,7 +46,7 @@ func update_pending_items_list(log_message: LogMessage):
 	
 	elif log_message is LogMessage_SlotEvent:
 		var event: LogMessage_SlotEvent = log_message
-		if event.type not in ["join", "part"]:
+		if event.type not in [LogMessage_SlotEvent.TYPE.JOIN, LogMessage_SlotEvent.TYPE.PART]:
 			return
 		
 		var player_name := Counter.get_player_name_from_id(event.slot)
