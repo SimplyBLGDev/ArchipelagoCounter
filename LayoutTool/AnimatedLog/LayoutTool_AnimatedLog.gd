@@ -16,11 +16,12 @@ var _tween: Tween
 
 func _ready():
 	resized.connect(_on_resize)
-	await Counter.loaded()
 	_on_resize()
+	await Counter.loaded()
 	Counter.log.connect(_on_log)
 	
 	spawn_visible_logs()
+	pass
 
 
 func _process(delta: float) -> void:
@@ -42,6 +43,9 @@ func spawn_visible_logs():
 		return
 	
 	while acc_size <= size.y:
+		if i > len(Counter.save.log):
+			break
+		
 		var log := Counter.save.log[-i]
 		# Add the log entry to the queue
 		_on_log(log)
@@ -56,7 +60,7 @@ func spawn_visible_logs():
 		entry_container.move_child(entry, 1) # Position 0 reserved for space_keeper
 		acc_size += entry.size.y
 	
-	scroll_container.scroll_vertical = scroll_container.get_v_scroll_bar().max_value
+	scroll_container.set_deferred(&"scroll_vertical", scroll_container.get_v_scroll_bar().max_value - size.y + acc_size)
 
 
 func _on_log(log_message: LogMessage):

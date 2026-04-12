@@ -3,6 +3,10 @@
 [ext_resource type="Theme" uid="uid://0p5lyyma5qpk" path="res://UI/Theme.tres" id="1_uh402"]
 [ext_resource type="Script" uid="uid://2mjliawh0osi" path="res://LayoutTool/AnimatedLog/LayoutTool_AnimatedLog.gd" id="2_twtnn"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uh402"]
+content_margin_left = 6.0
+content_margin_right = 6.0
+
 [node name="AnimatedLog" type="PanelContainer" unique_id=208326658 node_paths=PackedStringArray("entry_container", "space_keeper", "scroll_container")]
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,6 +14,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_uh402")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_uh402")
 script = ExtResource("2_twtnn")
 entry_container = NodePath("ScrollContainer/EntryContainer")
 space_keeper = NodePath("ScrollContainer/EntryContainer/EmptySpace")

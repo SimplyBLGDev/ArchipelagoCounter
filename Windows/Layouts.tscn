@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://0p5lyyma5qpk" path="res://UI/Theme.tres" id="1_3c2bk"]
 [ext_resource type="PackedScene" uid="uid://crxdbxcnaodv0" path="res://Layouts/HorizontalLayout.tscn" id="1_mdrog"]
 [ext_resource type="PackedScene" uid="uid://bt8vngrck4rik" path="res://Layouts/SNESLayout.tscn" id="2_3c2bk"]
-[ext_resource type="Script" uid="uid://c4h3oqhvbq7yn" path="res://LayoutTool/LayoutTool_Log.gd" id="3_ig0yn"]
+[ext_resource type="PackedScene" uid="uid://b8rftv0nbneoi" path="res://LayoutTool/AnimatedLog/LayoutTool_AnimatedLog.tscn" id="4_3c2bk"]
 [ext_resource type="PackedScene" uid="uid://ds2evqmcwnkax" path="res://Layouts/GBLayout.tscn" id="4_desgu"]
 [ext_resource type="PackedScene" uid="uid://rdlcfo1162nk" path="res://Layouts/GBALayout.tscn" id="5_h2rny"]
 [ext_resource type="Texture2D" uid="uid://dcxecx4mhdtm0" path="res://OoSEssences/FertileSoil.png" id="6_cy7qq"]
@@ -16,11 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://5c5ulqbw6x4j" path="res://OoSEssences/SeedOfLife.png" id="13_au7vp"]
 [ext_resource type="Texture2D" uid="uid://coc5o1t4xpdcg" path="res://OoSEssences/ChangingSeasons.png" id="14_vmxiu"]
 [ext_resource type="PackedScene" uid="uid://c2ixb55ac8wwr" path="res://Layouts/MMLayout.tscn" id="15_4yuy2"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5mvff"]
-content_margin_left = 6.0
-content_margin_right = 6.0
-bg_color = Color(0.06666667, 0.06666667, 0.06666667, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oye8v"]
 bg_color = Color(0.06666667, 0.06666667, 0.06666667, 1)
@@ -61,20 +56,10 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=760747515]
 layout_mode = 2
 
-[node name="MMLog" type="PanelContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=177993440 node_paths=PackedStringArray("label")]
+[node name="AnimatedLog" parent="VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=208326658 instance=ExtResource("4_3c2bk")]
 custom_minimum_size = Vector2(702, 159)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_5mvff")
-script = ExtResource("3_ig0yn")
-label = NodePath("RichTextLabel")
 message_template = "[b][color=#{sender_color}]{sender}[/color][/b] sent [b][color=#{item_color}]{item}[/color][/b] to [b][color=#{receiver_color}]{receiver}[/color][/b] [b][color=#{location_color}]({location})[/color][/b]"
-
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/MMLog" unique_id=1129582660]
-layout_mode = 2
-bbcode_enabled = true
-scroll_active = false
-scroll_following = true
-vertical_alignment = 2
 
 [node name="GBLayout" parent="VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=608389510 instance=ExtResource("4_desgu")]
 custom_minimum_size = Vector2(720, 0)

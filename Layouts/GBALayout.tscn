@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://c68mmj61blj8v" path="res://Marquee/Marquee_Generic.png" id="1_6b2bu"]
 [ext_resource type="Theme" uid="uid://0p5lyyma5qpk" path="res://UI/Theme.tres" id="1_umkfj"]
+[ext_resource type="PackedScene" uid="uid://b8rftv0nbneoi" path="res://LayoutTool/AnimatedLog/LayoutTool_AnimatedLog.tscn" id="2_874mj"]
 [ext_resource type="FontFile" uid="uid://cdkhdgy8yaj4p" path="res://UI/Roboto-Bold.ttf" id="2_vkw05"]
-[ext_resource type="Script" uid="uid://c4h3oqhvbq7yn" path="res://LayoutTool/LayoutTool_Log.gd" id="3_tye04"]
 [ext_resource type="PackedScene" uid="uid://bupwjdbwh15vf" path="res://Layouts/Game/SM64.tscn" id="5_874mj"]
 [ext_resource type="PackedScene" uid="uid://bmuju0oajlqxb" path="res://Layouts/Game/LADX.tscn" id="6_elv8q"]
 [ext_resource type="PackedScene" uid="uid://2n2xblq2l8j0" path="res://Layouts/Game/OoT.tscn" id="7_43g7n"]
@@ -18,11 +18,6 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j1vxw"]
 bg_color = Color(0.26666668, 0.22745098, 0.22745098, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f3nuj"]
-content_margin_left = 6.0
-content_margin_right = 6.0
-draw_center = false
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_plnk0"]
 content_margin_left = 6.0
@@ -80,20 +75,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_j1vxw")
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="LogContainer" type="PanelContainer" parent="VBoxContainer" unique_id=763467340 node_paths=PackedStringArray("label")]
+[node name="AnimatedLog" parent="VBoxContainer" unique_id=208326658 instance=ExtResource("2_874mj")]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_f3nuj")
-script = ExtResource("3_tye04")
-label = NodePath("RichTextLabel")
 message_template = "[b][color=#{sender_color}]{sender}[/color][/b] sent [b][color=#{item_color}]{item}[/color][/b] to [b][color=#{receiver_color}]{receiver}[/color][/b] [b][color=#{location_color}]({location})[/color][/b]"
-
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/LogContainer" unique_id=1972245658]
-layout_mode = 2
-bbcode_enabled = true
-scroll_active = false
-scroll_following = true
-vertical_alignment = 2
 
 [node name="SM64" type="PanelContainer" parent="VBoxContainer" unique_id=899157686]
 self_modulate = Color(1, 0.8, 0.8, 1)

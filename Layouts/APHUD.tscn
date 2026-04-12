@@ -2,7 +2,6 @@
 
 [ext_resource type="Theme" uid="uid://0p5lyyma5qpk" path="res://UI/Theme.tres" id="1_nv66w"]
 [ext_resource type="Script" uid="uid://c4h3oqhvbq7yn" path="res://LayoutTool/LayoutTool_Log.gd" id="2_l6cfq"]
-[ext_resource type="PackedScene" uid="uid://b8rftv0nbneoi" path="res://LayoutTool/AnimatedLog/LayoutTool_AnimatedLog.tscn" id="2_o7ea7"]
 [ext_resource type="PackedScene" uid="uid://cwkljufepolyx" path="res://LayoutTool/Notes/Container/LayoutTool_Notes_Container.tscn" id="3_nv66w"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nv66w"]
@@ -27,10 +26,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="AnimatedLog" parent="VBoxContainer" unique_id=208326658 instance=ExtResource("2_o7ea7")]
-layout_mode = 2
-size_flags_vertical = 3
 
 [node name="VSplitContainer" type="VSplitContainer" parent="VBoxContainer" unique_id=1848193642]
 layout_mode = 2

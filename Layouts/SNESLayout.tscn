@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bt8vngrck4rik"]
 
 [ext_resource type="Theme" uid="uid://0p5lyyma5qpk" path="res://UI/Theme.tres" id="1_jnrrn"]
-[ext_resource type="Script" uid="uid://c4h3oqhvbq7yn" path="res://LayoutTool/LayoutTool_Log.gd" id="2_jnrrn"]
 [ext_resource type="Texture2D" uid="uid://c68mmj61blj8v" path="res://Marquee/Marquee_Generic.png" id="2_myfee"]
+[ext_resource type="PackedScene" uid="uid://b8rftv0nbneoi" path="res://LayoutTool/AnimatedLog/LayoutTool_AnimatedLog.tscn" id="2_vce1i"]
 [ext_resource type="FontFile" uid="uid://cdkhdgy8yaj4p" path="res://UI/Roboto-Bold.ttf" id="3_jnrrn"]
 [ext_resource type="PackedScene" uid="uid://bupwjdbwh15vf" path="res://Layouts/Game/SM64.tscn" id="5_87n7i"]
 [ext_resource type="Texture2D" uid="uid://jn3j0id8bpr7" path="res://Icons/Star.png" id="5_vce1i"]
@@ -17,11 +17,6 @@
 [ext_resource type="Texture2D" uid="uid://dak3ndpe784vl" path="res://Icons/Twitch.png" id="21_no6oy"]
 [ext_resource type="Texture2D" uid="uid://dnniil0l7k67m" path="res://Icons/Youtube.png" id="22_8y85m"]
 [ext_resource type="Script" uid="uid://dge62fjj66m10" path="res://LayoutTool/LayoutTool_CheckCounter.gd" id="26_nam3n"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gfaq2"]
-content_margin_left = 6.0
-content_margin_right = 6.0
-draw_center = false
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_plnk0"]
 content_margin_left = 6.0
@@ -79,20 +74,10 @@ theme = ExtResource("1_jnrrn")
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="LogContainer" type="PanelContainer" parent="VBoxContainer" unique_id=674102144 node_paths=PackedStringArray("label")]
+[node name="AnimatedLog" parent="VBoxContainer" unique_id=208326658 instance=ExtResource("2_vce1i")]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_gfaq2")
-script = ExtResource("2_jnrrn")
-label = NodePath("RichTextLabel")
 message_template = "[b][color=#{sender_color}]{sender}[/color][/b] sent [b][color=#{item_color}]{item}[/color][/b] to [b][color=#{receiver_color}]{receiver}[/color][/b] [b][color=#{location_color}]({location})[/color][/b]"
-
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/LogContainer" unique_id=1498884201]
-layout_mode = 2
-bbcode_enabled = true
-scroll_active = false
-scroll_following = true
-vertical_alignment = 2
 
 [node name="SM64" type="PanelContainer" parent="VBoxContainer" unique_id=1653360623]
 self_modulate = Color(1, 0.8, 0.8, 1)
