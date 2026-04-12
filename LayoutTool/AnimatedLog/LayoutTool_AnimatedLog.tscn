@@ -22,8 +22,6 @@ scroll_container = NodePath("ScrollContainer")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=767064175]
 layout_mode = 2
-scroll_horizontal_custom_step = 0.0
-scroll_vertical_custom_step = 0.0
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 

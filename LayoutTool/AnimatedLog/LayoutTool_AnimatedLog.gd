@@ -60,7 +60,8 @@ func spawn_visible_logs():
 		entry_container.move_child(entry, 1) # Position 0 reserved for space_keeper
 		acc_size += entry.size.y
 	
-	scroll_container.set_deferred(&"scroll_vertical", scroll_container.get_v_scroll_bar().max_value - size.y + acc_size)
+	await get_tree().process_frame
+	scroll_container.scroll_vertical = scroll_container.get_v_scroll_bar().max_value - size.y + acc_size
 
 
 func _on_log(log_message: LogMessage):
@@ -118,14 +119,7 @@ func _on_resize():
 
 
 func delete_oob_entries():
-	var acc_size := 0
-	var i := 1
-
-	while acc_size <= size.y:
-		if i >= entry_container.get_child_count():
-			break
-		acc_size += entry_container.get_child(entry_container.get_child_count() - i).size.y
-		i += 1
-	
-	for j in range(0, i - 1):
-		entry_container.get_child(0).queue_free()
+	for child in entry_container.get_children():
+		var bottom_left: float = child.position.y + child.size.y
+		if bottom_left < entry_container.size.y - size.y:
+			child.queue_free()
