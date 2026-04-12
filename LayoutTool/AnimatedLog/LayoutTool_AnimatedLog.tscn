@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://b8rftv0nbneoi"]
+
+[ext_resource type="Theme" uid="uid://0p5lyyma5qpk" path="res://UI/Theme.tres" id="1_uh402"]
+[ext_resource type="Script" uid="uid://2mjliawh0osi" path="res://LayoutTool/AnimatedLog/LayoutTool_AnimatedLog.gd" id="2_twtnn"]
+
+[node name="AnimatedLog" type="PanelContainer" unique_id=208326658 node_paths=PackedStringArray("entry_container", "space_keeper", "scroll_container")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_uh402")
+script = ExtResource("2_twtnn")
+entry_container = NodePath("ScrollContainer/EntryContainer")
+space_keeper = NodePath("ScrollContainer/EntryContainer/EmptySpace")
+scroll_container = NodePath("ScrollContainer")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=767064175]
+layout_mode = 2
+scroll_horizontal_custom_step = 0.0
+scroll_vertical_custom_step = 0.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="EntryContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=1297239336]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 2
+
+[node name="EmptySpace" type="Control" parent="ScrollContainer/EntryContainer" unique_id=1850650020]
+custom_minimum_size = Vector2(0, 87)
+layout_mode = 2

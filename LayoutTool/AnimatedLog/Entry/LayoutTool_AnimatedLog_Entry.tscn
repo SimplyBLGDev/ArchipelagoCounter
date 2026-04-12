@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bd82grhds8h5w"]
+
+[ext_resource type="Script" uid="uid://wdr7v834w4qo" path="res://LayoutTool/AnimatedLog/Entry/LayoutTool_AnimatedLog_Entry.gd" id="1_vbq3u"]
+
+[node name="Entry" type="RichTextLabel" unique_id=94261457]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+bbcode_enabled = true
+text = "[color=#ffffff80][16:53:12][/color] [b][color=#ff0000]BLGSM64[/color][/b] sent [b][color=#596bff]Power Star[/color][/b] to [b][color=#ff0000]BLGSM64[/color][/b] [b][color=#00ff00](SSL: something something something)[/color][/b]"
+fit_content = true
+scroll_active = false
+script = ExtResource("1_vbq3u")

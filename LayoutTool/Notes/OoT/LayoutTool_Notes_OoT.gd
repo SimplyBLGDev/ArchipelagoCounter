@@ -11,6 +11,12 @@ static func instantiate(slot: String) -> LayoutTool_Notes_OoT:
 
 
 func load_notes():
+	if slot not in Counter.save.notes:
+		Counter.save.notes[slot] = {
+			"notes": "",
+			"shops": {}
+		}
+	
 	var data: Dictionary = Counter.save.notes[slot]
 	shop_tracker.generate_from_data(data["shops"])
 	code_edit.text = data["notes"]

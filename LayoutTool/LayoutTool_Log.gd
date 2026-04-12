@@ -43,19 +43,11 @@ func print_item(log_message: LogMessage_Item):
 			"item_color": Counter.settings.log_item_color.to_html(),
 			"location_color": Counter.settings.log_location_color.to_html(),
 			"timestamp_color": Counter.settings.log_timestamp_color.to_html(),
-			"timestamp": seconds_to_hms(log_message.timestamp)
+			"timestamp": Utils.seconds_to_hms(log_message.timestamp)
 		})
 	
 	full_text += "\n" + msg
 	queue_redraw()
-
-
-func seconds_to_hms(seconds: float) -> String:
-	var hours = floor(seconds / 3600)
-	var minutes = floor((fposmod(seconds, 3600)) / 60)
-	var secs = fposmod(seconds, 60)
-	
-	return "%02d:%02d:%02d" % [hours, minutes, secs]
 
 
 func _draw() -> void:
