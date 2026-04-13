@@ -11,6 +11,12 @@ If you use it on a stream please credit @SimplyBLG (https://www.twitch.tv/simply
 
 Feel free to contact me if you want a custom layout made for you or to ask any questions.
 
+## Preview
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/072186ef-684e-4d47-b75b-607000dddb17" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/800cc6ac-9570-48a3-80ee-3b6578976b4f" />
+<img width="1919" height="1080" alt="image" src="https://github.com/user-attachments/assets/41ba0922-1ce7-4700-86f4-4c3710d86d09" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/495d16c7-0244-4f63-911b-bb484b0beb7c" />
+
 ## Getting Started
 
 1. Clone or download the repository
