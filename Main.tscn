@@ -1,28 +1,31 @@
 [gd_scene format=3 uid="uid://cw1crqxl0f5v5"]
 
-[ext_resource type="PackedScene" uid="uid://b5pq5s6sjp6dq" path="res://Windows/Layouts.tscn" id="1_uu6xs"]
-[ext_resource type="PackedScene" uid="uid://bsr72ukrumsof" path="res://Layouts/APHUD.tscn" id="3_r0du0"]
-[ext_resource type="PackedScene" uid="uid://bgk5ly2tst0i3" path="res://Windows/Inbetweener.tscn" id="16_fpfj3"]
+[ext_resource type="PackedScene" uid="uid://b8rftv0nbneoi" path="res://LayoutTool/AnimatedLog/LayoutTool_AnimatedLog.tscn" id="1_uu6xs"]
+[ext_resource type="PackedScene" uid="uid://cwkljufepolyx" path="res://LayoutTool/Notes/Container/LayoutTool_Notes_Container.tscn" id="2_uu6xs"]
 
 [node name="Main" type="Node" unique_id=429601805]
 
-[node name="Layouts" parent="." unique_id=1143086715 instance=ExtResource("1_uu6xs")]
+[node name="Control" type="Control" parent="." unique_id=1613337212]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Inbetweener" type="Window" parent="." unique_id=1642371331]
-oversampling_override = 1.0
-title = "Inbetweener"
-position = Vector2i(0, 36)
-size = Vector2i(1920, 1080)
-unresizable = true
-sharp_corners = true
+[node name="VBoxContainer" type="HBoxContainer" parent="Control" unique_id=1878481400]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Inbetweener" parent="Inbetweener" unique_id=2060482377 instance=ExtResource("16_fpfj3")]
+[node name="AnimatedLog" parent="Control/VBoxContainer" unique_id=208326658 instance=ExtResource("1_uu6xs")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="AP HUD" type="Window" parent="." unique_id=1171595031]
-oversampling_override = 1.0
-title = "AP HUD"
-position = Vector2i(0, 36)
-size = Vector2i(700, 1080)
-
-[node name="AP HUD" parent="AP HUD" unique_id=2002580734 instance=ExtResource("3_r0du0")]
-offset_right = 0.0
+[node name="NotesContainer" parent="Control/VBoxContainer" unique_id=773876288 instance=ExtResource("2_uu6xs")]
+layout_mode = 2
+size_flags_horizontal = 3

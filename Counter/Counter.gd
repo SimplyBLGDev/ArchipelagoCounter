@@ -52,25 +52,29 @@ func _ready():
 	on_load()
 	
 	print("Fetching Room Info")
-	var socket := Socket.new(settings.url, settings.password)
+	var socket := Socket.new(settings.archipelago_connection_data["url"], settings.archipelago_connection_data["password"])
 	add_child(socket)
 	await socket.fetch_room_info()
-	for game in settings.games:
-		print("Building lookup for {0}".format([game]))
-		await build_lookup(game, socket)
+	for slot in settings.games:
+		print("Building lookup for {0} ({1})".format([slot, settings.games[slot]]))
+		await build_lookup(settings.games[slot], socket)
+		game_checks[slot] = 0
+		total_game_checks[slot] = 0
 	
-	for game in settings.games:
-		print("Fetching inventory for {0}".format([game]))
-		var inventory := await socket.fetch_inventory(game, settings.games[game], checksums[game])
+	for slot in settings.games:
+		var game := settings.games[slot]
+		print("Fetching inventory for {0}".format([slot]))
+		var inventory := await socket.fetch_inventory(game, slot, checksums[game])
 		process_connected(inventory.connected_packet)
 		if inventory.received_items_packet != {}:
-			process_received_items(get_slot_id_from_name(settings.games[game]), inventory.received_items_packet)
+			process_received_items(get_slot_id_from_name(slot), inventory.received_items_packet)
 	
 	process_save()
 	
 	var watch_slot: String = settings.games.keys()[0]
-	print("Watching for updates on {0}".format([watch_slot]))
-	socket.watch_for_updates(watch_slot, settings.games[watch_slot], checksums[watch_slot])
+	var watch_game: String = settings.games[watch_slot]
+	print("Watching for updates on {0} ({1})".format([watch_slot, watch_game]))
+	socket.watch_for_updates(watch_game, watch_slot, checksums[watch_game])
 	socket.updates_received.connect(updates_received)
 	initialized = true
 	update.emit()
@@ -79,6 +83,9 @@ func _ready():
 
 
 func build_lookup(game: String, socket: Socket):
+	if game in item_lookup:
+		return ## Game already has lookup
+	
 	var data_package = await get_data_package_for_game(game, socket)
 	if data_package == {}:
 		return
@@ -91,8 +98,6 @@ func build_lookup(game: String, socket: Socket):
 		location_lookup[game][int(data_package["location_name_to_id"][location])] = location
 	
 	checksums[game] = data_package["checksum"]
-	game_checks[settings.games[game]] = 0
-	total_game_checks[settings.games[game]] = 0
 
 
 func get_data_package_for_game(game: String, socket: Socket) -> Dictionary:
@@ -219,12 +224,8 @@ func get_player_name_from_id(id: int) -> String:
 
 func get_game_from_slot(id: int) -> String:
 	if not id in game_lookup:
-		for player in players:
-			if int(player["slot"]) == id:
-				var n: String = player["name"]
-				for game in settings.games:
-					if settings.games[game] == n:
-						game_lookup[id] = game
+		var slot_name := get_slot_from_id(id)
+		game_lookup[id] = settings.games[slot_name]
 	
 	return game_lookup[id]
 
@@ -282,6 +283,10 @@ func on_load():
 
 
 func on_quit():
+	flush_save()
+
+
+func flush_save():
 	pre_save.emit()
 	save.save()
 

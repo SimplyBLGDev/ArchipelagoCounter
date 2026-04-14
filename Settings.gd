@@ -1,8 +1,7 @@
 class_name Settings
 extends Resource
 
-var url := ""
-var password := ""
+## [slot: game]
 var games: Dictionary[String, String] = {}
 var conditions: Dictionary = {}
 var log_timestamp_color := Color("ffffff9b")
@@ -14,13 +13,10 @@ var overrides: Dictionary = {}
 var archipelago_connection_data: Dictionary = {}
 
 func _init(data):
-	url = data["archipelago_connection_data"]["url"]
-	password = data["archipelago_connection_data"]["password"]
-	
 	for game in data["games"]:
 		var game_name: String = game["game"]
 		var slot_name: String = game["slot"]
-		games[game_name] = slot_name
+		games[slot_name] = game_name
 	
 	conditions = data["conditions"]
 	
