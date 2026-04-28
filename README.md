@@ -248,6 +248,8 @@ Base class: use `LayoutTool_Launcher.tscn`
 
 This node is configured through a file `APAutoLauncher.json` in the same directory as you executable, view the included `APAutoLauncher.json` file for an example of what this file should look like.
 
+Parameters:
+
 ```yaml
 poptracker_path: The path to the poptracker executable
 slots: A list of all slots and their launch settings
@@ -283,6 +285,18 @@ action: "APFile"
 directory: The directory containing the file
 extension: The extension of the file to open, make sure there is only one file with this extension in the directory, if you need to open multiple files use the Command or Launch action
 ```
+
+### Notes
+
+Allows you to keep track of anything you need to remember in your slots by providing a text box where you can write notes, some games have additional notes features.
+
+Base class: use `LayoutTool_Notes.tscn`
+
+#### Games with additional notes features:
+
+- Ship of Harkinian: Shop tracker
+- Majora's Mask Recompiled: Shop tracker
+- Super Mario 64: Entrance tracker
 
 ### UI_BG
 
