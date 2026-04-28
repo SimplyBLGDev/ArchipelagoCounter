@@ -31,6 +31,10 @@ Item Code: A unique code representing an item within a game, composed of {Slot N
 	Example: "BLGSM64::Power Star"
 ```
 
+### Figuring out Item codes
+
+If you need to get the correct item code for any particular game you can go to the Counter.gd file in the Godot script editor and breakpoint line `process_save()` under the `_ready()` method (by left clicking the far left margin next to the line, a red dot should appear), this will stop the execution of the program after fetching all the item codes from your games and you can then open the `item_lookup` variable.
+
 ### Check Counter
 
 Displays the total number of checks across all games in the Archipelago that have been collected so far.
