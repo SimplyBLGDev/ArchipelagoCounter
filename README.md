@@ -188,7 +188,7 @@ This file is used to configure the Archipelago server and the games that will be
 
 ```yaml
 archipelago_connection_data: Settings relating to the archipelago connection
-	url: The URL of the Archipelago server
+	url: The URL of the Archipelago server, if it's a local server (localhost) prefix it with ws://, if it's a remote server (e.g. archipelago.gg) prefix it with wss://
 	password: The password of the Archipelago server
 	version: Version of the Archipelago server, make sure it matches your server's AP version
 		major: Major version of the Archipelago server, ex.: AP 0.7.1 -> 0
