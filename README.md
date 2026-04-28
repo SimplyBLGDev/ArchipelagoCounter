@@ -277,6 +277,13 @@ pack: The pack to open, check the pack's manifest.json for the pack name
 variant: The variant of the pack to open, check the pack's manifest.json for the variant name
 ```
 
+##### APFile: Opens an AP file
+```yaml
+action: "APFile"
+directory: The directory containing the file
+extension: The extension of the file to open, make sure there is only one file with this extension in the directory, if you need to open multiple files use the Command or Launch action
+```
+
 ### UI_BG
 
 __Advanced node__, purely decorative.
