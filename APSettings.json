@@ -5,7 +5,7 @@
 		"version": {
 			"major": 0,
 			"minor": 6,
-			"build": 5
+			"build": 7
 		}
 	},
 	"games": [
@@ -36,16 +36,21 @@
 		{
 			"slot": "BLGOoT",
 			"game": "Ship of Harkinian"
+		},
+		{
+			"slot": "BLGCeleste",
+			"game": "Celeste (Open World)"
 		}
 	],
 	"conditions": {
-		"BLGDX::Instrument Count": 6,
-		"BLGOoT::Dungeon Reward Count": 7,
+		"BLGDX::Instrument Count": 5,
+		"BLGOoT::Dungeon Reward Count": 6,
 		"BLGMM::Remains Count": 3,
-		"BLGMC::Swords": 5,
+		"BLGMC::Swords": 4,
 		"BLGMC::Elements": 3,
-		"BLGLttP::Triforce Count": 25,
-		"BLGOoS::Essences": 6
+		"BLGLttP::Triforce Count": 20,
+		"BLGOoS::Essences": 5,
+		"BLGCeleste::Strawberries": 40
 	},
 	"log_colors": {
 		"timestamp": "ffffff9b",
@@ -59,15 +64,15 @@
 			"BLGMC": "00bd4e",
 			"BLGDX": "6998ff",
 			"BLGOoS": "96f5ff",
-			"BLGOoT": "ffce96"
+			"BLGOoT": "ffce96",
+			"BLGCeleste": "1eb9c7"
 		}
 	},
 	"overrides": {
 		"games": {
-			"TUNIC": {
+			"Super Mario 64": {
 				"exclude_locations": [
-					".*Grass.*\\([0-9\\.,]+\\)",
-					".*Bush.*\\([0-9\\.,]+\\)"
+					".*1Up Block.*"
 				]
 			}
 		}

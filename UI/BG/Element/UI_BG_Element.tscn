@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://cmjnngk8u8brf"]
+
+[ext_resource type="Script" uid="uid://du50o60p8e4lr" path="res://UI/BG/Element/UI_BG_Element.gd" id="2_d5qf5"]
+
+[sub_resource type="Shader" id="Shader_vh87c"]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+uniform float addition = 0.2;
+uniform float multiplication = 2.0;
+uniform float opaqueness = 0.4;
+uniform float contrast = 1.0;
+
+mat4 contrastMatrix(float c) {
+	float t = (1.0 - c) / 2.0;
+	
+	return mat4(vec4(c, 0.0, 0.0, 0.0),
+				vec4(0.0, c, 0.0, 0.0),
+				vec4(0.0, 0.0, c, 0.0),
+				vec4(t, t, t, 1.0));
+}
+
+void fragment() {
+	COLOR.rgb *= multiplication;
+	COLOR.rgb += addition;
+	COLOR = contrastMatrix(contrast) * COLOR;
+	COLOR.a = min(opaqueness, COLOR.a);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_56e2b"]
+shader = SubResource("Shader_vh87c")
+shader_parameter/addition = 0.95
+shader_parameter/multiplication = 0.5
+shader_parameter/opaqueness = 0.085
+shader_parameter/contrast = 1.0
+
+[node name="BGElement" type="TextureRect" unique_id=525974536]
+texture_filter = 1
+material = SubResource("ShaderMaterial_56e2b")
+custom_minimum_size = Vector2(64, 64)
+offset_right = 32.0
+offset_bottom = 32.0
+rotation = 0.34906584
+pivot_offset_ratio = Vector2(0.5, 0.5)
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("2_d5qf5")

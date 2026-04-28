@@ -5,6 +5,8 @@ signal timer_update
 signal log(log_message: LogMessage)
 signal load_complete
 signal pre_save
+## Signal bus equivalent
+signal broadcast(message: String, args: Dictionary)
 
 var settings: Settings
 
@@ -179,9 +181,12 @@ func update_received(update: Socket.Update):
 	if update is Socket.Update_Player:
 		var up := update as Socket.Update_Player
 		if up.update_type == Socket.Update_Player.Player_Update_Type.Join:
-			active_players.append( up.slot)
+			active_players.append(up.slot)
 		elif up.update_type == Socket.Update_Player.Player_Update_Type.Part:
 			active_players.erase(up.slot)
+	elif update is Socket.Update_Goal:
+		# Pause timer when goal is completed for a game
+		active_players.erase(update.slot)
 	
 	if update is Socket.Update_Item:
 		var ui := update as Socket.Update_Item

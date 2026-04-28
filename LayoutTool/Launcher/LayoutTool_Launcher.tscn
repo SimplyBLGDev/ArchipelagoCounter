@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dcmu5yfoitxh1"]
+
+[ext_resource type="Script" uid="uid://bct68ckmbvdlx" path="res://LayoutTool/Launcher/LayoutTool_Launcher.gd" id="1_k4nkt"]
+
+[node name="Launcher" type="HBoxContainer" unique_id=66907569 node_paths=PackedStringArray("slot_select")]
+script = ExtResource("1_k4nkt")
+slot_select = NodePath("OptionButton")
+
+[node name="OptionButton" type="OptionButton" parent="." unique_id=1489244468]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+
+[node name="Button" type="Button" parent="." unique_id=2108068960]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Launch"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

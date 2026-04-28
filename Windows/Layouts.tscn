@@ -1,29 +1,468 @@
 [gd_scene format=3 uid="uid://b5pq5s6sjp6dq"]
 
 [ext_resource type="Theme" uid="uid://0p5lyyma5qpk" path="res://UI/Theme.tres" id="1_3c2bk"]
-[ext_resource type="PackedScene" uid="uid://crxdbxcnaodv0" path="res://Layouts/HorizontalLayout.tscn" id="1_mdrog"]
-[ext_resource type="PackedScene" uid="uid://bt8vngrck4rik" path="res://Layouts/SNESLayout.tscn" id="2_3c2bk"]
+[ext_resource type="PackedScene" uid="uid://l4hvfkq3y52q" path="res://Layout2/GBLayout.tscn" id="2_68bd8"]
+[ext_resource type="Texture2D" uid="uid://c68mmj61blj8v" path="res://Marquee/Marquee_Generic.png" id="2_vmxiu"]
+[ext_resource type="PackedScene" uid="uid://bupwjdbwh15vf" path="res://Layouts/Game/SM64.tscn" id="3_4yuy2"]
+[ext_resource type="PackedScene" uid="uid://7hu4sas3mv3v" path="res://Layout2/169Layout.tscn" id="3_68bd8"]
 [ext_resource type="PackedScene" uid="uid://b8rftv0nbneoi" path="res://LayoutTool/AnimatedLog/LayoutTool_AnimatedLog.tscn" id="4_3c2bk"]
-[ext_resource type="PackedScene" uid="uid://ds2evqmcwnkax" path="res://Layouts/GBLayout.tscn" id="4_desgu"]
-[ext_resource type="PackedScene" uid="uid://rdlcfo1162nk" path="res://Layouts/GBALayout.tscn" id="5_h2rny"]
+[ext_resource type="Texture2D" uid="uid://jn3j0id8bpr7" path="res://Icons/Star.png" id="4_68bd8"]
+[ext_resource type="Script" uid="uid://bb8s8i2lg88hp" path="res://LayoutTool/LayoutTool_CompletionIndicator.gd" id="5_whlis"]
 [ext_resource type="Texture2D" uid="uid://dcxecx4mhdtm0" path="res://OoSEssences/FertileSoil.png" id="6_cy7qq"]
+[ext_resource type="Texture2D" uid="uid://nw414cqbi4pk" path="res://Icons/Instrument.png" id="6_gul1t"]
+[ext_resource type="Script" uid="uid://hi4qcrd2vs53" path="res://LayoutTool/LayoutTool_ItemCounter.gd" id="7_efaws"]
 [ext_resource type="Script" uid="uid://bxmtiakkb00gf" path="res://LayoutTool/LayoutTool_Item.gd" id="7_qd2n0"]
 [ext_resource type="Texture2D" uid="uid://ddo81lbxkin8f" path="res://OoSEssences/GiftofTime.png" id="8_1chow"]
+[ext_resource type="Texture2D" uid="uid://bb81n1y6mmqh" path="res://Icons/DX_Ocarina.png" id="8_vxshh"]
 [ext_resource type="Texture2D" uid="uid://eu25w2hl3bx5" path="res://OoSEssences/BrightSun.png" id="9_raf65"]
 [ext_resource type="Texture2D" uid="uid://bl21afh8ujfc2" path="res://OoSEssences/SoothingRain.png" id="10_n3tvl"]
+[ext_resource type="Texture2D" uid="uid://dnyvulxurpsj0" path="res://Icons/DX_Ballad.png" id="10_yxthg"]
+[ext_resource type="Texture2D" uid="uid://cse15qe7b5y4d" path="res://Icons/OoT_Medallion.png" id="11_30hp8"]
 [ext_resource type="Texture2D" uid="uid://d3kullob2wtjb" path="res://OoSEssences/NurturingWarmth.png" id="11_cqlr4"]
+[ext_resource type="Texture2D" uid="uid://mnhelj6xw7dx" path="res://Icons/OoT_Magic.png" id="12_45kvl"]
 [ext_resource type="Texture2D" uid="uid://bvyw5icvqhubl" path="res://OoSEssences/BlowingWind.png" id="12_v6qi0"]
+[ext_resource type="Script" uid="uid://cle4fmbfqyo0e" path="res://LayoutTool/LayoutTool_ItemAtlas.gd" id="13_4puc1"]
 [ext_resource type="Texture2D" uid="uid://5c5ulqbw6x4j" path="res://OoSEssences/SeedOfLife.png" id="13_au7vp"]
+[ext_resource type="Texture2D" uid="uid://c7aucn3b0gw25" path="res://Icons/OoT_Bow.png" id="14_fpwra"]
 [ext_resource type="Texture2D" uid="uid://coc5o1t4xpdcg" path="res://OoSEssences/ChangingSeasons.png" id="14_vmxiu"]
-[ext_resource type="PackedScene" uid="uid://c2ixb55ac8wwr" path="res://Layouts/MMLayout.tscn" id="15_4yuy2"]
+[ext_resource type="Texture2D" uid="uid://cn564ukxoyval" path="res://Icons/OoT_LightArrow.png" id="15_w42q2"]
+[ext_resource type="Texture2D" uid="uid://d36rbj0k86c57" path="res://Icons/MM_Remains.png" id="16_pe2lc"]
+[ext_resource type="Texture2D" uid="uid://cx7c77agc3xyl" path="res://Icons/MM_Oath.png" id="17_lmvq8"]
+[ext_resource type="PackedScene" uid="uid://i3v3y8gr8k62" path="res://Layouts/Game/ALttP.tscn" id="18_5nuee"]
+[ext_resource type="PackedScene" uid="uid://ctnldj7dktmty" path="res://Layouts/Game/MinishCap.tscn" id="19_vgah1"]
+[ext_resource type="PackedScene" uid="uid://tk3tlq3px4k0" path="res://Layouts/Game/OoS.tscn" id="20_exqk7"]
+[ext_resource type="PackedScene" uid="uid://0mn6bveh2irx" path="res://Layouts/Game/Celeste.tscn" id="22_rsm07"]
+[ext_resource type="Script" uid="uid://dge62fjj66m10" path="res://LayoutTool/LayoutTool_CheckCounter.gd" id="24_qhgxu"]
+[ext_resource type="FontFile" uid="uid://cdkhdgy8yaj4p" path="res://UI/Roboto-Bold.ttf" id="25_sa76w"]
+[ext_resource type="Script" uid="uid://uf4ckcqtqd57" path="res://LayoutTool/LayoutTool_RunTimer.gd" id="26_sjsk6"]
+[ext_resource type="Texture2D" uid="uid://dak3ndpe784vl" path="res://Icons/Twitch.png" id="27_jnou8"]
+[ext_resource type="Texture2D" uid="uid://dnniil0l7k67m" path="res://Icons/Youtube.png" id="28_islem"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oye8v"]
-bg_color = Color(0.06666667, 0.06666667, 0.06666667, 1)
+[sub_resource type="GDScript" id="GDScript_4yuy2"]
+resource_name = "GameEnabler"
+script/source = "extends Control
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x3yn0"]
-bg_color = Color(0, 0, 0, 1)
+@export var main_layout: VBoxContainer
+@export var second_layout: VBoxContainer
 
-[node name="Layouts" type="Control" unique_id=1143086715]
+func _ready():
+	await Counter.loaded()
+	Counter.broadcast.connect(_on_broadcast)
+
+
+func _on_broadcast(message: String, args: Dictionary):
+	if message != \"Change_Game\":
+		return
+	
+	main_layout.visible = not main_layout.visible
+	second_layout.visible = not second_layout.visible
+"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_whlis"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource("2_vmxiu")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gul1t"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource("2_vmxiu")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_efaws"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource("2_vmxiu")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxshh"]
+atlas = ExtResource("12_45kvl")
+region = Rect2(0, 0, 32, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yxthg"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource("2_vmxiu")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_30hp8"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource("2_vmxiu")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_45kvl"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource("2_vmxiu")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4puc1"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource("2_vmxiu")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fpwra"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource("2_vmxiu")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_w42q2"]
+font = ExtResource("25_sa76w")
+font_size = 34
+font_color = Color(0.07167991, 0.84, 0.016799983, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pe2lc"]
+font_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lmvq8"]
+content_margin_left = 14.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.19215687, 0.61960787, 0.16470589, 1)
+skew = Vector2(0.61, 0)
+expand_margin_right = 35.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_5nuee"]
+font = ExtResource("25_sa76w")
+font_size = 24
+shadow_color = Color(0, 0, 0, 0.4627451)
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lmvq8"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource("2_vmxiu")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r050g"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource("2_vmxiu")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qhgxu"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource("2_vmxiu")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sa76w"]
+atlas = ExtResource("12_45kvl")
+region = Rect2(0, 0, 32, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sjsk6"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource("2_vmxiu")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jnou8"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource("2_vmxiu")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_islem"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource("2_vmxiu")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nt75j"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource("2_vmxiu")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8i4fe"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource("2_vmxiu")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_6k6nc"]
+line_spacing = 0.0
+font_size = 21
+
+[sub_resource type="LabelSettings" id="LabelSettings_fyud1"]
+font = ExtResource("25_sa76w")
+font_size = 40
+font_color = Color(0.07167991, 0.84, 0.016799983, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wvpvs"]
+content_margin_left = 40.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.19215687, 0.61960787, 0.16470589, 1)
+skew = Vector2(0.61, 0)
+expand_margin_right = 51.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_mbxp3"]
+font = ExtResource("25_sa76w")
+font_size = 28
+shadow_color = Color(0, 0, 0, 0.4627451)
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_whlis"]
+bg_color = Color(0.12941177, 0.14509805, 0.16078432, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vxshh"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource("2_vmxiu")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w42q2"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource("2_vmxiu")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pe2lc"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource("2_vmxiu")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmvq8"]
+atlas = ExtResource("12_45kvl")
+region = Rect2(0, 0, 32, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5nuee"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource("2_vmxiu")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vgah1"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource("2_vmxiu")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_exqk7"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource("2_vmxiu")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lr522"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource("2_vmxiu")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rsm07"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource("2_vmxiu")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_r050g"]
+line_spacing = 0.0
+font_size = 21
+
+[sub_resource type="LabelSettings" id="LabelSettings_qhgxu"]
+font = ExtResource("25_sa76w")
+font_size = 40
+font_color = Color(0.07167991, 0.84, 0.016799983, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sa76w"]
+content_margin_top = 16.0
+content_margin_right = 6.0
+content_margin_bottom = 16.0
+bg_color = Color(0.19215687, 0.61960787, 0.16470589, 1)
+skew = Vector2(0.61, 0)
+expand_margin_top = 106.0
+expand_margin_right = 56.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_sjsk6"]
+font = ExtResource("25_sa76w")
+font_size = 28
+shadow_color = Color(0, 0, 0, 0.4627451)
+shadow_offset = Vector2(3, 3)
+
+[node name="Layouts" type="Control" unique_id=1143086715 node_paths=PackedStringArray("main_layout", "second_layout")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,8 +470,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_3c2bk")
+script = SubResource("GDScript_4yuy2")
+main_layout = NodePath("MainLayout")
+second_layout = NodePath("SecondLayout")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1676663811]
+[node name="MainLayout" type="VBoxContainer" parent="." unique_id=1676663811]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -40,140 +482,982 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HorizontalLayout" parent="VBoxContainer" unique_id=658748335 instance=ExtResource("1_mdrog")]
+[node name="GBLayout" parent="MainLayout" unique_id=979566074 instance=ExtResource("2_68bd8")]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=554440329]
+[node name="169Layout" parent="MainLayout" unique_id=819431785 instance=ExtResource("3_68bd8")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainLayout" unique_id=1088098226]
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+
+[node name="SM64" type="PanelContainer" parent="MainLayout/HBoxContainer" unique_id=1144810175]
+self_modulate = Color(1, 0.8, 0.8, 1)
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_whlis")
+
+[node name="SM64" parent="MainLayout/HBoxContainer/SM64" unique_id=535599633 instance=ExtResource("3_4yuy2")]
+layout_mode = 2
+
+[node name="LADX" type="PanelContainer" parent="MainLayout/HBoxContainer" unique_id=1968852281]
+self_modulate = Color(0.7882353, 0.85882354, 1, 1)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_gul1t")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainLayout/HBoxContainer/LADX" unique_id=1514224731]
+layout_mode = 2
+
+[node name="InstrumentIcon" type="TextureRect" parent="MainLayout/HBoxContainer/LADX/HBoxContainer" unique_id=1503985790]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("6_gul1t")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="InstrumentCount" type="Label" parent="MainLayout/HBoxContainer/LADX/HBoxContainer" unique_id=40825170]
+layout_mode = 2
+text = "0/6"
+script = ExtResource("7_efaws")
+items = Array[String](["BLGDX::Full Moon Cello", "BLGDX::Conch Horn", "BLGDX::Sea Lily's Bell", "BLGDX::Surf Harp", "BLGDX::Wind Marimba", "BLGDX::Coral Triangle", "BLGDX::Organ of Evening Calm", "BLGDX::Thunder Drum"])
+condition = "BLGDX::Instrument Count"
+
+[node name="DXOcarina" type="TextureRect" parent="MainLayout/HBoxContainer/LADX/HBoxContainer" unique_id=1638360882]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("8_vxshh")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("7_qd2n0")
+item_code = "BLGDX::Ocarina"
+
+[node name="DXBallad" type="TextureRect" parent="MainLayout/HBoxContainer/LADX/HBoxContainer" unique_id=1501370244]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("10_yxthg")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("7_qd2n0")
+item_code = "BLGDX::Ballad of the Wind Fish"
+
+[node name="OoT" type="PanelContainer" parent="MainLayout/HBoxContainer" unique_id=762964440]
+self_modulate = Color(1, 0.94509804, 0.8901961, 1)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_efaws")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainLayout/HBoxContainer/OoT" unique_id=652375453]
+layout_mode = 2
+
+[node name="OoTDungeonRewardIcon" type="TextureRect" parent="MainLayout/HBoxContainer/OoT/HBoxContainer" unique_id=714946281]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("11_30hp8")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="OoTDungeonRewardCount" type="Label" parent="MainLayout/HBoxContainer/OoT/HBoxContainer" unique_id=424755573]
+layout_mode = 2
+text = "0/6"
+script = ExtResource("7_efaws")
+items = Array[String](["BLGOoT::Kokiri's Emerald", "BLGOoT::Goron's Ruby", "BLGOoT::Zora's Sapphire", "BLGOoT::Forest Medallion", "BLGOoT::Fire Medallion", "BLGOoT::Water Medallion", "BLGOoT::Shadow Medallion", "BLGOoT::Spirit Medallion", "BLGOoT::Light Medallion"])
+condition = "BLGOoT::Dungeon Reward Count"
+
+[node name="OoTMagic" type="TextureRect" parent="MainLayout/HBoxContainer/OoT/HBoxContainer" unique_id=273972926]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("AtlasTexture_vxshh")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("13_4puc1")
+frames_in_atlas = 3
+item_code = "BLGOoT::Progressive Magic Meter"
+
+[node name="OoTBow" type="TextureRect" parent="MainLayout/HBoxContainer/OoT/HBoxContainer" unique_id=960718142]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("14_fpwra")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("7_qd2n0")
+item_code = "BLGOoT::Progressive Bow"
+
+[node name="OoTLightArrow" type="TextureRect" parent="MainLayout/HBoxContainer/OoT/HBoxContainer" unique_id=33658789]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("15_w42q2")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("7_qd2n0")
+item_code = "BLGOoT::Light Arrow"
+
+[node name="MM" type="PanelContainer" parent="MainLayout/HBoxContainer" unique_id=627289186]
+self_modulate = Color(0.9843137, 0.85882354, 1, 1)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_yxthg")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainLayout/HBoxContainer/MM" unique_id=666862964]
+layout_mode = 2
+
+[node name="MMRemainsIcon" type="TextureRect" parent="MainLayout/HBoxContainer/MM/HBoxContainer" unique_id=1315338455]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("16_pe2lc")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="MMRemainsCount" type="Label" parent="MainLayout/HBoxContainer/MM/HBoxContainer" unique_id=835350589]
+layout_mode = 2
+text = "0/3"
+script = ExtResource("7_efaws")
+items = Array[String](["BLGMM::Odolwa's Remains", "BLGMM::Goht's Remains", "BLGMM::Gyorg's Remains", "BLGMM::Twinmold's Remains"])
+condition = "BLGMM::Remains Count"
+
+[node name="MMOath" type="TextureRect" parent="MainLayout/HBoxContainer/MM/HBoxContainer" unique_id=1244328321]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("17_lmvq8")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("7_qd2n0")
+item_code = "BLGMM::Oath to Order"
+
+[node name="ALttP" type="PanelContainer" parent="MainLayout/HBoxContainer" unique_id=1676273604]
+self_modulate = Color(0.92941177, 0.9411765, 0.69411767, 1)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_30hp8")
+
+[node name="ALttP" parent="MainLayout/HBoxContainer/ALttP" unique_id=1054017773 instance=ExtResource("18_5nuee")]
+layout_mode = 2
+
+[node name="MinishCap" type="PanelContainer" parent="MainLayout/HBoxContainer" unique_id=639446997]
+self_modulate = Color(0.81960785, 1, 0.8784314, 1)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_45kvl")
+
+[node name="MinishCap" parent="MainLayout/HBoxContainer/MinishCap" unique_id=1413241670 instance=ExtResource("19_vgah1")]
+layout_mode = 2
+
+[node name="OoS" type="PanelContainer" parent="MainLayout/HBoxContainer" unique_id=958949777]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_4puc1")
+
+[node name="OoS" parent="MainLayout/HBoxContainer/OoS" unique_id=744261680 instance=ExtResource("20_exqk7")]
+layout_mode = 2
+
+[node name="Celeste" type="PanelContainer" parent="MainLayout/HBoxContainer" unique_id=733995922]
+self_modulate = Color(0.61, 1, 0.94149995, 1)
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_fpwra")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainLayout/HBoxContainer/Celeste" unique_id=963377585]
+layout_mode = 2
+alignment = 2
+
+[node name="Celeste" parent="MainLayout/HBoxContainer/Celeste/HBoxContainer" unique_id=2032320413 instance=ExtResource("22_rsm07")]
+layout_mode = 2
+
+[node name="RunTimer" type="Label" parent="MainLayout/HBoxContainer" unique_id=1899203256]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "00:00:00"
+label_settings = SubResource("LabelSettings_w42q2")
+horizontal_alignment = 1
+script = ExtResource("26_sjsk6")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MainLayout" unique_id=261989394]
+custom_minimum_size = Vector2(0, 165)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainLayout/HBoxContainer2" unique_id=1779311102]
+custom_minimum_size = Vector2(403, 0)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainLayout/HBoxContainer2/VBoxContainer" unique_id=820727704]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="MainLayout/HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=1578382947]
+layout_mode = 2
+text = "Total Checks: 0000/0000"
+label_settings = SubResource("LabelSettings_pe2lc")
+script = ExtResource("24_qhgxu")
+text_format = "Total Checks: {0}/{1}"
+
+[node name="Socials" type="PanelContainer" parent="MainLayout/HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=1119656918]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_lmvq8")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainLayout/HBoxContainer2/VBoxContainer/HBoxContainer/Socials" unique_id=1923775265]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainLayout/HBoxContainer2/VBoxContainer/HBoxContainer/Socials/HBoxContainer" unique_id=352905384]
+layout_mode = 2
+
+[node name="Twitch" type="TextureRect" parent="MainLayout/HBoxContainer2/VBoxContainer/HBoxContainer/Socials/HBoxContainer/VBoxContainer" unique_id=460402704]
 layout_mode = 2
 size_flags_vertical = 3
+texture = ExtResource("27_jnou8")
+expand_mode = 2
+stretch_mode = 5
 
-[node name="SNESLayout" parent="VBoxContainer/HBoxContainer" unique_id=2002084134 instance=ExtResource("2_3c2bk")]
+[node name="Youtube" type="TextureRect" parent="MainLayout/HBoxContainer2/VBoxContainer/HBoxContainer/Socials/HBoxContainer/VBoxContainer" unique_id=1359961596]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("28_islem")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MainLayout/HBoxContainer2/VBoxContainer/HBoxContainer/Socials/HBoxContainer" unique_id=2090896061]
+layout_mode = 2
+text = "@SimplyBLG"
+label_settings = SubResource("LabelSettings_5nuee")
+
+[node name="AnimatedLog" parent="MainLayout/HBoxContainer2/VBoxContainer" unique_id=208326658 instance=ExtResource("4_3c2bk")]
+layout_mode = 2
+size_flags_vertical = 3
+message_template = "[b][color=#{sender_color}]{sender}[/color][/b] sent [b][color=#{item_color}]{item}[/color][/b] to [b][color=#{receiver_color}]{receiver}[/color][/b] [b][color=#{location_color}]({location})[/color][/b]"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MainLayout" unique_id=852580125]
 layout_mode = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=249418771]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MainLayout/HBoxContainer3" unique_id=1269350745]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=760747515]
-layout_mode = 2
-
-[node name="AnimatedLog" parent="VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=208326658 instance=ExtResource("4_3c2bk")]
-custom_minimum_size = Vector2(702, 159)
+[node name="AnimatedLog" parent="MainLayout/HBoxContainer3/VBoxContainer2" unique_id=747694369 instance=ExtResource("4_3c2bk")]
+custom_minimum_size = Vector2(196, 448)
 layout_mode = 2
 message_template = "[b][color=#{sender_color}]{sender}[/color][/b] sent [b][color=#{item_color}]{item}[/color][/b] to [b][color=#{receiver_color}]{receiver}[/color][/b] [b][color=#{location_color}]({location})[/color][/b]"
 
-[node name="GBLayout" parent="VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=608389510 instance=ExtResource("4_desgu")]
-custom_minimum_size = Vector2(720, 0)
+[node name="VBoxContainer" type="VBoxContainer" parent="MainLayout/HBoxContainer3" unique_id=516720403]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainLayout/HBoxContainer3/VBoxContainer" unique_id=1131753903]
+custom_minimum_size = Vector2(0, 130)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HFlowContainer" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer" unique_id=772367669]
+custom_minimum_size = Vector2(942, 106)
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+alignment = 1
+last_wrap_alignment = 2
+
+[node name="SM64" type="PanelContainer" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=994929202]
+self_modulate = Color(1, 0.8, 0.8, 1)
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_lmvq8")
+
+[node name="SM64" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/HBoxContainer/SM64" unique_id=547351313 instance=ExtResource("3_4yuy2")]
+layout_mode = 2
+
+[node name="CompletionIndicator" type="TextureRect" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/HBoxContainer/SM64/SM64" unique_id=499642450]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("4_68bd8")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("5_whlis")
+slot = "BLGSM64"
+
+[node name="LADX" type="PanelContainer" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=1925882865]
+self_modulate = Color(0.7882353, 0.85882354, 1, 1)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_r050g")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/HBoxContainer/LADX" unique_id=1182441153]
+layout_mode = 2
+
+[node name="InstrumentIcon" type="TextureRect" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/HBoxContainer/LADX/HBoxContainer" unique_id=50272906]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("6_gul1t")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="InstrumentCount" type="Label" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/HBoxContainer/LADX/HBoxContainer" unique_id=1011913102]
+layout_mode = 2
+text = "0/6"
+script = ExtResource("7_efaws")
+items = Array[String](["BLGDX::Full Moon Cello", "BLGDX::Conch Horn", "BLGDX::Sea Lily's Bell", "BLGDX::Surf Harp", "BLGDX::Wind Marimba", "BLGDX::Coral Triangle", "BLGDX::Organ of Evening Calm", "BLGDX::Thunder Drum"])
+condition = "BLGDX::Instrument Count"
+
+[node name="DXOcarina" type="TextureRect" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/HBoxContainer/LADX/HBoxContainer" unique_id=658390206]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("8_vxshh")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("7_qd2n0")
+item_code = "BLGDX::Ocarina"
+
+[node name="DXBallad" type="TextureRect" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/HBoxContainer/LADX/HBoxContainer" unique_id=820001761]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("10_yxthg")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("7_qd2n0")
+item_code = "BLGDX::Ballad of the Wind Fish"
+
+[node name="CompletionIndicator" type="TextureRect" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/HBoxContainer/LADX/HBoxContainer" unique_id=1485883145]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("4_68bd8")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("5_whlis")
+slot = "BLGDX"
+
+[node name="OoT" type="PanelContainer" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=1368954519]
+self_modulate = Color(1, 0.94509804, 0.8901961, 1)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_qhgxu")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/HBoxContainer/OoT" unique_id=1329295347]
+layout_mode = 2
+
+[node name="OoTDungeonRewardIcon" type="TextureRect" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/HBoxContainer/OoT/HBoxContainer" unique_id=122910079]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("11_30hp8")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="OoTDungeonRewardCount" type="Label" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/HBoxContainer/OoT/HBoxContainer" unique_id=2141172298]
+layout_mode = 2
+text = "0/6"
+script = ExtResource("7_efaws")
+items = Array[String](["BLGOoT::Kokiri's Emerald", "BLGOoT::Goron's Ruby", "BLGOoT::Zora's Sapphire", "BLGOoT::Forest Medallion", "BLGOoT::Fire Medallion", "BLGOoT::Water Medallion", "BLGOoT::Shadow Medallion", "BLGOoT::Spirit Medallion", "BLGOoT::Light Medallion"])
+condition = "BLGOoT::Dungeon Reward Count"
+
+[node name="OoTMagic" type="TextureRect" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/HBoxContainer/OoT/HBoxContainer" unique_id=2048863352]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("AtlasTexture_sa76w")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("13_4puc1")
+frames_in_atlas = 3
+item_code = "BLGOoT::Progressive Magic Meter"
+
+[node name="OoTBow" type="TextureRect" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/HBoxContainer/OoT/HBoxContainer" unique_id=1935911174]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("14_fpwra")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("7_qd2n0")
+item_code = "BLGOoT::Progressive Bow"
+
+[node name="OoTLightArrow" type="TextureRect" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/HBoxContainer/OoT/HBoxContainer" unique_id=1492260428]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("15_w42q2")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("7_qd2n0")
+item_code = "BLGOoT::Light Arrow"
+
+[node name="CompletionIndicator" type="TextureRect" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/HBoxContainer/OoT/HBoxContainer" unique_id=1038068762]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("4_68bd8")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("5_whlis")
+slot = "BLGOoT"
+
+[node name="MM" type="PanelContainer" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=1434909461]
+self_modulate = Color(0.9843137, 0.85882354, 1, 1)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_sjsk6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/HBoxContainer/MM" unique_id=617072090]
+layout_mode = 2
+
+[node name="MMRemainsIcon" type="TextureRect" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/HBoxContainer/MM/HBoxContainer" unique_id=640593592]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("16_pe2lc")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="MMRemainsCount" type="Label" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/HBoxContainer/MM/HBoxContainer" unique_id=478345257]
+layout_mode = 2
+text = "0/3"
+script = ExtResource("7_efaws")
+items = Array[String](["BLGMM::Odolwa's Remains", "BLGMM::Goht's Remains", "BLGMM::Gyorg's Remains", "BLGMM::Twinmold's Remains"])
+condition = "BLGMM::Remains Count"
+
+[node name="MMOath" type="TextureRect" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/HBoxContainer/MM/HBoxContainer" unique_id=1027816085]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("17_lmvq8")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("7_qd2n0")
+item_code = "BLGMM::Oath to Order"
+
+[node name="CompletionIndicator" type="TextureRect" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/HBoxContainer/MM/HBoxContainer" unique_id=2033384919]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("4_68bd8")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("5_whlis")
+slot = "BLGMM"
+
+[node name="ALttP" type="PanelContainer" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=778850913]
+self_modulate = Color(0.92941177, 0.9411765, 0.69411767, 1)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_jnou8")
+
+[node name="ALttP" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/HBoxContainer/ALttP" unique_id=1786627013 instance=ExtResource("18_5nuee")]
+layout_mode = 2
+
+[node name="CompletionIndicator" type="TextureRect" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/HBoxContainer/ALttP/ALttP" unique_id=1173141332]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("4_68bd8")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("5_whlis")
+slot = "BLGLttP"
+
+[node name="MinishCap" type="PanelContainer" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=1587515413]
+self_modulate = Color(0.81960785, 1, 0.8784314, 1)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_islem")
+
+[node name="MinishCap" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/HBoxContainer/MinishCap" unique_id=793967951 instance=ExtResource("19_vgah1")]
+layout_mode = 2
+
+[node name="CompletionIndicator" type="TextureRect" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/HBoxContainer/MinishCap/MinishCap" unique_id=16683832]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("4_68bd8")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("5_whlis")
+slot = "BLGMC"
+
+[node name="OoS" type="PanelContainer" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=235085592]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_nt75j")
+
+[node name="OoS" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/HBoxContainer/OoS" unique_id=2097852011 instance=ExtResource("20_exqk7")]
+layout_mode = 2
+
+[node name="CompletionIndicator" type="TextureRect" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/HBoxContainer/OoS/OoS" unique_id=2081455822]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("4_68bd8")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("5_whlis")
+slot = "BLGOoS"
+
+[node name="Celeste" type="PanelContainer" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=1741859615]
+self_modulate = Color(0.61, 1, 0.94149995, 1)
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_8i4fe")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/HBoxContainer/Celeste" unique_id=1150345100]
+layout_mode = 2
+alignment = 2
+
+[node name="Celeste" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/HBoxContainer/Celeste/HBoxContainer" unique_id=1545004044 instance=ExtResource("22_rsm07")]
+layout_mode = 2
+
+[node name="CompletionIndicator" type="TextureRect" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/HBoxContainer/Celeste/HBoxContainer" unique_id=396218360]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("4_68bd8")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("5_whlis")
+slot = "BLGCeleste"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer" unique_id=1669590058]
+layout_mode = 2
+
+[node name="TotalChecks" type="Label" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=987698390]
+layout_mode = 2
+text = "Total Checks
+0625/1299"
+label_settings = SubResource("LabelSettings_6k6nc")
+horizontal_alignment = 1
+script = ExtResource("24_qhgxu")
+text_format = "Total Checks
+{0}/{1}"
+
+[node name="RunTimer" type="Label" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=162134728]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "00:00:00"
+label_settings = SubResource("LabelSettings_fyud1")
+horizontal_alignment = 1
+script = ExtResource("26_sjsk6")
+
+[node name="Control" type="Control" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer" unique_id=2137668565]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+
+[node name="Socials" type="PanelContainer" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer" unique_id=34712773]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_wvpvs")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/Socials" unique_id=1448681113]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/Socials/HBoxContainer" unique_id=1812097192]
+layout_mode = 2
+
+[node name="Twitch" type="TextureRect" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/Socials/HBoxContainer/VBoxContainer" unique_id=1048742765]
 layout_mode = 2
 size_flags_vertical = 3
+texture = ExtResource("27_jnou8")
+expand_mode = 2
+stretch_mode = 5
 
-[node name="GBALayout" parent="VBoxContainer/HBoxContainer" unique_id=304349019 instance=ExtResource("5_h2rny")]
-custom_minimum_size = Vector2(300, 0)
+[node name="Youtube" type="TextureRect" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/Socials/HBoxContainer/VBoxContainer" unique_id=1201857218]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("28_islem")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/Socials/HBoxContainer" unique_id=1470971016]
+layout_mode = 2
+text = "@SimplyBLG"
+label_settings = SubResource("LabelSettings_mbxp3")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MainLayout/HBoxContainer3/VBoxContainer" unique_id=1016273450]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=677829569]
+[node name="AnimatedLog" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer2" unique_id=1239975654 instance=ExtResource("4_3c2bk")]
+custom_minimum_size = Vector2(538, 417)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_whlis")
+message_template = "[b][color=#{sender_color}]{sender}[/color][/b] sent [b][color=#{item_color}]{item}[/color][/b] to [b][color=#{receiver_color}]{receiver}[/color][/b] [b][color=#{location_color}]({location})[/color][/b]"
 
-[node name="OoSEssences" type="PanelContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1713276552]
-custom_minimum_size = Vector2(220, 114)
+[node name="VBoxContainer" type="VBoxContainer" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer2" unique_id=1647764755]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_oye8v")
+size_flags_horizontal = 3
 
-[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoSEssences" unique_id=2016909429]
-layout_mode = 2
-
-[node name="GridContainer" type="GridContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoSEssences/CenterContainer" unique_id=484665750]
-layout_mode = 2
-theme_override_constants/v_separation = 16
-columns = 4
-
-[node name="FertileSoil" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoSEssences/CenterContainer/GridContainer" unique_id=2099111447]
+[node name="HBoxContainer" type="HBoxContainer" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=1860346049]
 texture_filter = 1
-custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="TextureRect" type="TextureRect" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=283807609]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("6_cy7qq")
-expand_mode = 1
-stretch_mode = 5
 script = ExtResource("7_qd2n0")
 item_code = "BLGOoS::Fertile Soil"
 
-[node name="GiftOfTime" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoSEssences/CenterContainer/GridContainer" unique_id=275010254]
-texture_filter = 1
-custom_minimum_size = Vector2(48, 48)
+[node name="TextureRect2" type="TextureRect" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=808940171]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("8_1chow")
-expand_mode = 1
-stretch_mode = 5
 script = ExtResource("7_qd2n0")
 item_code = "BLGOoS::Gift of Time"
 
-[node name="BrightSun" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoSEssences/CenterContainer/GridContainer" unique_id=1032652948]
-texture_filter = 1
-custom_minimum_size = Vector2(48, 48)
+[node name="TextureRect3" type="TextureRect" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=1164724646]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("9_raf65")
-expand_mode = 1
-stretch_mode = 5
 script = ExtResource("7_qd2n0")
 item_code = "BLGOoS::Bright Sun"
 
-[node name="SoothingRain" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoSEssences/CenterContainer/GridContainer" unique_id=1991668851]
-texture_filter = 1
-custom_minimum_size = Vector2(48, 48)
+[node name="TextureRect4" type="TextureRect" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=615233831]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("10_n3tvl")
-expand_mode = 1
-stretch_mode = 5
 script = ExtResource("7_qd2n0")
 item_code = "BLGOoS::Soothing Rain"
 
-[node name="NurturingWarmth" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoSEssences/CenterContainer/GridContainer" unique_id=802830179]
-texture_filter = 1
-custom_minimum_size = Vector2(48, 48)
+[node name="TextureRect5" type="TextureRect" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=1758476128]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("11_cqlr4")
-expand_mode = 1
-stretch_mode = 5
 script = ExtResource("7_qd2n0")
 item_code = "BLGOoS::Nurturing Warmth"
 
-[node name="BlowingWind" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoSEssences/CenterContainer/GridContainer" unique_id=1084328156]
-texture_filter = 1
-custom_minimum_size = Vector2(48, 48)
+[node name="TextureRect6" type="TextureRect" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=1297823365]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("12_v6qi0")
-expand_mode = 1
-stretch_mode = 5
 script = ExtResource("7_qd2n0")
 item_code = "BLGOoS::Blowing Wind"
 
-[node name="SeedOfLife" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoSEssences/CenterContainer/GridContainer" unique_id=1167739490]
-texture_filter = 1
-custom_minimum_size = Vector2(48, 48)
+[node name="TextureRect7" type="TextureRect" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=1663250366]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("13_au7vp")
-expand_mode = 1
-stretch_mode = 5
 script = ExtResource("7_qd2n0")
-item_code = "BLGOoS::Seed of Lfie"
+item_code = "BLGOoS::Seed of Life"
 
-[node name="ChangingSeasons" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoSEssences/CenterContainer/GridContainer" unique_id=855295370]
-texture_filter = 1
-custom_minimum_size = Vector2(48, 48)
+[node name="TextureRect8" type="TextureRect" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=1733202184]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("14_vmxiu")
-expand_mode = 1
-stretch_mode = 5
 script = ExtResource("7_qd2n0")
 item_code = "BLGOoS::Changing Seasons"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=470396597]
-layout_mode = 2
-size_flags_horizontal = 0
+[node name="SecondLayout" type="VBoxContainer" parent="." unique_id=2093540683]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="MMLayout" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1612386232 instance=ExtResource("15_4yuy2")]
+[node name="HBoxContainer" type="HBoxContainer" parent="SecondLayout" unique_id=1823871306]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_x3yn0")
 
-[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=610200360]
+[node name="AnimatedLog" parent="SecondLayout/HBoxContainer" unique_id=912424383 instance=ExtResource("4_3c2bk")]
+custom_minimum_size = Vector2(450, 860)
+layout_mode = 2
+message_template = "[b][color=#{sender_color}]{sender}[/color][/b] sent [b][color=#{item_color}]{item}[/color][/b] to [b][color=#{receiver_color}]{receiver}[/color][/b] [b][color=#{location_color}]({location})[/color][/b]"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SecondLayout/HBoxContainer" unique_id=2089794906]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SecondLayout/HBoxContainer/VBoxContainer" unique_id=945718998]
+custom_minimum_size = Vector2(0, 183)
+layout_mode = 2
+
+[node name="HFlowContainer" type="HFlowContainer" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer" unique_id=861327499]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+alignment = 1
+last_wrap_alignment = 2
+
+[node name="SM64" type="PanelContainer" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HFlowContainer" unique_id=990721340]
+self_modulate = Color(1, 0.8, 0.8, 1)
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_vxshh")
+
+[node name="SM64" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HFlowContainer/SM64" unique_id=2055395335 instance=ExtResource("3_4yuy2")]
+layout_mode = 2
+
+[node name="CompletionIndicator" type="TextureRect" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HFlowContainer/SM64/SM64" unique_id=374193107]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("4_68bd8")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("5_whlis")
+slot = "BLGSM64"
+
+[node name="LADX" type="PanelContainer" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HFlowContainer" unique_id=2071660109]
+self_modulate = Color(0.7882353, 0.85882354, 1, 1)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_w42q2")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HFlowContainer/LADX" unique_id=2013079009]
+layout_mode = 2
+
+[node name="InstrumentIcon" type="TextureRect" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HFlowContainer/LADX/HBoxContainer" unique_id=665813983]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("6_gul1t")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="InstrumentCount" type="Label" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HFlowContainer/LADX/HBoxContainer" unique_id=502273066]
+layout_mode = 2
+text = "0/6"
+script = ExtResource("7_efaws")
+items = Array[String](["BLGDX::Full Moon Cello", "BLGDX::Conch Horn", "BLGDX::Sea Lily's Bell", "BLGDX::Surf Harp", "BLGDX::Wind Marimba", "BLGDX::Coral Triangle", "BLGDX::Organ of Evening Calm", "BLGDX::Thunder Drum"])
+condition = "BLGDX::Instrument Count"
+
+[node name="DXOcarina" type="TextureRect" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HFlowContainer/LADX/HBoxContainer" unique_id=2139894501]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("8_vxshh")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("7_qd2n0")
+item_code = "BLGDX::Ocarina"
+
+[node name="DXBallad" type="TextureRect" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HFlowContainer/LADX/HBoxContainer" unique_id=553749112]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("10_yxthg")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("7_qd2n0")
+item_code = "BLGDX::Ballad of the Wind Fish"
+
+[node name="CompletionIndicator" type="TextureRect" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HFlowContainer/LADX/HBoxContainer" unique_id=1997175120]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("4_68bd8")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("5_whlis")
+slot = "BLGDX"
+
+[node name="OoT" type="PanelContainer" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HFlowContainer" unique_id=1238420225]
+self_modulate = Color(1, 0.94509804, 0.8901961, 1)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_pe2lc")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HFlowContainer/OoT" unique_id=377078433]
+layout_mode = 2
+
+[node name="OoTDungeonRewardIcon" type="TextureRect" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HFlowContainer/OoT/HBoxContainer" unique_id=1615569113]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("11_30hp8")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="OoTDungeonRewardCount" type="Label" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HFlowContainer/OoT/HBoxContainer" unique_id=1666088129]
+layout_mode = 2
+text = "0/6"
+script = ExtResource("7_efaws")
+items = Array[String](["BLGOoT::Kokiri's Emerald", "BLGOoT::Goron's Ruby", "BLGOoT::Zora's Sapphire", "BLGOoT::Forest Medallion", "BLGOoT::Fire Medallion", "BLGOoT::Water Medallion", "BLGOoT::Shadow Medallion", "BLGOoT::Spirit Medallion", "BLGOoT::Light Medallion"])
+condition = "BLGOoT::Dungeon Reward Count"
+
+[node name="OoTMagic" type="TextureRect" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HFlowContainer/OoT/HBoxContainer" unique_id=582167635]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("AtlasTexture_lmvq8")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("13_4puc1")
+frames_in_atlas = 3
+item_code = "BLGOoT::Progressive Magic Meter"
+
+[node name="OoTBow" type="TextureRect" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HFlowContainer/OoT/HBoxContainer" unique_id=46681138]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("14_fpwra")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("7_qd2n0")
+item_code = "BLGOoT::Progressive Bow"
+
+[node name="OoTLightArrow" type="TextureRect" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HFlowContainer/OoT/HBoxContainer" unique_id=2004611560]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("15_w42q2")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("7_qd2n0")
+item_code = "BLGOoT::Light Arrow"
+
+[node name="CompletionIndicator" type="TextureRect" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HFlowContainer/OoT/HBoxContainer" unique_id=1702662495]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("4_68bd8")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("5_whlis")
+slot = "BLGOoT"
+
+[node name="MM" type="PanelContainer" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HFlowContainer" unique_id=585410937]
+self_modulate = Color(0.9843137, 0.85882354, 1, 1)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_5nuee")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HFlowContainer/MM" unique_id=1934529880]
+layout_mode = 2
+
+[node name="MMRemainsIcon" type="TextureRect" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HFlowContainer/MM/HBoxContainer" unique_id=1237701561]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("16_pe2lc")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="MMRemainsCount" type="Label" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HFlowContainer/MM/HBoxContainer" unique_id=235755518]
+layout_mode = 2
+text = "0/3"
+script = ExtResource("7_efaws")
+items = Array[String](["BLGMM::Odolwa's Remains", "BLGMM::Goht's Remains", "BLGMM::Gyorg's Remains", "BLGMM::Twinmold's Remains"])
+condition = "BLGMM::Remains Count"
+
+[node name="MMOath" type="TextureRect" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HFlowContainer/MM/HBoxContainer" unique_id=827773126]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("17_lmvq8")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("7_qd2n0")
+item_code = "BLGMM::Oath to Order"
+
+[node name="CompletionIndicator" type="TextureRect" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HFlowContainer/MM/HBoxContainer" unique_id=527312846]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("4_68bd8")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("5_whlis")
+slot = "BLGOoS"
+
+[node name="ALttP" type="PanelContainer" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HFlowContainer" unique_id=385791273]
+self_modulate = Color(0.92941177, 0.9411765, 0.69411767, 1)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_vgah1")
+
+[node name="ALttP" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HFlowContainer/ALttP" unique_id=1412776540 instance=ExtResource("18_5nuee")]
+layout_mode = 2
+
+[node name="CompletionIndicator" type="TextureRect" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HFlowContainer/ALttP/ALttP" unique_id=1181145961]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("4_68bd8")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("5_whlis")
+slot = "BLGLttP"
+
+[node name="MinishCap" type="PanelContainer" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HFlowContainer" unique_id=970532225]
+self_modulate = Color(0.81960785, 1, 0.8784314, 1)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_exqk7")
+
+[node name="MinishCap" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HFlowContainer/MinishCap" unique_id=1678022110 instance=ExtResource("19_vgah1")]
+layout_mode = 2
+
+[node name="CompletionIndicator" type="TextureRect" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HFlowContainer/MinishCap/MinishCap" unique_id=947280194]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("4_68bd8")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("5_whlis")
+slot = "BLGMC"
+
+[node name="OoS" type="PanelContainer" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HFlowContainer" unique_id=112404509]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_lr522")
+
+[node name="OoS" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HFlowContainer/OoS" unique_id=495647841 instance=ExtResource("20_exqk7")]
+layout_mode = 2
+
+[node name="CompletionIndicator" type="TextureRect" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HFlowContainer/OoS/OoS" unique_id=584589110]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("4_68bd8")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("5_whlis")
+slot = "BLGOoS"
+
+[node name="Celeste" type="PanelContainer" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HFlowContainer" unique_id=1011604642]
+self_modulate = Color(0.61, 1, 0.94149995, 1)
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_rsm07")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HFlowContainer/Celeste" unique_id=518532422]
+layout_mode = 2
+alignment = 2
+
+[node name="Celeste" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HFlowContainer/Celeste/HBoxContainer" unique_id=1746399696 instance=ExtResource("22_rsm07")]
+layout_mode = 2
+
+[node name="CompletionIndicator" type="TextureRect" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HFlowContainer/Celeste/HBoxContainer" unique_id=349730566]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("4_68bd8")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("5_whlis")
+slot = "BLGCeleste"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer" unique_id=696663605]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TotalChecks" type="Label" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=862799243]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Total Checks
+0625/1299"
+label_settings = SubResource("LabelSettings_r050g")
+horizontal_alignment = 1
+script = ExtResource("24_qhgxu")
+text_format = "Total Checks
+{0}/{1}"
+
+[node name="RunTimer" type="Label" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=967787070]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "00:00:00"
+label_settings = SubResource("LabelSettings_qhgxu")
+horizontal_alignment = 1
+script = ExtResource("26_sjsk6")
+
+[node name="Socials" type="PanelContainer" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=1247912163]
+z_index = -1
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sa76w")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Socials" unique_id=1771190572]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Socials/HBoxContainer" unique_id=106040194]
+layout_mode = 2
+
+[node name="Twitch" type="TextureRect" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Socials/HBoxContainer/VBoxContainer" unique_id=1514035155]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("27_jnou8")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Socials/HBoxContainer" unique_id=571460952]
+layout_mode = 2
+text = "@SimplyBLG"
+label_settings = SubResource("LabelSettings_sjsk6")
+
+[node name="Youtube" type="TextureRect" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Socials/HBoxContainer" unique_id=1498348746]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("28_islem")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Socials" unique_id=824924558]
+layout_mode = 2

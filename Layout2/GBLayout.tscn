@@ -1,0 +1,470 @@
+[gd_scene format=3 uid="uid://l4hvfkq3y52q"]
+
+[ext_resource type="Texture2D" uid="uid://c68mmj61blj8v" path="res://Marquee/Marquee_Generic.png" id="1_2jqyu"]
+[ext_resource type="PackedScene" uid="uid://bupwjdbwh15vf" path="res://Layouts/Game/SM64.tscn" id="2_1hstm"]
+[ext_resource type="Texture2D" uid="uid://jn3j0id8bpr7" path="res://Icons/Star.png" id="3_fn873"]
+[ext_resource type="Script" uid="uid://bb8s8i2lg88hp" path="res://LayoutTool/LayoutTool_CompletionIndicator.gd" id="4_878co"]
+[ext_resource type="Texture2D" uid="uid://nw414cqbi4pk" path="res://Icons/Instrument.png" id="5_d3xio"]
+[ext_resource type="Script" uid="uid://hi4qcrd2vs53" path="res://LayoutTool/LayoutTool_ItemCounter.gd" id="6_yhhlq"]
+[ext_resource type="Texture2D" uid="uid://bb81n1y6mmqh" path="res://Icons/DX_Ocarina.png" id="7_ag8kl"]
+[ext_resource type="Script" uid="uid://bxmtiakkb00gf" path="res://LayoutTool/LayoutTool_Item.gd" id="8_y61hl"]
+[ext_resource type="Texture2D" uid="uid://dnyvulxurpsj0" path="res://Icons/DX_Ballad.png" id="9_abdh8"]
+[ext_resource type="Texture2D" uid="uid://cse15qe7b5y4d" path="res://Icons/OoT_Medallion.png" id="10_hyim8"]
+[ext_resource type="Texture2D" uid="uid://mnhelj6xw7dx" path="res://Icons/OoT_Magic.png" id="11_c15q4"]
+[ext_resource type="Script" uid="uid://cle4fmbfqyo0e" path="res://LayoutTool/LayoutTool_ItemAtlas.gd" id="12_iaxnc"]
+[ext_resource type="Texture2D" uid="uid://c7aucn3b0gw25" path="res://Icons/OoT_Bow.png" id="13_5ltmu"]
+[ext_resource type="Texture2D" uid="uid://cn564ukxoyval" path="res://Icons/OoT_LightArrow.png" id="14_mb6vk"]
+[ext_resource type="Texture2D" uid="uid://d36rbj0k86c57" path="res://Icons/MM_Remains.png" id="15_1kyj5"]
+[ext_resource type="Texture2D" uid="uid://cx7c77agc3xyl" path="res://Icons/MM_Oath.png" id="16_6bb40"]
+[ext_resource type="PackedScene" uid="uid://i3v3y8gr8k62" path="res://Layouts/Game/ALttP.tscn" id="17_jvpde"]
+[ext_resource type="PackedScene" uid="uid://ctnldj7dktmty" path="res://Layouts/Game/MinishCap.tscn" id="18_l68il"]
+[ext_resource type="PackedScene" uid="uid://tk3tlq3px4k0" path="res://Layouts/Game/OoS.tscn" id="19_k3q23"]
+[ext_resource type="PackedScene" uid="uid://0mn6bveh2irx" path="res://Layouts/Game/Celeste.tscn" id="21_1lfgg"]
+[ext_resource type="Script" uid="uid://dge62fjj66m10" path="res://LayoutTool/LayoutTool_CheckCounter.gd" id="23_1x16f"]
+[ext_resource type="FontFile" uid="uid://cdkhdgy8yaj4p" path="res://UI/Roboto-Bold.ttf" id="24_4lml0"]
+[ext_resource type="Script" uid="uid://uf4ckcqtqd57" path="res://LayoutTool/LayoutTool_RunTimer.gd" id="25_p3ekp"]
+[ext_resource type="Texture2D" uid="uid://dak3ndpe784vl" path="res://Icons/Twitch.png" id="26_5mjxb"]
+[ext_resource type="Texture2D" uid="uid://dnniil0l7k67m" path="res://Icons/Youtube.png" id="27_57dv7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nt75j"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource("1_2jqyu")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8i4fe"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource("1_2jqyu")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6k6nc"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource("1_2jqyu")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fyud1"]
+atlas = ExtResource("11_c15q4")
+region = Rect2(0, 0, 32, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wvpvs"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource("1_2jqyu")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mbxp3"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource("1_2jqyu")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ybnvk"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource("1_2jqyu")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7ovn6"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource("1_2jqyu")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2qiqq"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource("1_2jqyu")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_d2xx1"]
+line_spacing = 0.0
+font_size = 21
+
+[sub_resource type="LabelSettings" id="LabelSettings_xbb0b"]
+font = ExtResource("24_4lml0")
+font_size = 40
+font_color = Color(0.07167991, 0.84, 0.016799983, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_blxt3"]
+content_margin_left = 40.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.19215687, 0.61960787, 0.16470589, 1)
+skew = Vector2(0.61, 0)
+expand_margin_right = 35.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_e15hh"]
+font = ExtResource("24_4lml0")
+font_size = 28
+shadow_color = Color(0, 0, 0, 0.4627451)
+shadow_offset = Vector2(3, 3)
+
+[node name="GBLayout" type="HBoxContainer" unique_id=979566074]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 106.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HFlowContainer" parent="." unique_id=745594026]
+custom_minimum_size = Vector2(942, 106)
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+alignment = 1
+last_wrap_alignment = 2
+
+[node name="SM64" type="PanelContainer" parent="HBoxContainer" unique_id=833758031]
+self_modulate = Color(1, 0.8, 0.8, 1)
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_nt75j")
+
+[node name="SM64" parent="HBoxContainer/SM64" unique_id=535599633 instance=ExtResource("2_1hstm")]
+layout_mode = 2
+
+[node name="CompletionIndicator" type="TextureRect" parent="HBoxContainer/SM64/SM64" unique_id=153637302]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("3_fn873")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("4_878co")
+slot = "BLGSM64"
+
+[node name="LADX" type="PanelContainer" parent="HBoxContainer" unique_id=2144666770]
+self_modulate = Color(0.7882353, 0.85882354, 1, 1)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_8i4fe")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/LADX" unique_id=1631321220]
+layout_mode = 2
+
+[node name="InstrumentIcon" type="TextureRect" parent="HBoxContainer/LADX/HBoxContainer" unique_id=487321488]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("5_d3xio")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="InstrumentCount" type="Label" parent="HBoxContainer/LADX/HBoxContainer" unique_id=169600921]
+layout_mode = 2
+text = "0/6"
+script = ExtResource("6_yhhlq")
+items = Array[String](["BLGDX::Full Moon Cello", "BLGDX::Conch Horn", "BLGDX::Sea Lily's Bell", "BLGDX::Surf Harp", "BLGDX::Wind Marimba", "BLGDX::Coral Triangle", "BLGDX::Organ of Evening Calm", "BLGDX::Thunder Drum"])
+condition = "BLGDX::Instrument Count"
+
+[node name="DXOcarina" type="TextureRect" parent="HBoxContainer/LADX/HBoxContainer" unique_id=1624256557]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("7_ag8kl")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("8_y61hl")
+item_code = "BLGDX::Ocarina"
+
+[node name="DXBallad" type="TextureRect" parent="HBoxContainer/LADX/HBoxContainer" unique_id=1530560345]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("9_abdh8")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("8_y61hl")
+item_code = "BLGDX::Ballad of the Wind Fish"
+
+[node name="CompletionIndicator" type="TextureRect" parent="HBoxContainer/LADX/HBoxContainer" unique_id=1747306125]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("3_fn873")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("4_878co")
+slot = "BLGDX"
+
+[node name="OoT" type="PanelContainer" parent="HBoxContainer" unique_id=252350319]
+self_modulate = Color(1, 0.94509804, 0.8901961, 1)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_6k6nc")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/OoT" unique_id=246027292]
+layout_mode = 2
+
+[node name="OoTDungeonRewardIcon" type="TextureRect" parent="HBoxContainer/OoT/HBoxContainer" unique_id=778375466]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("10_hyim8")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="OoTDungeonRewardCount" type="Label" parent="HBoxContainer/OoT/HBoxContainer" unique_id=2144886391]
+layout_mode = 2
+text = "0/6"
+script = ExtResource("6_yhhlq")
+items = Array[String](["BLGOoT::Kokiri's Emerald", "BLGOoT::Goron's Ruby", "BLGOoT::Zora's Sapphire", "BLGOoT::Forest Medallion", "BLGOoT::Fire Medallion", "BLGOoT::Water Medallion", "BLGOoT::Shadow Medallion", "BLGOoT::Spirit Medallion", "BLGOoT::Light Medallion"])
+condition = "BLGOoT::Dungeon Reward Count"
+
+[node name="OoTMagic" type="TextureRect" parent="HBoxContainer/OoT/HBoxContainer" unique_id=865538425]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("AtlasTexture_fyud1")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("12_iaxnc")
+frames_in_atlas = 3
+item_code = "BLGOoT::Progressive Magic Meter"
+
+[node name="OoTBow" type="TextureRect" parent="HBoxContainer/OoT/HBoxContainer" unique_id=100518128]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("13_5ltmu")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("8_y61hl")
+item_code = "BLGOoT::Progressive Bow"
+
+[node name="OoTLightArrow" type="TextureRect" parent="HBoxContainer/OoT/HBoxContainer" unique_id=112705230]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("14_mb6vk")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("8_y61hl")
+item_code = "BLGOoT::Light Arrow"
+
+[node name="CompletionIndicator" type="TextureRect" parent="HBoxContainer/OoT/HBoxContainer" unique_id=100768248]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("3_fn873")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("4_878co")
+slot = "BLGOoT"
+
+[node name="MM" type="PanelContainer" parent="HBoxContainer" unique_id=1083813082]
+self_modulate = Color(0.9843137, 0.85882354, 1, 1)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_wvpvs")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MM" unique_id=1924188601]
+layout_mode = 2
+
+[node name="MMRemainsIcon" type="TextureRect" parent="HBoxContainer/MM/HBoxContainer" unique_id=1124506619]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("15_1kyj5")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="MMRemainsCount" type="Label" parent="HBoxContainer/MM/HBoxContainer" unique_id=1502323015]
+layout_mode = 2
+text = "0/3"
+script = ExtResource("6_yhhlq")
+items = Array[String](["BLGMM::Odolwa's Remains", "BLGMM::Goht's Remains", "BLGMM::Gyorg's Remains", "BLGMM::Twinmold's Remains"])
+condition = "BLGMM::Remains Count"
+
+[node name="MMOath" type="TextureRect" parent="HBoxContainer/MM/HBoxContainer" unique_id=390906679]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("16_6bb40")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("8_y61hl")
+item_code = "BLGMM::Oath to Order"
+
+[node name="CompletionIndicator" type="TextureRect" parent="HBoxContainer/MM/HBoxContainer" unique_id=326290957]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("3_fn873")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("4_878co")
+slot = "BLGMM"
+
+[node name="ALttP" type="PanelContainer" parent="HBoxContainer" unique_id=1383256976]
+self_modulate = Color(0.92941177, 0.9411765, 0.69411767, 1)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_mbxp3")
+
+[node name="ALttP" parent="HBoxContainer/ALttP" unique_id=1054017773 instance=ExtResource("17_jvpde")]
+layout_mode = 2
+
+[node name="CompletionIndicator" type="TextureRect" parent="HBoxContainer/ALttP/ALttP" unique_id=533701064]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("3_fn873")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("4_878co")
+slot = "BLGLttP"
+
+[node name="MinishCap" type="PanelContainer" parent="HBoxContainer" unique_id=636712887]
+self_modulate = Color(0.81960785, 1, 0.8784314, 1)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ybnvk")
+
+[node name="MinishCap" parent="HBoxContainer/MinishCap" unique_id=1413241670 instance=ExtResource("18_l68il")]
+layout_mode = 2
+
+[node name="CompletionIndicator" type="TextureRect" parent="HBoxContainer/MinishCap/MinishCap" unique_id=1042290713]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("3_fn873")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("4_878co")
+slot = "BLGMC"
+
+[node name="OoS" type="PanelContainer" parent="HBoxContainer" unique_id=762740384]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7ovn6")
+
+[node name="OoS" parent="HBoxContainer/OoS" unique_id=744261680 instance=ExtResource("19_k3q23")]
+layout_mode = 2
+
+[node name="CompletionIndicator" type="TextureRect" parent="HBoxContainer/OoS/OoS" unique_id=1457174805]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("3_fn873")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("4_878co")
+slot = "BLGOoS"
+
+[node name="Celeste" type="PanelContainer" parent="HBoxContainer" unique_id=152448950]
+self_modulate = Color(0.61, 1, 0.94149995, 1)
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2qiqq")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Celeste" unique_id=995449745]
+layout_mode = 2
+alignment = 2
+
+[node name="Celeste" parent="HBoxContainer/Celeste/HBoxContainer" unique_id=2032320413 instance=ExtResource("21_1lfgg")]
+layout_mode = 2
+
+[node name="CompletionIndicator" type="TextureRect" parent="HBoxContainer/Celeste/HBoxContainer" unique_id=804611369]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("3_fn873")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("4_878co")
+slot = "BLGCeleste"
+
+[node name="TotalChecks" type="Label" parent="." unique_id=1265360736]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Total Checks
+0625/1299"
+label_settings = SubResource("LabelSettings_d2xx1")
+horizontal_alignment = 1
+script = ExtResource("23_1x16f")
+text_format = "Total Checks
+{0}/{1}"
+
+[node name="RunTimer" type="Label" parent="." unique_id=1874113306]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "00:00:00"
+label_settings = SubResource("LabelSettings_xbb0b")
+horizontal_alignment = 1
+script = ExtResource("25_p3ekp")
+
+[node name="Socials" type="PanelContainer" parent="." unique_id=1919584260]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_blxt3")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Socials" unique_id=1072074]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Socials/HBoxContainer" unique_id=2142383539]
+layout_mode = 2
+
+[node name="Twitch" type="TextureRect" parent="Socials/HBoxContainer/VBoxContainer" unique_id=800465491]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("26_5mjxb")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Youtube" type="TextureRect" parent="Socials/HBoxContainer/VBoxContainer" unique_id=2138189618]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("27_57dv7")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Socials/HBoxContainer" unique_id=2036836774]
+layout_mode = 2
+text = "@SimplyBLG"
+label_settings = SubResource("LabelSettings_e15hh")

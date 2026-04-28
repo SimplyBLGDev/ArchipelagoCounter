@@ -4,7 +4,7 @@ extends LayoutTool_CheckCounter
 @export var game := ""
 
 func _ready():
-	Counter.timer_update.connect(update)
+	Counter.update.connect(update)
 	
 	await Counter.loaded()
 	

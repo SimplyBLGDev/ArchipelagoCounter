@@ -1,22 +1,9 @@
 [gd_scene format=3 uid="uid://bupwjdbwh15vf"]
 
 [ext_resource type="Texture2D" uid="uid://cuc3ldv36yb1l" path="res://Icons/StarCounter.png" id="1_kqqt0"]
-[ext_resource type="Script" uid="uid://bgev8be5nunjk" path="res://LayoutTool/LayoutTool_StarCounter.gd" id="2_axvic"]
-[ext_resource type="Texture2D" uid="uid://chjbar040xlxs" path="res://UI/Mario64Numbers.png" id="3_p5dh6"]
+[ext_resource type="PackedScene" uid="uid://cfciobshq54k4" path="res://LayoutTool/StarCounter/LayoutTool_StarCounter.tscn" id="2_t4h5r"]
 [ext_resource type="Texture2D" uid="uid://qcvovsoml1y2" path="res://Icons/Mario64Key.png" id="4_nln47"]
 [ext_resource type="Script" uid="uid://bxmtiakkb00gf" path="res://LayoutTool/LayoutTool_Item.gd" id="5_hufnj"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5gyct"]
-atlas = ExtResource("3_p5dh6")
-region = Rect2(0, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eort7"]
-atlas = ExtResource("3_p5dh6")
-region = Rect2(0, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_66br4"]
-atlas = ExtResource("3_p5dh6")
-region = Rect2(0, 0, 48, 48)
 
 [node name="SM64" type="HBoxContainer" unique_id=535599633]
 
@@ -27,33 +14,8 @@ texture = ExtResource("1_kqqt0")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="StarCounter" type="HBoxContainer" parent="." unique_id=256869195 node_paths=PackedStringArray("star_0", "star_1", "star_2")]
-custom_minimum_size = Vector2(83, 0)
+[node name="StarCounter" parent="." unique_id=1266995041 instance=ExtResource("2_t4h5r")]
 layout_mode = 2
-theme_override_constants/separation = -20
-script = ExtResource("2_axvic")
-slot = "BLGSM64"
-star_0 = NodePath("StarNumber0")
-star_1 = NodePath("StarNumber1")
-star_2 = NodePath("StarNumber2")
-
-[node name="StarNumber0" type="TextureRect" parent="StarCounter" unique_id=164099440]
-layout_mode = 2
-texture = SubResource("AtlasTexture_5gyct")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="StarNumber1" type="TextureRect" parent="StarCounter" unique_id=1809426934]
-layout_mode = 2
-texture = SubResource("AtlasTexture_eort7")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="StarNumber2" type="TextureRect" parent="StarCounter" unique_id=1350133327]
-layout_mode = 2
-texture = SubResource("AtlasTexture_66br4")
-expand_mode = 2
-stretch_mode = 5
 
 [node name="Key0" type="TextureRect" parent="." unique_id=1967855748]
 custom_minimum_size = Vector2(26, 0)

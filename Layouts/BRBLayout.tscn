@@ -2,6 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://0p5lyyma5qpk" path="res://UI/Theme.tres" id="1_q01a1"]
 [ext_resource type="Script" uid="uid://c4h3oqhvbq7yn" path="res://LayoutTool/LayoutTool_Log.gd" id="2_1uph0"]
+[ext_resource type="PackedScene" uid="uid://bgsrindq74uy3" path="res://UI/BG/UI_BG.tscn" id="2_fu3g7"]
 [ext_resource type="Texture2D" uid="uid://c68mmj61blj8v" path="res://Marquee/Marquee_Generic.png" id="3_0rerg"]
 [ext_resource type="PackedScene" uid="uid://c5empkuku1n2t" path="res://LayoutTool/PendingItems/LayoutTool_PendingItems.tscn" id="4_3d06i"]
 [ext_resource type="FontFile" uid="uid://cdkhdgy8yaj4p" path="res://UI/Roboto-Bold.ttf" id="4_gccbt"]
@@ -18,17 +19,23 @@
 [ext_resource type="Script" uid="uid://chn0o4excpugo" path="res://LayoutTool/LayoutTool_AdvancedTimer.gd" id="11_dkicx"]
 [ext_resource type="PackedScene" uid="uid://tk3tlq3px4k0" path="res://Layouts/Game/OoS.tscn" id="12_fu3g7"]
 [ext_resource type="Script" uid="uid://bbhvigrs7yh4t" path="res://LayoutTool/LayoutTool_CheckCounterAdvanced.gd" id="13_eqmnl"]
+[ext_resource type="PackedScene" uid="uid://0mn6bveh2irx" path="res://Layouts/Game/Celeste.tscn" id="20_4ttcj"]
 [ext_resource type="Script" uid="uid://uf4ckcqtqd57" path="res://LayoutTool/LayoutTool_RunTimer.gd" id="21_1kbda"]
 [ext_resource type="Texture2D" uid="uid://dak3ndpe784vl" path="res://Icons/Twitch.png" id="22_i0trt"]
+[ext_resource type="Texture2D" uid="uid://d0gdsh0kp33f8" path="res://Confetti.png" id="23_4vrqj"]
 [ext_resource type="Texture2D" uid="uid://dnniil0l7k67m" path="res://Icons/Youtube.png" id="23_k6080"]
+[ext_resource type="Script" uid="uid://qvhxxnmnkmel" path="res://LayoutTool/LayoutTool_CompletionParticle.gd" id="24_k6vjj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oohc0"]
 content_margin_left = 6.0
-bg_color = Color(0.13259593, 0.14240903, 0.14731589, 1)
+bg_color = Color(0.9, 0.96833336, 1, 0.039215688)
 
 [sub_resource type="LabelSettings" id="LabelSettings_3d06i"]
 font = ExtResource("4_gccbt")
 font_size = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fu3g7"]
+bg_color = Color(1, 1, 1, 0.039215688)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1sttb"]
 content_margin_left = 6.0
@@ -79,7 +86,35 @@ font_size = 28
 shadow_color = Color(0, 0, 0, 0.4627451)
 shadow_offset = Vector2(3, 3)
 
-[node name="InbetweenerLayout" type="PanelContainer" unique_id=1593548968]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k6vjj"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fsmhk"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(960, 1, 1)
+angle_min = -89.99999
+angle_max = 90.000015
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 100.0
+angular_velocity_min = -45.000015
+angular_velocity_max = 44.999985
+gravity = Vector3(0, 25, 0)
+linear_accel_min = -10.000002
+linear_accel_max = 9.999997
+scale_min = 2.0
+scale_max = 2.0
+hue_variation_min = -1.0
+hue_variation_max = 0.99999994
+anim_speed_min = 30.0
+anim_speed_max = 50.0
+anim_offset_max = 1.0
+
+[node name="BRBLayout" type="PanelContainer" unique_id=1593548968]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -87,6 +122,9 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
 theme = ExtResource("1_q01a1")
+
+[node name="BG" parent="." unique_id=463160280 instance=ExtResource("2_fu3g7")]
+layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=563466172]
 layout_mode = 2
@@ -126,6 +164,7 @@ vertical_alignment = 1
 
 [node name="PendingItems" parent="VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=49771699 instance=ExtResource("4_3d06i")]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fu3g7")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=125077604]
 layout_mode = 2
@@ -153,7 +192,7 @@ alignment = 2
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/SM64/HBoxContainer" unique_id=1042762476]
 layout_mode = 2
 size_flags_horizontal = 0
-text = "BLGSM64"
+text = "Super Mario 64"
 label_settings = SubResource("LabelSettings_vyb6t")
 vertical_alignment = 1
 
@@ -177,7 +216,6 @@ layout_mode = 2
 
 [node name="Stats" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/SM64/HBoxContainer/MultiView" unique_id=865615005]
 visible = false
-custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 theme_override_constants/separation = 6
 
@@ -234,7 +272,7 @@ texture = ExtResource("6_onfxy")
 expand_mode = 2
 stretch_mode = 5
 script = ExtResource("7_2s2nv")
-slot = "BLGLADX"
+slot = "BLGDX"
 
 [node name="MultiView" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/LADX/HBoxContainer" unique_id=73233258]
 layout_mode = 2
@@ -246,7 +284,6 @@ layout_mode = 2
 
 [node name="Stats" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/LADX/HBoxContainer/MultiView" unique_id=280327546]
 visible = false
-custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 theme_override_constants/separation = 6
 
@@ -315,7 +352,6 @@ layout_mode = 2
 
 [node name="Stats" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/OoT/HBoxContainer/MultiView" unique_id=1389800525]
 visible = false
-custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 theme_override_constants/separation = 6
 
@@ -384,7 +420,6 @@ layout_mode = 2
 
 [node name="Stats" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/MM/HBoxContainer/MultiView" unique_id=1185648006]
 visible = false
-custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 theme_override_constants/separation = 6
 
@@ -453,7 +488,6 @@ layout_mode = 2
 
 [node name="Stats" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/ALttP/HBoxContainer/MultiView" unique_id=1063850546]
 visible = false
-custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 theme_override_constants/separation = 6
 
@@ -522,7 +556,6 @@ layout_mode = 2
 
 [node name="Stats" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/MinishCap/HBoxContainer/MultiView" unique_id=1488528800]
 visible = false
-custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 theme_override_constants/separation = 6
 
@@ -618,6 +651,74 @@ text_format = "{0}
 ({1}%)"
 game = "BLGOoS"
 
+[node name="Celeste" type="PanelContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=379325584]
+self_modulate = Color(0.61, 1, 0.94149995, 1)
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_1sttb")
+
+[node name="Tint" parent="VBoxContainer/HBoxContainer/VBoxContainer/Celeste" unique_id=1163303533 instance=ExtResource("6_0b02u")]
+layout_mode = 2
+game = "BLGCeleste"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/Celeste" unique_id=917091363]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Celeste/HBoxContainer" unique_id=384401532]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Celeste (Open World)"
+label_settings = SubResource("LabelSettings_vyb6t")
+vertical_alignment = 1
+
+[node name="CompletionIndicator" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/Celeste/HBoxContainer" unique_id=1873904345]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("6_onfxy")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("7_2s2nv")
+slot = "BLGCeleste"
+
+[node name="MultiView" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/Celeste/HBoxContainer" unique_id=1718178460]
+layout_mode = 2
+alignment = 2
+script = ExtResource("6_60ajr")
+
+[node name="Celeste" parent="VBoxContainer/HBoxContainer/VBoxContainer/Celeste/HBoxContainer/MultiView" unique_id=2032320413 instance=ExtResource("20_4ttcj")]
+layout_mode = 2
+
+[node name="Stats" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/Celeste/HBoxContainer/MultiView" unique_id=1865675396]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Celeste/HBoxContainer/MultiView/Stats" unique_id=147912321]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Total Checks
+012/256 (12.15%)"
+label_settings = SubResource("LabelSettings_60ajr")
+horizontal_alignment = 1
+script = ExtResource("13_eqmnl")
+game = "BLGCeleste"
+text_format = "Total Checks
+{0}/{1} ({2}%)"
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Celeste/HBoxContainer/MultiView/Stats" unique_id=802974889]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "04:12:16
+(07.25%)"
+label_settings = SubResource("LabelSettings_2s2nv")
+horizontal_alignment = 1
+script = ExtResource("11_dkicx")
+text_format = "{0}
+({1}%)"
+game = "BLGCeleste"
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=483834115]
 custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
@@ -678,3 +779,14 @@ size_flags_vertical = 3
 texture = ExtResource("23_k6080")
 expand_mode = 2
 stretch_mode = 5
+
+[node name="Confetti" type="GPUParticles2D" parent="." unique_id=804432263]
+material = SubResource("CanvasItemMaterial_k6vjj")
+position = Vector2(960, -64)
+emitting = false
+amount = 96
+texture = ExtResource("23_4vrqj")
+lifetime = 8.0
+visibility_rect = Rect2(-960, 64, 1920, 1080)
+process_material = SubResource("ParticleProcessMaterial_fsmhk")
+script = ExtResource("24_k6vjj")

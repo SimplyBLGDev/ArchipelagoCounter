@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://0mn6bveh2irx"]
+
+[ext_resource type="Texture2D" uid="uid://doijxsfr3125y" path="res://Icons/Celeste_Strawberry.png" id="1_ifisi"]
+[ext_resource type="Script" uid="uid://hi4qcrd2vs53" path="res://LayoutTool/LayoutTool_ItemCounter.gd" id="2_po2aq"]
+
+[node name="Celeste" type="HBoxContainer" unique_id=2032320413]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=435550886]
+texture_filter = 1
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+texture = ExtResource("1_ifisi")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="." unique_id=575258055]
+layout_mode = 2
+text = "00/80"
+script = ExtResource("2_po2aq")
+items = Array[String](["BLGCeleste::Strawberry"])
+condition = "BLGCeleste::Strawberries"

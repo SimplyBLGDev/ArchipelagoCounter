@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cw1crqxl0f5v5"]
 
 [ext_resource type="PackedScene" uid="uid://b5pq5s6sjp6dq" path="res://Windows/Layouts.tscn" id="1_r0du0"]
-[ext_resource type="PackedScene" uid="uid://djcsplm4eogjs" path="res://Layouts/InbetweenerLayout.tscn" id="2_cm0pq"]
+[ext_resource type="PackedScene" uid="uid://djcsplm4eogjs" path="res://Layouts/BRBLayout.tscn" id="2_cm0pq"]
 [ext_resource type="PackedScene" uid="uid://bsr72ukrumsof" path="res://Layouts/APHUD.tscn" id="3_fos0i"]
 
 [node name="Main" type="Node" unique_id=429601805]
@@ -12,7 +12,7 @@
 oversampling_override = 1.0
 title = "BRB Screen"
 position = Vector2i(0, 36)
-size = Vector2i(1920, 1080)
+size = Vector2i(1620, 1080)
 unresizable = true
 sharp_corners = true
 maximize_disabled = true

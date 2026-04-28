@@ -135,7 +135,7 @@ texture = ExtResource("5_o1ecr")
 expand_mode = 2
 stretch_mode = 5
 script = ExtResource("6_dra5k")
-slot = "BLGLADX"
+slot = "BLGDX"
 
 [node name="LADX" parent="VBoxContainer/LADX/HBoxContainer" unique_id=1679351992 instance=ExtResource("6_ryvsp")]
 layout_mode = 2

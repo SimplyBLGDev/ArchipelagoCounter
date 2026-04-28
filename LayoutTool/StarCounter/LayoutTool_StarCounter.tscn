@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://cfciobshq54k4"]
+
+[ext_resource type="Script" uid="uid://bgev8be5nunjk" path="res://LayoutTool/StarCounter/LayoutTool_StarCounter.gd" id="1_nhw7p"]
+[ext_resource type="Texture2D" uid="uid://chjbar040xlxs" path="res://UI/Mario64Numbers.png" id="2_exyia"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gyct"]
+atlas = ExtResource("2_exyia")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eort7"]
+atlas = ExtResource("2_exyia")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66br4"]
+atlas = ExtResource("2_exyia")
+region = Rect2(0, 0, 48, 48)
+
+[node name="StarCounter" type="HBoxContainer" unique_id=1266995041 node_paths=PackedStringArray("star_0", "star_1", "star_2")]
+custom_minimum_size = Vector2(83, 0)
+theme_override_constants/separation = -20
+script = ExtResource("1_nhw7p")
+slot = "BLGSM64"
+star_0 = NodePath("StarNumber0")
+star_1 = NodePath("StarNumber1")
+star_2 = NodePath("StarNumber2")
+
+[node name="StarNumber0" type="TextureRect" parent="." unique_id=633848995]
+layout_mode = 2
+texture = SubResource("AtlasTexture_5gyct")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="StarNumber1" type="TextureRect" parent="." unique_id=53180626]
+layout_mode = 2
+texture = SubResource("AtlasTexture_eort7")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="StarNumber2" type="TextureRect" parent="." unique_id=1065908648]
+layout_mode = 2
+texture = SubResource("AtlasTexture_66br4")
+expand_mode = 2
+stretch_mode = 5

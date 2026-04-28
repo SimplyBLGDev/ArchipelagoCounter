@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cc313gapafoot"]
+
+[ext_resource type="Texture2D" uid="uid://crygjcf37erhv" path="res://Icons/Emerald_DynamoBadge.png" id="1_53vtu"]
+[ext_resource type="Script" uid="uid://hi4qcrd2vs53" path="res://LayoutTool/LayoutTool_ItemCounter.gd" id="2_c5l1i"]
+
+[node name="Emerald" type="HBoxContainer" unique_id=493558647]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=242511394]
+texture_filter = 1
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+texture = ExtResource("1_53vtu")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="." unique_id=457752221]
+layout_mode = 2
+text = "0/4"
+script = ExtResource("2_c5l1i")
+items = Array[String](["BLGEmerald::Stone Badge", "BLGEmerald::Knuckle Badge", "BLGEmerald::Dynamo Badge", "BLGEmerald::Heat Badge", "BLGEmerald::Balance Badge", "BLGEmerald::Feather Badge", "BLGEmerald::Mind Badge", "BLGEmerald::Rain Badge"])
+condition = "BLGEmerald::Badges"

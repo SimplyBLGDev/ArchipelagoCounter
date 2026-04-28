@@ -1,0 +1,118 @@
+{
+	"poptracker_path": "F:\\Archipelago\\poptracker\\poptracker.exe",
+	"slots": [
+		{
+			"slot": "BLGSM64",
+			"actions": [
+				{
+					"action": "Command",
+					"command": "cd F:\\Archipelago\\SM64\\BLG\\build\\us_pc; F:\\Archipelago\\SM64\\BLG\\build\\us_pc\\sm64.us.f3dex2e.exe --sm64ap_name BLGSM64 --sm64ap_ip localhost:38281"
+				}
+			]
+		},
+		{
+			"slot": "BLGMM",
+			"actions": [
+				{
+					"action": "Launch",
+					"path": "F:\\Archipelago\\Majora\\Zelda64Recompiled.exe"
+				},
+				{
+					"action": "Poptracker",
+					"pack": "MM_AP",
+					"variant": "standard"
+				}
+			]
+		},
+		{
+			"slot": "BLGMC",
+			"actions": [
+				{
+					"action": "APFile",
+					"directory": "F:\\Archipelago\\_Run",
+					"extension": "aptmc"
+				},
+				{
+					"action": "Poptracker",
+					"pack": "StableTmcrTrackerDeoxis",
+					"variant": "AP_h"
+				}
+			]
+		},
+		{
+			"slot": "BLGDX",
+			"actions": [
+				{
+					"action": "APFile",
+					"directory": "F:\\Archipelago\\_Run",
+					"extension": "apladx"
+				},
+				{
+					"action": "Command",
+					"command": "start C:\\ProgramData\\Archipelago\\data\\lua"
+				},
+				{
+					"action": "Command",
+					"command": "start https://magpietracker.us/?enable_autotracker=1"
+				}
+			]
+		},
+		{
+			"slot": "BLGLttP",
+			"actions": [
+				{
+					"action": "APFile",
+					"directory": "F:\\Archipelago\\_Run",
+					"extension": "aplttp"
+				},
+				{
+					"action": "Command",
+					"command": "start C:\\ProgramData\\Archipelago\\SNI\\lua"
+				},
+				{
+					"action": "Poptracker",
+					"pack": "ap_alltp",
+					"variant": "Map Tracker - AP"
+				}
+			]
+		},
+		{
+			"slot": "BLGOoS",
+			"actions": [
+				{
+					"action": "APFile",
+					"directory": "F:\\Archipelago\\_Run",
+					"extension": "apoos"
+				},
+				{
+					"action": "Poptracker",
+					"pack": "seasons_ap",
+					"variant": "standard"
+				}
+			]
+		},
+		{
+			"slot": "BLGOoT",
+			"actions": [
+				{
+					"action": "Launch",
+					"path": "F:\\Archipelago\\ShipOfHarkinian\\soh.exe"
+				}
+			]
+		},
+		{
+			"slot": "BLGCeleste",
+			"actions": [
+				{
+					"action": "Launch",
+					"path": "C:\\Users\\BLG\\AppData\\Roaming\\Olympus\\main.exe"
+				},
+				{
+					"action": "Poptracker",
+					"pack": "celeste_poptracker",
+					"variant": "var_0_full"
+				}
+			]
+		}
+	]
+}

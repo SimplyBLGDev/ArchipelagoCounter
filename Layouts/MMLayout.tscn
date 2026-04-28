@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cuc3ldv36yb1l" path="res://Icons/StarCounter.png" id="5_uugkj"]
 [ext_resource type="Texture2D" uid="uid://chjbar040xlxs" path="res://UI/Mario64Numbers.png" id="6_crynv"]
 [ext_resource type="Texture2D" uid="uid://qcvovsoml1y2" path="res://Icons/Mario64Key.png" id="7_xuha7"]
-[ext_resource type="Script" uid="uid://bgev8be5nunjk" path="res://LayoutTool/LayoutTool_StarCounter.gd" id="8_uugkj"]
+[ext_resource type="Script" uid="uid://bgev8be5nunjk" path="res://LayoutTool/StarCounter/LayoutTool_StarCounter.gd" id="8_uugkj"]
 [ext_resource type="Script" uid="uid://bxmtiakkb00gf" path="res://LayoutTool/LayoutTool_Item.gd" id="11_crynv"]
 [ext_resource type="PackedScene" uid="uid://bmuju0oajlqxb" path="res://Layouts/Game/LADX.tscn" id="11_uugkj"]
 [ext_resource type="Texture2D" uid="uid://mnhelj6xw7dx" path="res://Icons/OoT_Magic.png" id="11_ycvm7"]

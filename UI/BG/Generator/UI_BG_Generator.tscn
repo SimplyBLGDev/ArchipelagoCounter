@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cyce2isuwqowo"]
+
+[ext_resource type="Script" uid="uid://nyq1cul8qc1d" path="res://UI/BG/Generator/UI_BG_Generator.gd" id="1_gfey2"]
+
+[node name="BGGenerator" type="Control" unique_id=1270805975]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gfey2")

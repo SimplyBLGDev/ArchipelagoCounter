@@ -21,6 +21,9 @@ Feel free to contact me if you want a custom layout made for you or to ask any q
 
 1. Clone or download the repository
 2. Import it into Godot 4.6.2
+3. Modify the example layouts with whatever you're gonna use (Some basic Godot knowledge required)
+4. Configure APSettings.json (see `Configuring APSettings.json` section in this README)
+5. Run the project from Godot to test or see `Export executable` section in this README
 
 ## Available Layout Tools
 
@@ -40,6 +43,8 @@ If you need to get the correct item code for any particular game you can go to t
 Displays the total number of checks across all games in the Archipelago that have been collected so far.
 The total is automatically calculated on startup.
 
+Base class: `Label`
+
 Parameters:
 
 ```yaml
@@ -49,6 +54,8 @@ text_format: String to be formatted with the count, {0} will be replaced with th
 ### CheckCounterAdvanced
 
 Displays the total number of checks, current checks found, percentage of checks to the total, and checks per minute of either a particular slot or the entire AP.
+
+Base class: `Label`
 
 Parameters:
 ```yaml
@@ -60,6 +67,8 @@ game: slot of the game to be tracked
 
 Displays a texture if a particular game has been completed.
 
+Base class: `TextureRect`
+
 Parameters:
 
 ```yaml
@@ -69,6 +78,8 @@ slot: slot of the game to be tracked
 ### Item
 
 Displays the current state of a particular item, being transparent when the item is missing and opaque when found.
+
+Base class: `TextureRect`
 
 Parameters:
 
@@ -84,6 +95,8 @@ missing_texture_mode: The type of texture filter to use when the item is missing
 
 Displays the amount of items of a particular type that have been collected so far, using frames of a texture atlas to represent the item in different stages.
 
+Base class: `TextureRect`
+
 Parameters:
 
 ```yaml
@@ -94,6 +107,8 @@ frames_in_atlas: The number of frames in the texture atlas
 ### ItemCounter
 
 Displays the amount of items of a particular type that have been collected so far.
+
+Base class: `Label`
 
 Parameters:
 
@@ -106,6 +121,8 @@ condition: condition to be fetched for the total.
 ### Log
 
 Displays a textbox describing all received items of all games in order.
+
+Base class: `RichTextLabel`
 
 Parameters:
 
@@ -127,6 +144,8 @@ text_format: String to be formatted for an item entry, the following substrings 
 
 Displays the amount of deaths of a particular slot.
 
+Base class: `Label`
+
 Parameters:
 
 ```yaml
@@ -139,9 +158,13 @@ slot: The slot of the game to be tracked
 
 Displays a list of all *progression* items per game that have been collected since the last time that game was opened.
 
+Base class: use `LayoutTool_PendingItems.tscn`
+
 ### AdvancedTimer
 
-DIsplays the amount of time spent in a particular slot.
+Displays the amount of time spent in a particular slot.
+
+Base class: `Label`
 
 Parameters:
 
@@ -154,6 +177,8 @@ game: The slot of the game to be tracked
 
 Alternates between the children of the node to show one at a time over time in regular intervals.
 
+Base class: `Control`
+
 Parameters:
 
 ```yaml
@@ -164,6 +189,8 @@ fade_time: Time in seconds for the fade in/out of each switch
 ### ProgressPanel
 
 Converts a control node into a progress bar representing the ratio of checks to total checks of a particular slot.
+
+Base class: `Control`
 
 Parameters:
 
@@ -176,9 +203,13 @@ game: The slot of the game to be tracked
 
 Displays the amount of time spent in the current run.
 
+Base class: `Label`
+
 ### StarCounter
 
 Displays the amount of Super Mario 64 stars that have been collected so far.
+
+Base class: use `LayoutTool_StarCounter.tscn`
 
 Parameters:
 
@@ -186,9 +217,76 @@ Parameters:
 slot: The slot of the game to be tracked
 ```
 
+### AnimatedLog
+
+Displays a log of all events that have been received by the Archipelago server, new items pop in from the bottom with a small animation, optimal for streams.
+
+Base class: use `LayoutTool_AnimatedLog.tscn`
+
+Parameters:
+
+```yaml
+message_template: String to be formatted for an item entry, the following substrings will be replaced:
+	{timestamp}: The timestamp of the event
+	{sender}: Name of the slot that sent the item
+	{receiver}: Name of the slot that received the item
+	{item}: The name of the item that was sent
+	{location}: The location where the item was found
+	{timestamp_color}: Color of the timestamp (defined in APSettings.json)
+	{sender_color}: Color of the sender (defined in APSettings.json)
+	{receiver_color}: Color of the receiver (defined in APSettings.json)
+	{item_color}: Color of the item (defined in APSettings.json)
+	{location_color}: Color of the location (defined in APSettings.json)
+print_excluded_locations: If true the location will be printed even if it's excluded
+```
+
+### Launcher
+
+Generates a dropdown of all slots and allows you to 'launch' any given slot to start it with everything you may need.
+
+Base class: use `LayoutTool_Launcher.tscn`
+
+This node is configured through a file `APAutoLauncher.json` in the same directory as you executable, view the included `APAutoLauncher.json` file for an example of what this file should look like.
+
+```yaml
+poptracker_path: The path to the poptracker executable
+slots: A list of all slots and their launch settings
+	slot: Name of the slot
+	actions: List of actions to take when launching the slot
+		action: The type of action to take (see below)
+```
+
+#### Action types:
+
+##### Command: Runs a powershell (Windows) or bash (Linux) command directly
+```yaml
+action: "Command"
+command: The command to run
+```
+
+##### Launch: Launches an executable from its path context
+```yaml
+action: "Launch"
+path: The path to the executable
+```
+
+##### Poptracker: Opens poptracker to a specified pack and variant
+```yaml
+action: "Poptracker"
+pack: The pack to open, check the pack's manifest.json for the pack name
+variant: The variant of the pack to open, check the pack's manifest.json for the variant name
+```
+
+### UI_BG
+
+__Advanced node__, purely decorative.
+
+Displays a background with slowly scrolling items, in order to use it you can generate the individual images of the items using UI_BG_Generator and placing the results in the APBGElements folder next to the executable.
+
 ## Configuring APSettings.json
 
 This file is used to configure the Archipelago server and the games that will be monitored.
+All files used by APCounter are read from the same directory as the executable, if you're running from Godot make sure that all files are in the same directory as the **Godot.exe executable**. If the project is exported make sure all files are in the same directory as the **APCounter.exe executable**.
 
 ```yaml
 archipelago_connection_data: Settings relating to the archipelago connection
@@ -201,7 +299,7 @@ archipelago_connection_data: Settings relating to the archipelago connection
 games: List of games included in the Archipelago
 	slot: Slot of the game
 	game: Name of the game (as it appears in the Archipelago server)
-conditions: List of conditions that can be read by Layout Tools to display information about the goals of the run
+conditions: List of conditions that can be read by Layout Tools to display information about the goals of the run, arbitrary names
 	"{name of the condition}": {value of the condition}
 log_colors:
 	timestamp: Color used when printing the timestamp to a Log
@@ -227,5 +325,5 @@ overrides: List of override settings, any entry here can be removed if not neede
 
 Replace platform parameter as needed:
 ```
-scons platform=<windows/linux> target=template_release disable_3d=yes disable_physics_2d=yes disable_physics_3d=yes disable_navigation_2d=yes disable_navigation_3d=yes disable_xr=yes
+scons platform=<windows|linux> target=template_release disable_3d=yes disable_physics_2d=yes disable_physics_3d=yes disable_navigation_2d=yes disable_navigation_3d=yes disable_xr=yes
 ```
