@@ -162,10 +162,11 @@ func process_received_items(slot_id: int, packet):
 		
 		var item_id := int(item["item"])
 		var location_id := int(item["location"])
+		var sending_slot_id := int(item["player"])
 		
-		if not is_location_excluded(slot_id, location_id):
+		if not is_location_excluded(sending_slot_id, location_id):
 			checks += 1
-			game_checks[get_slot_from_id(slot_id)] += 1
+			game_checks[get_slot_from_id(sending_slot_id)] += 1
 		get_item(slot_id, item_id)
 
 

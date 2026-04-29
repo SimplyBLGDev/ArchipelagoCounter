@@ -69,10 +69,9 @@ size_flags_vertical = 3
 [node name="TabContainer" type="TabContainer" parent="VBoxContainer/VSplitContainer" unique_id=1440085432]
 layout_mode = 2
 size_flags_vertical = 3
-current_tab = 2
+current_tab = 0
 
 [node name="Log" type="PanelContainer" parent="VBoxContainer/VSplitContainer/TabContainer" unique_id=855935934 node_paths=PackedStringArray("label")]
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_nv66w")
@@ -102,6 +101,7 @@ metadata/_tab_index = 1
 layout_mode = 2
 
 [node name="Dashboard" type="PanelContainer" parent="VBoxContainer/VSplitContainer/TabContainer" unique_id=552491332]
+visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_nv66w")
 metadata/_tab_index = 2
